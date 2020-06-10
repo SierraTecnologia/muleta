@@ -1,0 +1,64 @@
+{
+    "name": "sierratecnologia/muleta",
+    "description": "SierraTecnologia common support helpers, contracts, and traits required by various SierraTecnologia packages. Validator functionality, and basic controller included out-of-the-box.",
+    "type": "library",
+    "keywords": [
+        "sierratecnologia",
+        "laravel",
+        "contract",
+        "validator",
+        "timezones",
+        "mimetype",
+        "support",
+        "helper",
+        "trait"
+    ],
+    "license": "MIT",
+    "homepage": "https://sierratecnologia.com/marketplace/sierratecnologia-support/",
+    "support": {
+        "email": "help@sierratecnologia.com",
+        "issues": "https://github.com/sierratecnologia/muleta/issues",
+        "source": "https://github.com/sierratecnologia/muleta",
+        "docs": "https://github.com/sierratecnologia/muleta/blob/master/README.md"
+    },
+    "authors": [
+        {
+            "name": "SierraTecnologia LLC",
+            "homepage": "https://sierratecnologia.com",
+            "email": "help@sierratecnologia.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "sierratecnologia/crypto": "dev-master",
+        "ricardosierra/changelog": "~1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Muleta\\": "src/"
+        },
+        "classmap": [
+            "utils/classes"
+        ],
+        "files": [
+            "utils/funcs/load-laravel.php",
+            "utils/funcs/helperSlugify.php",
+            "utils/funcs/Reflection.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Muleta\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
