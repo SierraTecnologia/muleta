@@ -54,6 +54,15 @@
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../**",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",

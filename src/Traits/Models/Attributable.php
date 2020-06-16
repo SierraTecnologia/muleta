@@ -16,7 +16,7 @@ use Muleta\Recursos\Scopes\EagerLoadScope;
 use Facilitador\Events\EntityWasDeleted;
 use Muleta\Support\RelationBuilder;
 use Muleta\Support\ValueCollection;
-use Illuminate\Muleta\Collection as BaseCollection;
+use Illuminate\Support\Collection as BaseCollection;
 
 trait Attributable
 {
@@ -30,7 +30,7 @@ trait Attributable
     /**
      * The entity attribute value trash.
      *
-     * @var \Illuminate\Muleta\Collection
+     * @var \Illuminate\Support\Collection
      */
     protected $entityAttributeValueTrash;
 
@@ -244,7 +244,7 @@ trait Attributable
     /**
      * Get the entity attribute value trash.
      *
-     * @return \Illuminate\Muleta\Collection
+     * @return \Illuminate\Support\Collection
      */
     public function getEntityAttributeValueTrash(): BaseCollection
     {

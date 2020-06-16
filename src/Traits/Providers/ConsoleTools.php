@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Muleta\Traits\Providers;
 
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Muleta\Collection;
+use Illuminate\Support\Collection;
 use Muleta\Utils\Extratores\FileExtractor;
 use Muleta\Utils\Extratores\ClasserExtractor;
 

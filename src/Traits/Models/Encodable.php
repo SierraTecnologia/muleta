@@ -3,7 +3,7 @@
 namespace Muleta\Traits\Models;
 
 use Facilitador\Models\Encoding;
-use Illuminate\Muleta\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Builder;
 
 /**

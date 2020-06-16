@@ -1,6 +1,6 @@
 <?php
 
-namespace Muleta\Interactions\Input;
+namespace Muleta\Template\Input;
 
 use Decoy;
 use Facilitador\Models\Image;

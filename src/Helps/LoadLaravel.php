@@ -4,7 +4,7 @@ namespace Muleta\Helps;
 use Illuminate\Contracts\Console\Kernel;
 
 use Symfony\Component\Finder\Finder;
-use Illuminate\Muleta\Collection;
+use Illuminate\Support\Collection;
 use Muleta\Helps\DebugHelper;
 
 /**

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Muleta\Recursos\Cacheable;
 
-use Illuminate\Muleta\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -54,7 +54,7 @@ class EloquentBuilder extends Builder
      * @param string      $column
      * @param string|null $key
      *
-     * @return \Illuminate\Muleta\Collection
+     * @return \Illuminate\Support\Collection
      */
     public function pluck($column, $key = null): Collection
     {

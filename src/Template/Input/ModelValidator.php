@@ -1,6 +1,6 @@
 <?php
 
-namespace Muleta\Interactions\Input;
+namespace Muleta\Template\Input;
 
 use Validator;
 use Illuminate\Muleta\Arr;

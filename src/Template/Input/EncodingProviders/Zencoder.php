@@ -1,6 +1,6 @@
 <?php
 
-namespace Muleta\Interactions\Input\EncodingProviders;
+namespace Muleta\Template\Input\EncodingProviders;
 
 use Config;
 use Services_Zencoder;

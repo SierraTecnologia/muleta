@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Muleta\Utils\Extratores;
 
 
-use Illuminate\Muleta\Collection;
+use Illuminate\Support\Collection;
 
 class FileExtractor
 {
