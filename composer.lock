@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cde320e1e3259e9a74e6ef0396b24cb4",
+    "content-hash": "04b4b0e39eaea6df08f933a50d89cba3",
     "packages": [
         {
             "name": "brick/math",
@@ -151,7 +151,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v7.15.0",
+            "version": "v7.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -195,16 +195,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v7.15.0",
+            "version": "v7.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "6fffd3f2a1d81fa29682eac43ef8701073c4214d"
+                "reference": "dee189db0aff526393b350d3bfb33d0cc32861c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/6fffd3f2a1d81fa29682eac43ef8701073c4214d",
-                "reference": "6fffd3f2a1d81fa29682eac43ef8701073c4214d",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/dee189db0aff526393b350d3bfb33d0cc32861c3",
+                "reference": "dee189db0aff526393b350d3bfb33d0cc32861c3",
                 "shasum": ""
             },
             "require": {
@@ -253,7 +253,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2020-06-08T02:42:53+00:00"
+            "time": "2020-06-11T14:29:51+00:00"
         },
         {
             "name": "naneau/semver",
@@ -697,19 +697,13 @@
         {
             "name": "sierratecnologia/crypto",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SierraTecnologia/Crypto.git",
-                "reference": "56bec353d40fded9d65d3491d0bbf956ca8e6cd4"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SierraTecnologia/Crypto/zipball/56bec353d40fded9d65d3491d0bbf956ca8e6cd4",
-                "reference": "56bec353d40fded9d65d3491d0bbf956ca8e6cd4",
-                "shasum": ""
+                "type": "path",
+                "url": "../Crypto",
+                "reference": "42ae36a8de33d104c6b6e82e5fab79bfd6882944"
             },
             "require": {
-                "illuminate/support": "5.*|6.*|7.*",
+                "illuminate/support": "^5.0|^6.0|^7.0|^8.0",
                 "php": ">=5.6.4",
                 "ramsey/uuid": ">=3.8"
             },
@@ -735,7 +729,11 @@
                     "src/Helpers/crypto.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "SierraTecnologia\\Crypto\\Test\\": "test/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -750,20 +748,23 @@
                 }
             ],
             "description": "Cryptography tools for Laravel and Lumen",
-            "time": "2020-06-03T22:00:54+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "symfony/console",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "0f0a271bc9b7d02a053d36fcdcb12662e2a8096e"
+                "reference": "34ac555a3627e324b660e318daa07572e1140123"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/0f0a271bc9b7d02a053d36fcdcb12662e2a8096e",
-                "reference": "0f0a271bc9b7d02a053d36fcdcb12662e2a8096e",
+                "url": "https://api.github.com/repos/symfony/console/zipball/34ac555a3627e324b660e318daa07572e1140123",
+                "reference": "34ac555a3627e324b660e318daa07572e1140123",
                 "shasum": ""
             },
             "require": {
@@ -843,7 +844,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-07T19:47:44+00:00"
+            "time": "2020-06-15T12:59:21+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1363,7 +1364,7 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
@@ -1448,7 +1449,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -1611,16 +1612,16 @@
         },
         {
             "name": "voku/portable-ascii",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/voku/portable-ascii.git",
-                "reference": "e7f9bd5deff09a57318f9b900ab33a05acfcf4d3"
+                "reference": "618631dc601d8eb6ea0a9fbf654ec82f066c4e97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/e7f9bd5deff09a57318f9b900ab33a05acfcf4d3",
-                "reference": "e7f9bd5deff09a57318f9b900ab33a05acfcf4d3",
+                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/618631dc601d8eb6ea0a9fbf654ec82f066c4e97",
+                "reference": "618631dc601d8eb6ea0a9fbf654ec82f066c4e97",
                 "shasum": ""
             },
             "require": {
@@ -1673,7 +1674,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-26T06:40:44+00:00"
+            "time": "2020-06-15T23:49:30+00:00"
         }
     ],
     "packages-dev": [],
