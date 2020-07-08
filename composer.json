@@ -35,7 +35,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Muleta\\": "src/"
+            "Muleta\\": "src/",
+            "SiUtils\\": "arsenal/utils/",
+            "SiHelper\\": "arsenal/helper/",
+            "SiLogic\\": "arsenal/logic/",
+            "SiObjects\\": "arsenal/objects/",
+            "SiPlugins\\": "arsenal/plugins/",
+            "SiWeapons\\": "arsenal/recursos/",
+            "SiSeed\\": "arsenal/seed/"
         },
         "classmap": [
             "utils/classes"
