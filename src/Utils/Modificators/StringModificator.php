@@ -7,7 +7,7 @@ namespace Muleta\Utils\Modificators;
 use Log;
 use ArgumentCountError;
 use Symfony\Component\Inflector\Inflector;
-use Illuminate\Muleta\Str;
+use Illuminate\Support\Str;
 use Cocur\Slugify\Slugify;
 
 class StringModificator

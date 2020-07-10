@@ -3,7 +3,7 @@
 namespace Muleta\Template\Input;
 
 use Validator;
-use Illuminate\Muleta\Arr;
+use Illuminate\Support\Arr;
 use Facilitador\Models\Image;
 use Facilitador\Models\Base as BaseModel;
 use Facilitador\Exceptions\ValidationFail;

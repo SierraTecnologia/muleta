@@ -6,7 +6,7 @@ namespace Muleta\Utils\Searchers;
 
 use Log;
 use ArgumentCountError;
-use Illuminate\Muleta\Str;
+use Illuminate\Support\Str;
 
 class StringSearcher
 {

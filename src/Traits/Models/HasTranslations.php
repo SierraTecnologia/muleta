@@ -22,7 +22,7 @@ trait HasTranslations
             return parent::getAttributeValue($key);
         }
 
-        return $this->getTranslation($key, \Illuminate\Muleta\Facades\Config::get('app.locale')) ?: array_first($this->getTranslations($key));
+        return $this->getTranslation($key, \Illuminate\Support\Facades\Config::get('app.locale')) ?: array_first($this->getTranslations($key));
     }
 
     /**
@@ -64,7 +64,7 @@ trait HasTranslations
     {
         $values = array_map(
             function ($attribute) {
-                return $this->getTranslation($attribute, \Illuminate\Muleta\Facades\Config::get('app.locale')) ?: null;
+                return $this->getTranslation($attribute, \Illuminate\Support\Facades\Config::get('app.locale')) ?: null;
             }, $keys = $this->getTranslatableAttributes()
         );
 

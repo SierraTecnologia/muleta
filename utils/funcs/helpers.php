@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Illuminate\Muleta\Str;
-use Illuminate\Muleta\HtmlString;
+use Illuminate\Support\Str;
+use Illuminate\Support\HtmlString;
 
 if (! function_exists('extract_title')) {
     /**
@@ -25,7 +25,7 @@ if (! function_exists('domain')) {
      */
     function domain()
     {
-        return parse_url(\Illuminate\Muleta\Facades\Config::get('app.url'))['host'];
+        return parse_url(\Illuminate\Support\Facades\Config::get('app.url'))['host'];
     }
 }
 
@@ -206,7 +206,7 @@ if (!function_exists('get_file_name')) {
     {
         preg_match('/(_)([0-9])+$/', $name, $matches);
         if (count($matches) == 3) {
-            return Illuminate\Muleta\Str::replaceLast($matches[0], '', $name).'_'.(intval($matches[2]) + 1);
+            return Illuminate\Support\Str::replaceLast($matches[0], '', $name).'_'.(intval($matches[2]) + 1);
         } else {
             return $name.'_1';
         }
@@ -401,7 +401,7 @@ function str_unique(int $length = 40, string $alphabet = 'ABCDEFGHIJKLMNOPQRSTUV
 
     $str = '';
 
-    $alphabetLength = \Illuminate\Muleta\Str::length($alphabet);
+    $alphabetLength = \Illuminate\Support\Str::length($alphabet);
 
     for ($i = 0; $i < $length; $i++) {
         $str .= $alphabet[random_int(0, $alphabetLength - 1)];

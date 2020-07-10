@@ -2,11 +2,11 @@
 
 namespace Muleta\Traits\Models;
 
-use Illuminate\Muleta\Arr;
-use Illuminate\Muleta\Str;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Muleta\Facades\Validator;
+use Illuminate\Support\Facades\Validator;
 
 trait CrudForms
 {

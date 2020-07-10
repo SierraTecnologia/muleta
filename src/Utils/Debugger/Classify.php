@@ -7,8 +7,8 @@
 
 namespace Muleta\Utils\Debugger;
 
-use Illuminate\Muleta\Arr;
-use Illuminate\Muleta\Str;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 class Classify
 {

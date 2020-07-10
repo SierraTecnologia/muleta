@@ -7,7 +7,7 @@ namespace Muleta\Utils\Inclusores;
 use Log;
 use ArgumentCountError;
 use Symfony\Component\Inflector\Inflector;
-use Illuminate\Muleta\Str;
+use Illuminate\Support\Str;
 
 class StringInclusor
 {

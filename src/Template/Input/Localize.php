@@ -88,7 +88,7 @@ class Localize
         $class = $this->model; // Must be a local var to test
 
         // There aren't multiple locales specified
-        if (count(\Illuminate\Muleta\Facades\Config::get('site.site.locales')) <= 1 ) { return true;
+        if (count(\Illuminate\Support\Facades\Config::get('site.site.locales')) <= 1 ) { return true;
         }
 
         // We're editing a model with no locale attribute
@@ -100,14 +100,14 @@ class Localize
         }
 
         // Auto localize is turned on and we're on a child model
-        if (\Illuminate\Muleta\Facades\Config::get('painel.core.auto_localize_root_models')
+        if (\Illuminate\Support\Facades\Config::get('painel.core.auto_localize_root_models')
             && app('facilitador.wildcard')->detectParent()
         ) { return true;
         }
 
         // If auto-localizeable is turned off and this model doesn't have it
         // turned on
-        if (!\Illuminate\Muleta\Facades\Config::get('painel.core.auto_localize_root_models')
+        if (!\Illuminate\Support\Facades\Config::get('painel.core.auto_localize_root_models')
             && !$class::$localizable
         ) { return true;
         }

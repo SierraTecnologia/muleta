@@ -4,7 +4,7 @@ namespace Muleta\Template\Input\EncodingProviders;
 
 use Config;
 use Request;
-use Illuminate\Muleta\Str;
+use Illuminate\Support\Str;
 use Facilitador\Models\Encoding;
 use Facilitador\Exceptions\Exception;
 
