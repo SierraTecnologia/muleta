@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Channels\Messages;
+namespace Muleta\Channels\Messages;
 
 use Illuminate\Support\Arr;
 

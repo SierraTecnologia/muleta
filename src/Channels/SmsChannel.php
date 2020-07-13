@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Channels;
+namespace Muleta\Channels;
 
 use Illuminate\Notifications\Notification;
 use App\Jobs\Sms;
