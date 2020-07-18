@@ -3,7 +3,7 @@
 namespace SiObjects\Entitys\Uploads;
 
 use Population\Models\Components\Book\Page;
-use Population\Models\Ownable;
+use Support\Models\Ownable;
 
 class Attachment extends Ownable
 {

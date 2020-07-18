@@ -2,7 +2,7 @@
 
 namespace SiObjects\Components\Book;
 
-use Population\Models\Ownable;
+use Support\Models\Ownable;
 
 class Comment extends Ownable
 {

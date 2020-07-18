@@ -2,7 +2,7 @@
 
 namespace SiObjects\Entitys\Uploads;
 
-use Population\Models\Ownable;
+use Support\Models\Ownable;
 use Images;
 
 class Image extends Ownable
