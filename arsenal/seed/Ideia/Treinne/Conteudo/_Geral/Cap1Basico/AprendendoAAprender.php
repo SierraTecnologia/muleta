@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
 
 use Fabrica\Models\Code\Project;
 
-use Population\Models\Identity\Actors\Business;
-use Population\Models\Identity\Actors\Business\Collaborator;
+use Telefonica\Models\Actors\Business;
+use Telefonica\Models\Actors\Business\Collaborator;
 
 use Integrations\Models\Token;
 use Integrations\Models\TokenAccess;
