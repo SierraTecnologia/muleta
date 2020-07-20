@@ -202,7 +202,7 @@ class Component
 
         $components[] = self::insertComponent(
             'importIntegrationToken',
-            \Population\Models\Components\Integrations\Token::class,
+            \Integrations\Models\Token::class,
             \SiObjects\Components\Worker\Sync\Keys\ImportFromToken::class,
             self::$routine
         );

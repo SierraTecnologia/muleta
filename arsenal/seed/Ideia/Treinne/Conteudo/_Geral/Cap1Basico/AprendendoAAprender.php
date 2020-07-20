@@ -15,8 +15,8 @@ use Fabrica\Models\Code\Project;
 use Population\Models\Identity\Actors\Business;
 use Population\Models\Identity\Actors\Business\Collaborator;
 
-use Population\Models\Components\Integrations\Token;
-use Population\Models\Components\Integrations\TokenAccess;
+use Integrations\Models\Token;
+use Integrations\Models\TokenAccess;
 
 use Integrations\Connectors\Connector\Cloudflare\Cloudflare;
 

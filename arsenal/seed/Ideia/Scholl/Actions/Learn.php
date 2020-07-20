@@ -202,7 +202,7 @@ class Learn
 
         $actions[] = self::insertAction(
             'importIntegrationToken',
-            \Population\Models\Components\Integrations\Token::class,
+            \Integrations\Models\Token::class,
             \Finder\Components\Worker\Sync\Keys\ImportFromToken::class,
             self::$routine
         );
