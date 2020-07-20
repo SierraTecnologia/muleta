@@ -3,7 +3,7 @@
 namespace SiUtils\Tools\Plugin;
 
 use SiUtils\Tools\Builder;
-use Finder\Models\Digital\Infra\Ci\Build;
+use Fabrica\Models\Infra\Ci\Build;
 use SiUtils\Tools\Plugin\Util\TestResultParsers\Codeception as Parser;
 use SiUtils\Tools\Plugin;
 use Symfony\Component\Yaml\Parser as YamlParser;

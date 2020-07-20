@@ -127,7 +127,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'scanDomain',
-            \Finder\Models\Digital\Infra\Domain::class, // Ou Url
+            \Fabrica\Models\Infra\Domain::class, // Ou Url
             \SiObjects\Components\Worker\Explorer\Spider::class,
             self::$spider
         );
@@ -137,7 +137,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'whoisDomain',
-            \Finder\Models\Digital\Infra\Domain::class, // Ou Url
+            \Fabrica\Models\Infra\Domain::class, // Ou Url
             \SiObjects\Components\Worker\Explorer\Whois::class,
             self::$spider
         );
@@ -152,7 +152,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'backupDatabase',
-            \Finder\Models\Digital\Infra\DatabaseCollection::class,
+            \Fabrica\Models\Infra\DatabaseCollection::class,
             \SiObjects\Components\Worker\Sync\Keys\BackupCollection::class,
             self::$routine
         );
@@ -162,7 +162,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'searchLog',
-            \Finder\Models\Digital\Infra\Computer::class,
+            \Fabrica\Models\Infra\Computer::class,
             \SiObjects\Components\Worker\Logging\Logging::class,
             self::$routine
         );
@@ -178,7 +178,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'analyseComit',
-            \Finder\Models\Digital\Code\Commit::class,
+            \Fabrica\Models\Code\Commit::class,
             \SiObjects\Components\Worker\Analyser\Analyser::class,
             self::$hook
         );
@@ -188,7 +188,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'deployCommit',
-            \Finder\Models\Digital\Code\Commit::class,
+            \Fabrica\Models\Code\Commit::class,
             \SiObjects\Components\Worker\Deploy\Deploy::class,
             self::$hook
         );
@@ -212,7 +212,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'syncProject',
-            \Finder\Models\Digital\Code\Project::class,
+            \Fabrica\Models\Code\Project::class,
             \SiObjects\Components\Worker\Sync\Project::class,
             self::$hook
         );

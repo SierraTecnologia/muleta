@@ -5,7 +5,7 @@ namespace SiUtils\Tools;
 use SiUtils\Helper\BuildInterpolator;
 use SiUtils\Helper\MailerFactory;
 use SiUtils\Tools\Logging\BuildLogger;
-use Finder\Models\Digital\Infra\Ci\Build;
+use Fabrica\Models\Infra\Ci\Build;
 use SiUtils\Tools\Plugin\Util\Factory as PluginFactory;
 use SiUtils\Tools\Store\BuildErrorWriter;
 use SiUtils\Tools\Store\Factory;

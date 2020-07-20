@@ -4,7 +4,7 @@ namespace SiUtils\Tools\Plugin;
 
 use GuzzleHttp\Client;
 use SiUtils\Tools\Builder;
-use Finder\Models\Digital\Infra\Ci\Build;
+use Fabrica\Models\Infra\Ci\Build;
 use SiUtils\Tools\Plugin;
 
 /**

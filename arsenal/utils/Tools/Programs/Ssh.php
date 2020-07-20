@@ -4,7 +4,7 @@ namespace SiUtils\Tools;
 
 use phpseclib3\Net\SSH2;
 
-use Finder\Models\Digital\Infra\Computer;
+use Fabrica\Models\Infra\Computer;
 
 /**
  * Bash Class

@@ -4,7 +4,7 @@ namespace SiUtils\Tools\Plugin;
 
 use SiUtils\Tools\Builder;
 use SiUtils\Tools\Config;
-use Finder\Models\Digital\Infra\Ci\Build;
+use Fabrica\Models\Infra\Ci\Build;
 use SiUtils\Tools\Plugin;
 use Symfony\Component\Filesystem\Filesystem;
 

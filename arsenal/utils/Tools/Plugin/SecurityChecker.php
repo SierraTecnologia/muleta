@@ -4,9 +4,9 @@ namespace SiUtils\Tools\Plugin;
 
 use SiUtils\Tools;
 use SiUtils\Tools\Builder;
-use Finder\Models\Digital\Infra\Ci\Build;
+use Fabrica\Models\Infra\Ci\Build;
 use SiUtils\Tools\Plugin;
-use Finder\Models\Digital\Infra\Ci\BuildError;
+use Fabrica\Models\Infra\Ci\BuildError;
 use SiUtils\Tools\ZeroConfigPluginInterface;
 use SensioLabs\Security\SecurityChecker as BaseSecurityChecker;
 
