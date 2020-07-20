@@ -14,18 +14,22 @@
         "trait"
     ],
     "license": "MIT",
-    "homepage": "https://sierratecnologia.com/marketplace/sierratecnologia-support/",
+    "homepage": "https://sierratecnologia.com/packages/muleta/",
     "support": {
-        "email": "help@sierratecnologia.com",
+        "email": "help@sierratecnologia.com.br",
         "issues": "https://github.com/sierratecnologia/muleta/issues",
         "source": "https://github.com/sierratecnologia/muleta",
         "docs": "https://github.com/sierratecnologia/muleta/blob/master/README.md"
     },
     "authors": [
         {
-            "name": "SierraTecnologia LLC",
-            "homepage": "https://sierratecnologia.com",
-            "email": "help@sierratecnologia.com"
+            "name": "SierraTecnologia",
+            "homepage": "https://sierratecnologia.com.br",
+            "email": "help@sierratecnologia.com.br"
+        },
+        {
+            "name": "Ricardo Rebello Sierra",
+            "email": "contato@ricardosierra.com.br"
         }
     ],
     "require": {

@@ -1,12 +1,12 @@
-# SierraTecnologia Support
+# SierraTecnologia Muleta
 
-**SierraTecnologia common** support helpers, contracts, and traits required by various SierraTecnologia packages. Validator functionality, and basic controller included out-of-the-box.
+**SierraTecnologia common** Muleta helpers, contracts, and traits required by various SierraTecnologia packages. Validator functionality, and basic controller included out-of-the-box.
 
-[![Packagist](https://img.shields.io/packagist/v/sierratecnologia/laravel-support.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/sierratecnologia/laravel-support)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sierratecnologia/laravel-support.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/sierratecnologia/laravel-support/)
-[![Travis](https://img.shields.io/travis/sierratecnologia/laravel-support.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/sierratecnologia/laravel-support)
+[![Packagist](https://img.shields.io/packagist/v/sierratecnologia/muleta.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/sierratecnologia/muleta)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sierratecnologia/muleta.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/sierratecnologia/muleta/)
+[![Travis](https://img.shields.io/travis/sierratecnologia/muleta.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/sierratecnologia/muleta)
 [![StyleCI](https://styleci.io/repos/60968880/shield)](https://styleci.io/repos/60968880)
-[![License](https://img.shields.io/packagist/l/sierratecnologia/laravel-support.svg?label=License&style=flat-square)](https://github.com/sierratecnologia/laravel-support/blob/develop/LICENSE)
+[![License](https://img.shields.io/packagist/l/sierratecnologia/muleta.svg?label=License&style=flat-square)](https://github.com/sierratecnologia/muleta/blob/develop/LICENSE)
 
 
 > **Note:** this package is just a support package for other SierraTecnologia packages, which may not be useful on it's own, but contains some complementary generic functionality and also may not respect SemVer and break backward compatibility.
@@ -14,7 +14,7 @@
 
 ## Installation
 
-Install via `composer require sierratecnologia/laravel-support`
+Install via `composer require sierratecnologia/muleta`
 
 
 ## Usage
