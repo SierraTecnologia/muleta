@@ -1,6 +1,6 @@
 <?php
 
-namespace Finder\Spider\Integrations\SitecBoss;
+namespace Integrations\Connectors\Connector\SitecBoss;
 
 use Log;
 use App\Models\User;

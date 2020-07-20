@@ -19,7 +19,7 @@ use Population\Models\Identity\Actors\Business\Collaborator;
 use Population\Models\Components\Integrations\Token;
 use Population\Models\Components\Integrations\TokenAccess;
 
-use Finder\Spider\Integrations\Cloudflare\Cloudflare;
+use Integrations\Connectors\Connector\Cloudflare\Cloudflare;
 
 class Pagamento
 {

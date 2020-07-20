@@ -1,6 +1,6 @@
 <?php
 
-namespace Finder\Spider\Integrations\SitecPayment;
+namespace Integrations\Connectors\Connector\SitecPayment;
 
 use Log;
 use App\Models\User;
