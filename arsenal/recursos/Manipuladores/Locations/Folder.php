@@ -27,8 +27,11 @@ class Folder
 
     }
 
-    public function getLocation()
+    public function getLocation($file = false)
     {
+        if ($file) {
+            return $this->raizLocation.DIRECTORY_SEPARATOR.$file;
+        }
         return $this->raizLocation;
     }
 
