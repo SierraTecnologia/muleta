@@ -11,11 +11,11 @@ use Facilitador\Models\Value;
 use Facilitador\Models\Attribute;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Facilitador\Events\EntityWasSaved;
-use Muleta\Recursos\Scopes\EagerLoadScope;
-use Facilitador\Events\EntityWasDeleted;
-use Muleta\Support\RelationBuilder;
-use Muleta\Support\ValueCollection;
+use Support\Events\EntityWasSaved;
+use Support\Recursos\Scopes\EagerLoadScope;
+use Support\Events\EntityWasDeleted;
+use Support\Support\RelationBuilder;
+use Support\Support\ValueCollection;
 use Illuminate\Support\Collection as BaseCollection;
 
 trait Attributable

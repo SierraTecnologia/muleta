@@ -32,7 +32,7 @@ class ArraySearcher
             return false;
         }
         if (!is_array($array)) {
-            dd(
+            dd('ErroAquiPut',
                 $str, $array
             );
             return false;

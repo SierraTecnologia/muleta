@@ -128,7 +128,7 @@ trait SerializeWithImages
             }
         );
 
-        // Muleta chaining
+        // Support chaining
         return $this;
     }
 

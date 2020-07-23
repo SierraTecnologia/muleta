@@ -31,19 +31,4 @@ class ArrayModificator
             $index => $arrayOrString
         ];
     }
-
-    /**
-     * Multi Explode
-     *
-     * @param array $delimiters
-     * @param string $string
-     * @return array
-     */
-    public static function multiExplode(array $delimiters, string $string): array
-    {    
-        return explode(
-            $delimiters[0], 
-            str_replace($delimiters, $delimiters[0], $string)
-        );
-    }
 }

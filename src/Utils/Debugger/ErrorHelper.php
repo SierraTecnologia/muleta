@@ -6,7 +6,7 @@ namespace Muleta\Utils\Debugger;
 
 use Log;
 use ArgumentCountError;
-use Muleta\Components\Errors\CodeError;
+use Support\Components\Errors\CodeError;
 
 class ErrorHelper
 {

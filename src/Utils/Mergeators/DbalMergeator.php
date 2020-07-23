@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Muleta\Utils\Mergeators;
 
-use Muleta\Models\Base;
+use Support\Models\Base;
 
 class DbalMergeator
 {

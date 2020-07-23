@@ -6,7 +6,7 @@
 namespace SiObjects\Entitys\Views;
 
 use Log;
-use SiUtils\Tools\Software\FilePrograms;
+use Fabrica\Tools\Software\FilePrograms;
 
 class File extends Board
 {

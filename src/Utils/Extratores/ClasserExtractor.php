@@ -67,7 +67,7 @@ class ClasserExtractor
         }
 
         if (!class_exists($class)) {
-            Log::warning('[Muleta] Code Parser -> Class não encontrada no ModelService -> ' . $class);
+            Log::warning('[Support] Code Parser -> Class não encontrada no ModelService -> ' . $class);
             throw new Exception('Class não encontrada no ModelService' . $class);
         }
         

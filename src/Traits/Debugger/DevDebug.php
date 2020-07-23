@@ -28,6 +28,6 @@ trait DevDebug
 
         echo 'DevDebug ... ';
 
-        dd($data);
+        dd('DebugData', $data);
     }
 }

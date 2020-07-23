@@ -77,7 +77,7 @@ trait HasErrors
     /**
      * @todo Dependendo Criar Gerenciador de Error
         $this->setError(
-            \Muleta\Components\Errors\TableNotExistError::make(
+            \Support\Components\Errors\TableNotExistError::make(
                 $className
             )
         );
@@ -119,8 +119,7 @@ trait HasErrors
         $this->isError = true;
 
         if (ErrorHelper::isToDebug($reference)) {
-            dd(
-                'IsToDebug',
+            dd('IsToDebug',
                 $error,
                 $reference,
                 $debugData
@@ -165,8 +164,7 @@ trait HasErrors
         $this->isWarning = true;
 
         if (ErrorHelper::isToDebug($reference)) {
-            dd(
-                'IsToDebug Warning',
+            dd('IsToDebug Warning',
                 $warning,
                 $reference,
                 $debugData
@@ -210,8 +208,7 @@ trait HasErrors
         $this->isDebug = true;
 
         if (ErrorHelper::isToDebug($reference)) {
-            dd(
-                'IsToDebug Debug',
+            dd('IsToDebug Debug',
                 $debug,
                 $reference,
                 $debugData
@@ -262,7 +259,7 @@ trait HasErrors
                 return true;
             }
             $this->setError(
-                \Muleta\Components\Errors\TableNotExistError::make(
+                \Support\Components\Errors\TableNotExistError::make(
                     $param,
                     $data
                 )

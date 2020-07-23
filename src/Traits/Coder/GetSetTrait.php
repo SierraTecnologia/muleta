@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Muleta\Traits\Coder;
 
-use Muleta\Patterns\Parser\ClassReader;
-use Muleta\Exceptions\SetterGetterException;
+use Support\Patterns\Parser\ClassReader;
+use Support\Exceptions\SetterGetterException;
 
 /**
  * https://github.com/usmanhalalit/GetSetGo

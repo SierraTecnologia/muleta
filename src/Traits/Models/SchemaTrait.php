@@ -2,7 +2,7 @@
 
 namespace Muleta\Traits\Models;
 
-use Muleta\Services\CrudMaker\ValidatorService;
+use Support\Services\CrudMaker\ValidatorService;
 
 trait SchemaTrait
 {
