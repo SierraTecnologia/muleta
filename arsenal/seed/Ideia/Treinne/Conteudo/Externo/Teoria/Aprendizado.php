@@ -19,7 +19,7 @@ use Telefonica\Models\Actors\Business\Collaborator;
 use Integrations\Models\Token;
 use Integrations\Models\TokenAccess;
 
-use Integrations\Connectors\Connector\Cloudflare\Cloudflare;
+use Integrations\Connectors\Cloudflare\Cloudflare;
 
 class Aprendizado
 {

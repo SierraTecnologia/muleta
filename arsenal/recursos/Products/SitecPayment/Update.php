@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\SitecPayment;
+namespace Integrations\Connectors\SitecPayment;
 
 use Log;
 use App\Models\User;

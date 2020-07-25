@@ -1,11 +1,11 @@
 <?php
 
-namespace Integrations\Connectors\Connector\SitecPayment;
+namespace Integrations\Connectors\SitecPayment;
 
 use App\Models\Model;
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Integration;
+use Integrations\Connectors\Integration;
 
 class SitecPayment extends Integration
 {

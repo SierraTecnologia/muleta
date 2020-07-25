@@ -31,4 +31,21 @@ class ArrayModificator
             $index => $arrayOrString
         ];
     }
+
+
+    /**
+     * Se nao for um array, faz virar um adicionando o indexe se quiser;
+     */
+    public static function multiExplode(array $arrayOrString, string $stringToArray): array
+    {
+        $cont = 1;
+        foreach ($arrayOrString as $a) {
+            if ($cont>1){
+                $stringToArray = implode($a, $stringToArray);
+            }
+            $stringToArray = explode($a, $stringToArray);
+            $cont = $cont +1;
+        }
+        return $stringToArray;
+    }
 }

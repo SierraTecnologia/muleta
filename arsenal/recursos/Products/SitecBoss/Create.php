@@ -1,6 +1,6 @@
 <?php
 
-namespace Integrations\Connectors\Connector\SitecBoss;
+namespace Integrations\Connectors\SitecBoss;
 
 use Log;
 use App\Models\User;

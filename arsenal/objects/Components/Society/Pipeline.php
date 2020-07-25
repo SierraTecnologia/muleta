@@ -4,7 +4,7 @@ namespace SiObjects\Components\Society;
 
 use Log;
 use App\Models\User;
-use Integrations\Connectors\Connector\Instagram;
+use Integrations\Connectors\Instagram;
 
 use App\Pipelines\Contracts\Registrator;
 use App\Pipelines\Contracts\Notificator;
