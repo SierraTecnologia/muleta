@@ -6,6 +6,7 @@ namespace Muleta\Traits\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug as BaseHasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 trait HasSlug
 {
@@ -26,6 +27,16 @@ trait HasSlug
                 }
             }
         );
+    }
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 }
 // <?php
