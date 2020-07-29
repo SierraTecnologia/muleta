@@ -5,7 +5,7 @@
 
 namespace SiSeed\Ideia\Scholl\Assuntos\Logic\Ensinamentos;
 
-use Finder\Models\Digital\Bot\Runner;
+use Operador\Models\Runner;
 use Log;
 use MathPHP\Functions\Map\Single;
 

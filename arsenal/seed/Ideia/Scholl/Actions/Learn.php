@@ -153,7 +153,7 @@ class Learn
         $actions[] = self::insertAction(
             'backupDatabase',
             \Fabrica\Models\Infra\DatabaseCollection::class,
-            \Finder\Components\Worker\Sync\Keys\BackupCollection::class,
+            \Fabrica\Tasks\BackupCollection::class,
             self::$routine
         );
 
@@ -203,7 +203,7 @@ class Learn
         $actions[] = self::insertAction(
             'importIntegrationToken',
             \Integrations\Models\Token::class,
-            \Finder\Components\Worker\Sync\Keys\ImportFromToken::class,
+            \Fabrica\Tasks\ImportFromToken::class,
             self::$routine
         );
 
