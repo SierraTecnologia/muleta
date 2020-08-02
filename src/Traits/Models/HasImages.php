@@ -3,7 +3,7 @@
 namespace Muleta\Traits\Models;
 
 use Event;
-use Facilitador\Models\Image;
+use Stalker\Models\Image;
 use Illuminate\Database\Eloquent\Builder;
 
 /**

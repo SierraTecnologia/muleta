@@ -8,9 +8,102 @@ use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Collection;
 use Muleta\Utils\Extratores\FileExtractor;
 use Muleta\Utils\Extratores\ClasserExtractor;
+use Route;
+use Illuminate\Routing\Router;
 
 trait ConsoleTools
 {
+
+    protected function loadRoutesForRiCa($path)
+    {
+        Route::group(
+            [
+                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers',
+                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main', ''),
+            ], function ($router) use ($path) {
+                if (file_exists($path.'/web.php')) {
+                    include $path.'/web.php';
+                } else {
+                    $this->loadRoutesFromPath($path.'/web');
+                }
+            }
+        );
+        
+        Route::group(
+            [
+                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\User',
+                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.user', 'profile'),
+                'as' => 'profile.',
+            ], function ($router) use ($path) {
+                if (file_exists($path.'/user.php')) {
+                    include $path.'/user.php';
+                } else {
+                    $this->loadRoutesFromPath($path.'/user');
+                }
+            }
+        );
+        
+        Route::group(
+            [
+                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Admin',
+                'middleware' => 'admin',
+                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.admin', 'admin'),
+                'as' => 'admin.',
+            ], function ($router) use ($path) {
+                if (file_exists($path.'/admin.php')) {
+                    include $path.'/admin.php';
+                } else {
+                    $this->loadRoutesFromPath($path.'/admin');
+                }
+            }
+        );
+        
+        Route::group(
+            [
+                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\RiCa',
+                'middleware' => 'admin',
+                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.rica', 'rica'),
+                'as' => 'rica.',
+            ], function ($router) use ($path) {
+                if (file_exists($path.'/rica.php')) {
+                    include $path.'/rica.php';
+                } else {
+                    $this->loadRoutesFromPath($path.'/rica');
+                }
+            }
+        );
+    }
+
+    /**
+     * @param  string $path
+     * @return $this
+     */
+    private function loadRoutesFromPath($path)
+    {
+        if (!file_exists($path = $path.'/')) {
+            return $this;
+        }
+        
+        collect(scandir($path))
+            ->each(
+                function ($item) use ($path) {
+                    if (in_array($item, ['.', '..'])) { return;
+                    }
+                
+                    if (is_dir($path . $item)) {
+                        $commands = array_merge(
+                            $commands,
+                            $this->loadRoutesFromPath($path . $item)
+                        );
+                    }
+
+                    if (is_file($path . $item)) {
+                        include $path . $item;
+                    }
+                }
+            );
+        return $this;
+    }
 
     /**
      * Publish package migrations.
@@ -154,7 +247,7 @@ trait ConsoleTools
                     if (is_dir($path . $item)) {
                         $commands = array_merge(
                             $commands,
-                            $this->loadCommandsFromPath($path . $item . '/', $namespace.'\\'.ucfirst($item))
+                            $this->loadCommandsFromPath($path . $item, $namespace.'\\'.ucfirst($item))
                         );
                     }
 

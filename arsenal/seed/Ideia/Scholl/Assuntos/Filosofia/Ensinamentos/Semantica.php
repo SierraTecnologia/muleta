@@ -9,7 +9,7 @@ use Operador\Models\Runner;
 use Log;
 use MathPHP\Functions\Map\Single;
 
-class Semantica implements \Finder\Contracts\Action\Robot
+class Semantica implements \Operador\Contracts\Robot
 {
     /**
      * Array de Array de Actions, o Indice seria o Stage. 

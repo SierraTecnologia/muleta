@@ -9,7 +9,7 @@ use Operador\Models\Runner;
 use Log;
 use MathPHP\Functions\Map\Single;
 
-class ConhecimentoSobDemanda implements \Finder\Contracts\Action\Robot
+class ConhecimentoSobDemanda implements \Operador\Contracts\Robot
 {
     /**
      * Array de Array de Actions, o Indice seria o Stage. 

@@ -9,7 +9,7 @@ use Operador\Models\Runner;
 use Log;
 use MathPHP\Functions\Map\Single;
 
-class Intro implements \Finder\Contracts\Action\Robot
+class Intro implements \Operador\Contracts\Robot
 {
     /**
      * Array de Array de Actions, o Indice seria o Stage. 
