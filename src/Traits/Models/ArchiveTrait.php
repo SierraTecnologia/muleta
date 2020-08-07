@@ -3,7 +3,7 @@
 namespace Muleta\Traits\Models;
 
 use Log;
-use Support\Models\Base;
+use Muleta\Models\Base;
 use Informate\Models\System\Archive;
 
 class ArchiveTrait extends Base
