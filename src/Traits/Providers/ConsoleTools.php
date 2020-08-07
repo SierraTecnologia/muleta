@@ -219,12 +219,19 @@ trait ConsoleTools
         // }
 
         $commands = [];
+
+        if (empty($folders)) {
+            return ;
+        }
+
         // Register artisan commands
         foreach ($folders as $key => $value) {
-            $commands = array_merge(
-                $commands,
-                $this->loadCommandsFromPath($key, $value)
-            );
+            if (file_exists($key) && is_dir($key)) {
+                $commands = array_merge(
+                    $commands,
+                    $this->loadCommandsFromPath($key, $value)
+                );
+            }
         }
         $this->commands(array_values($commands));
     }
@@ -241,7 +248,8 @@ trait ConsoleTools
         collect(scandir($path))
             ->each(
                 function ($item) use ($path, $namespace, &$commands) {
-                    if (in_array($item, ['.', '..'])) { return;
+                    if (in_array($item, ['.', '..'])) { 
+                        return;
                     }
                 
                     if (is_dir($path . $item)) {
