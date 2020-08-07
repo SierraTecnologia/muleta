@@ -245,6 +245,10 @@ trait ConsoleTools
         $path = $path.'/';
         $commands = [];
         
+        if (!file_exists($key) && !is_dir($key)) {
+            return false;
+        }
+
         collect(scandir($path))
             ->each(
                 function ($item) use ($path, $namespace, &$commands) {
