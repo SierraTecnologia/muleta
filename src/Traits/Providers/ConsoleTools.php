@@ -245,7 +245,7 @@ trait ConsoleTools
         $path = $path.'/';
         $commands = [];
         
-        if (!file_exists($key) && !is_dir($key)) {
+        if (!file_exists($path) && !is_dir($path)) {
             return false;
         }
 
