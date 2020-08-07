@@ -45,6 +45,21 @@ trait ConsoleTools
         
         Route::group(
             [
+                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Painel',
+                'middleware' => 'admin',
+                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.painel', 'painel'),
+                'as' => 'painel.',
+            ], function ($router) use ($path) {
+                if (file_exists($path.'/painel.php')) {
+                    include $path.'/painel.php';
+                } else {
+                    $this->loadRoutesFromPath($path.'/painel');
+                }
+            }
+        );
+
+        Route::group(
+            [
                 'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Admin',
                 'middleware' => 'admin',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.admin', 'admin'),
