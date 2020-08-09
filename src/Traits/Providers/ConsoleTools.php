@@ -16,6 +16,9 @@ trait ConsoleTools
 
     protected function loadRoutesForRiCa($path)
     {
+        if (!config('siravel.packagesRoutes', true)) {
+            return ;
+        }
         Route::group(
             [
                 'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers',
