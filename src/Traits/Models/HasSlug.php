@@ -17,16 +17,27 @@ trait HasSlug
      */
     protected static function bootHasSlug()
     {
-        // Auto generate slugs early before validation
-        static::validating(
+        static::saving(
             function (Model $model) {
-                if ($model->exists && $model->getSlugOptions()->generateSlugsOnUpdate) {
-                    $model->generateSlugOnUpdate();
-                } elseif (! $model->exists && $model->getSlugOptions()->generateSlugsOnCreate) {
-                    $model->generateSlugOnCreate();
-                }
+                collect($model->getTranslatedLocales('name'))
+                ->each(
+                    function (string $locale) use ($model) {
+                        $model->setTranslation('code', $locale, $model->generateSlug($locale));
+                    }
+                );
             }
         );
+        // // @todo tava dando erro
+        // // Auto generate slugs early before validation
+        // static::validating(
+        //     function (Model $model) {
+        //         if ($model->exists && $model->getSlugOptions()->generateSlugsOnUpdate) {
+        //             $model->generateSlugOnUpdate();
+        //         } elseif (! $model->exists && $model->getSlugOptions()->generateSlugsOnCreate) {
+        //             $model->generateSlugOnCreate();
+        //         }
+        //     }
+        // );
     }
 
     /**
