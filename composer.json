@@ -33,7 +33,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": "^7.4",
         "sierratecnologia/crypto": "dev-master",
         "ricardosierra/changelog": "~1.4"
     },
