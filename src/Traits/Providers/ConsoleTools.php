@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace Muleta\Traits\Providers;
 
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\Collection;
-use Muleta\Utils\Extratores\FileExtractor;
-use Muleta\Utils\Extratores\ClasserExtractor;
-use Route;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Collection;
+use Muleta\Utils\Extratores\ClasserExtractor;
+use Muleta\Utils\Extratores\FileExtractor;
+use Route;
 
 trait ConsoleTools
 {
-
     protected function loadRoutesForRiCa($path)
     {
         if (!config('siravel.packagesRoutes', true)) {
@@ -23,7 +22,8 @@ trait ConsoleTools
             [
                 'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main', ''),
-            ], function ($router) use ($path) {
+            ],
+            function ($router) use ($path) {
                 if (file_exists($path.'/web.php')) {
                     include $path.'/web.php';
                 } else {
@@ -35,13 +35,36 @@ trait ConsoleTools
         Route::group(
             [
                 'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\User',
+                'middleware' => 'user',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.user', 'profile'),
-                'as' => 'profile.',
-            ], function ($router) use ($path) {
+                'as' => 'profile.'.$this->packageName.'.',
+            ],
+            function ($router) use ($path) {
                 if (file_exists($path.'/user.php')) {
                     include $path.'/user.php';
                 } else {
                     $this->loadRoutesFromPath($path.'/user');
+                }
+                if (file_exists($path.'/profile.php')) {
+                    include $path.'/profile.php';
+                } else {
+                    $this->loadRoutesFromPath($path.'/profile');
+                }
+            }
+        );
+        
+        Route::group(
+            [
+                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Client',
+                'middleware' => 'client',
+                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.client', 'client'),
+                'as' => 'client.'.$this->packageName.'.',
+            ],
+            function ($router) use ($path) {
+                if (file_exists($path.'/client.php')) {
+                    include $path.'/client.php';
+                } else {
+                    $this->loadRoutesFromPath($path.'/client');
                 }
             }
         );
@@ -49,10 +72,11 @@ trait ConsoleTools
         Route::group(
             [
                 'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Painel',
-                'middleware' => 'admin',
+                'middleware' => 'painel',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.painel', 'painel'),
-                'as' => 'painel.',
-            ], function ($router) use ($path) {
+                'as' => 'painel.'.$this->packageName.'.',
+            ],
+            function ($router) use ($path) {
                 if (file_exists($path.'/painel.php')) {
                     include $path.'/painel.php';
                 } else {
@@ -63,11 +87,28 @@ trait ConsoleTools
 
         Route::group(
             [
+                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Master',
+                'middleware' => 'master',
+                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.master', 'master'),
+                'as' => 'master.'.$this->packageName.'.',
+            ],
+            function ($router) use ($path) {
+                if (file_exists($path.'/master.php')) {
+                    include $path.'/master.php';
+                } else {
+                    $this->loadRoutesFromPath($path.'/master');
+                }
+            }
+        );
+
+        Route::group(
+            [
                 'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Admin',
                 'middleware' => 'admin',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.admin', 'admin'),
-                'as' => 'admin.',
-            ], function ($router) use ($path) {
+                'as' => 'admin.'.$this->packageName.'.',
+            ],
+            function ($router) use ($path) {
                 if (file_exists($path.'/admin.php')) {
                     include $path.'/admin.php';
                 } else {
@@ -79,10 +120,11 @@ trait ConsoleTools
         Route::group(
             [
                 'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\RiCa',
-                'middleware' => 'admin',
+                'middleware' => 'rica',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.rica', 'rica'),
-                'as' => 'rica.',
-            ], function ($router) use ($path) {
+                'as' => 'rica.'.$this->packageName.'.',
+            ],
+            function ($router) use ($path) {
                 if (file_exists($path.'/rica.php')) {
                     include $path.'/rica.php';
                 } else {
@@ -105,7 +147,8 @@ trait ConsoleTools
         collect(scandir($path))
             ->each(
                 function ($item) use ($path) {
-                    if (in_array($item, ['.', '..'])) { return;
+                    if (in_array($item, ['.', '..'])) {
+                        return;
                     }
                 
                     if (is_dir($path . $item)) {
@@ -270,7 +313,7 @@ trait ConsoleTools
         collect(scandir($path))
             ->each(
                 function ($item) use ($path, $namespace, &$commands) {
-                    if (in_array($item, ['.', '..'])) { 
+                    if (in_array($item, ['.', '..'])) {
                         return;
                     }
                 
@@ -286,7 +329,7 @@ trait ConsoleTools
                         $classNamespace = $namespace.'\\'.ucfirst($item);
                         if (class_exists($classNamespace)) {
                             $commands[] = $classNamespace;
-                        }                  
+                        }
                     }
                 }
             );
@@ -301,7 +344,8 @@ trait ConsoleTools
         collect(scandir($realPath))
             ->each(
                 function ($item) use ($path, $realPath) {
-                    if (in_array($item, ['.', '..'])) { return;
+                    if (in_array($item, ['.', '..'])) {
+                        return;
                     }
 
                     if (is_dir($realPath . $item)) {
@@ -314,7 +358,7 @@ trait ConsoleTools
 
                         if (class_exists($class)) {
                             $commands[] = $class;
-                        }                  
+                        }
                     }
                 }
             );
