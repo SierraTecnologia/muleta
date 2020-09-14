@@ -3,8 +3,8 @@
 namespace Muleta\Traits\Models;
 
 use Event;
-use Stalker\Models\Image;
 use Illuminate\Database\Eloquent\Builder;
+use Stalker\Models\Image;
 
 /**
  * All models that should support images should inherit this trait.  This gets
@@ -24,7 +24,8 @@ trait HasImages
     {
         // Automatically add images relationship to the cleoneable relations
         Event::listen(
-            'cloner::cloning: '.get_called_class(), function ($clone, $src) {
+            'cloner::cloning: '.get_called_class(),
+            function ($clone, $src) {
                 $src->addCloneableRelation('images');
             }
         );
@@ -45,7 +46,8 @@ trait HasImages
 
         // Automatically eager load the images relationship
         static::addGlobalScope(
-            'facilitador.images', function (Builder $builder) {
+            'facilitador.images',
+            function (Builder $builder) {
                 $builder->with('images');
             }
         );
