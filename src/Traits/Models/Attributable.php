@@ -7,7 +7,7 @@ namespace Muleta\Traits\Models;
 use Schema;
 use Closure;
 use SuperClosure\Serializer;
-use Facilitador\Models\Value;
+use Pedreiro\Models\Value;
 use Facilitador\Models\Attribute;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
