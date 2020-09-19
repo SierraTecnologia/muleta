@@ -8,14 +8,14 @@ use Schema;
 use Closure;
 use SuperClosure\Serializer;
 use Pedreiro\Models\Value;
-use Facilitador\Models\Attribute;
+use Pedreiro\Models\Attribute;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Events\EntityWasSaved;
 use Support\Recursos\Scopes\EagerLoadScope;
 use Support\Events\EntityWasDeleted;
-use Support\Support\RelationBuilder;
-use Support\Support\ValueCollection;
+use Pedreiro\Support\RelationBuilder;
+use Pedreiro\Support\ValueCollection;
 use Illuminate\Support\Collection as BaseCollection;
 
 trait Attributable
@@ -375,7 +375,7 @@ trait Attributable
     /**
      * Set the entity attribute value.
      *
-     * @param \Facilitador\Models\Attribute $attribute
+     * @param \Pedreiro\Models\Attribute $attribute
      * @param mixed                         $value
      *
      * @return $this
