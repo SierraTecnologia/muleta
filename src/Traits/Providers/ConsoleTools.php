@@ -13,7 +13,7 @@ use Route;
 
 trait ConsoleTools
 {
-    private function getName($name)
+    protected function getNamePackage($name)
     {
         $returnName = '';
         $names = explode('-', $name);
