@@ -4,7 +4,7 @@ namespace Muleta\Traits\Models;
 
 use Event;
 use Illuminate\Database\Eloquent\Builder;
-use Stalker\Models\Image;
+use MediaManager\Models\Image;
 
 /**
  * All models that should support images should inherit this trait.  This gets
