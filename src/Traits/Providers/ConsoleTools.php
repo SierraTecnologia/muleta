@@ -13,6 +13,16 @@ use Route;
 
 trait ConsoleTools
 {
+    private function getName($name)
+    {
+        $returnName = '';
+        $names = explode('-', $name);
+        foreach ($names as $newName) {
+            $returnName .= ucfirst($newName);
+        }
+        return $returnName;
+    }
+    
     protected function loadRoutesForRiCa($path)
     {
         if (!config('siravel.packagesRoutes', true)) {
@@ -20,7 +30,7 @@ trait ConsoleTools
         }
         Route::group(
             [
-                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers',
+                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main', ''),
             ],
             function ($router) use ($path) {
@@ -34,7 +44,7 @@ trait ConsoleTools
         
         Route::group(
             [
-                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\User',
+                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\User',
                 'middleware' => 'user',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.user', 'profile'),
                 'as' => 'profile.'.$this->packageName.'.',
@@ -55,7 +65,7 @@ trait ConsoleTools
         
         Route::group(
             [
-                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Client',
+                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Client',
                 'middleware' => 'client',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.client', 'client'),
                 'as' => 'client.'.$this->packageName.'.',
@@ -71,7 +81,7 @@ trait ConsoleTools
         
         Route::group(
             [
-                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Painel',
+                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Painel',
                 'middleware' => 'painel',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.painel', 'painel'),
                 'as' => 'painel.'.$this->packageName.'.',
@@ -87,7 +97,7 @@ trait ConsoleTools
 
         Route::group(
             [
-                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Master',
+                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Master',
                 'middleware' => 'master',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.master', 'master'),
                 'as' => 'master.'.$this->packageName.'.',
@@ -103,7 +113,7 @@ trait ConsoleTools
 
         Route::group(
             [
-                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\Admin',
+                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Admin',
                 'middleware' => 'admin',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.admin', 'admin'),
                 'as' => 'admin.'.$this->packageName.'.',
@@ -119,7 +129,7 @@ trait ConsoleTools
         
         Route::group(
             [
-                'namespace' => '\\'.ucfirst($this->packageName).'\Http\Controllers\RiCa',
+                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\RiCa',
                 'middleware' => 'rica',
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.rica', 'rica'),
                 'as' => 'rica.'.$this->packageName.'.',
