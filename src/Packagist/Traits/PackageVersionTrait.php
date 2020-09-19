@@ -32,7 +32,7 @@ trait PackageVersionTrait
 
     public function getVersion()
     {
-        if (empty($this->_version)){
+        if (empty($this->_version)) {
             $this->findVersion;
         }
         return $this->version;

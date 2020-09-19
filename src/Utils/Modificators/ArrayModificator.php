@@ -40,7 +40,7 @@ class ArrayModificator
     {
         $cont = 1;
         foreach ($arrayOrString as $a) {
-            if ($cont>1){
+            if ($cont>1) {
                 $stringToArray = implode($a, $stringToArray);
             }
             $stringToArray = explode($a, $stringToArray);

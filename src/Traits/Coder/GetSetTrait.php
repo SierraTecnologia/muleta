@@ -142,7 +142,7 @@ trait GetSetTrait
             break;
 
         case 'bool':
-            case 'boolean':
+        case 'boolean':
             if (!is_bool($value)) {
                 throw new SetterGetterException($type.' type expected given '.gettype($value), 7);
             }

@@ -4,6 +4,7 @@ namespace Muleta\Helps;
 
 /**
  * Array helper.
+ *
  * @todo nao era pra taa aqui
  */
 class CodeFileHelper

@@ -109,8 +109,8 @@ trait HasErrors
     public function setError($error, $reference = [], $debugData = [])
     { 
         if (ErrorHelper::isToIgnore($error)) {
-        //     dd('Istoignore',
-        // $error);
+            //     dd('Istoignore',
+            // $error);
             return false;
         }
         $reference['locateClassFromError'] = get_class($this);
@@ -119,7 +119,8 @@ trait HasErrors
         $this->isError = true;
 
         if (ErrorHelper::isToDebug($reference)) {
-            dd('IsToDebug',
+            dd(
+                'IsToDebug',
                 $error,
                 $reference,
                 $debugData
@@ -164,7 +165,8 @@ trait HasErrors
         $this->isWarning = true;
 
         if (ErrorHelper::isToDebug($reference)) {
-            dd('IsToDebug Warning',
+            dd(
+                'IsToDebug Warning',
                 $warning,
                 $reference,
                 $debugData
@@ -208,7 +210,8 @@ trait HasErrors
         $this->isDebug = true;
 
         if (ErrorHelper::isToDebug($reference)) {
-            dd('IsToDebug Debug',
+            dd(
+                'IsToDebug Debug',
                 $debug,
                 $reference,
                 $debugData

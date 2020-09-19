@@ -39,12 +39,16 @@ class FileExtractor
 
         return (new Collection(
             explode('/', $filePath)
-        ))->map(function ($name) {
-            return strtolower($name);
-        })
-        ->reject(function ($name) {
-            return empty($name);
-        });
+        ))->map(
+            function ($name) {
+                return strtolower($name);
+            }
+        )
+        ->reject(
+            function ($name) {
+                return empty($name);
+            }
+        );
     }
 
 }

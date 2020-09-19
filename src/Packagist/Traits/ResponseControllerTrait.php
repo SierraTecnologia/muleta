@@ -15,7 +15,7 @@ trait ResponseControllerTrait
     /**
      * @SWG\Swagger(
      *   basePath="/api/v1",
-     *   @SWG\Info(
+     * @SWG\Info(
      *     title="Laravel Generator APIs",
      *     version="1.0.0",
      *   )
@@ -41,7 +41,8 @@ trait ResponseControllerTrait
      * Response com Array
      * [success] {Bollean}
      */
-    protected function defaultResponse($success=true) {
+    protected function defaultResponse($success=true)
+    {
         return [
             'success' => $success
         ];
@@ -52,7 +53,8 @@ trait ResponseControllerTrait
      * [success] true
      * [message] {String}
      */
-    protected function responseWithMessage($message) {
+    protected function responseWithMessage($message)
+    {
         $array = [
             'message' => $message
         ];
@@ -64,7 +66,8 @@ trait ResponseControllerTrait
      * [success] false
      * [message] {String}
      */
-    protected function responseWithErrorMessage($message) {
+    protected function responseWithErrorMessage($message)
+    {
         $array = [
             'message' => $message
         ];
@@ -76,7 +79,8 @@ trait ResponseControllerTrait
      * [success] false
      * [message] {String}
      */
-    protected function responseWithErrors($validation) {
+    protected function responseWithErrors($validation)
+    {
         $errors = $validation->messages();
         return $this->responseWithErrorMessage($errors[0]);
     }
@@ -86,7 +90,8 @@ trait ResponseControllerTrait
      * [success] false
      * [data] {Array}
      */
-    protected function responseWithData($data) {
+    protected function responseWithData($data)
+    {
         $array = [
             'data' => $data
         ];
