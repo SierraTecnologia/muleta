@@ -3,7 +3,7 @@
 namespace SiObjects\Support\Trabalhando\Database;
 
 use Exception;
-use Siravel\Exception\NoFaceException;
+use Stalker\Exceptions\NoFaceException;
 
 class MysqlToPhinx
 {

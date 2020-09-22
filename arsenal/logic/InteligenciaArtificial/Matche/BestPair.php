@@ -3,7 +3,7 @@
  * Rotinas de Inclusão de Dados
  */
 
-namespace SiLogic\InteligenciaArtificial\Questions;
+namespace SiLogic\InteligenciaArtificial\Matche;
 
 class BestPair
 {

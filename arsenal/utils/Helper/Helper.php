@@ -1,7 +1,7 @@
 <?php
 // @todo Repetido no Fabrica
 
-namespace SiUtils\Helpers;
+namespace SiUtils\Helper;
 
 class Helper
 {

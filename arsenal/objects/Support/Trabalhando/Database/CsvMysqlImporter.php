@@ -2,30 +2,29 @@
 
 namespace SiObjects\Support\Trabalhando\Database;
 
+use Doctrine\DBAL\Driver\PDOException;
 use Exception;
-use Siravel\Exception\NoFaceException;
 
 class CsvMysqlImporter
 {
-
     public function run()
     {
-                
-        $database_host = 'localhost'; 
-        $database_name = 'databasename'; 
-        $database_table = 'databasetable'; 
-        $database_username='databaseusername'; 
-        $database_password = 'databasepassword'; 
+        $database_host = 'localhost';
+        $database_name = 'databasename';
+        $database_table = 'databasetable';
+        $database_username='databaseusername';
+        $database_password = 'databasepassword';
         $csv_file = 'filename.csv';
 
         if (!file_exists($csv_file)) {
             die('File not found. Make sure you specified the correct path.');
         }
 
-        try {    
+        try {
             $pdo = new PDO(
-                "mysql:host=$database_host;dbname=$database_name", 
-                $database_username, $database_password,
+                "mysql:host=$database_host;dbname=$database_name",
+                $database_username,
+                $database_password,
                 array(
                     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -51,7 +50,7 @@ class CsvMysqlImporter
             $sql = "INSERT INTO $database_table($columns) VALUES($values)";
             $query = $pdo->prepare($sql);
             for ($i=0; $i < count($row); $i++) {
-                $query->bindParam($values_array[$i], $row[$i]);    
+                $query->bindParam($values_array[$i], $row[$i]);
             }
             $query->execute();
             $count++;
