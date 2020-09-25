@@ -200,7 +200,7 @@ trait CrudForms
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $entity = $this->model->findOrFail($id);
 
@@ -230,7 +230,7 @@ trait CrudForms
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $entity = $this->model->findOrFail($id);
 
