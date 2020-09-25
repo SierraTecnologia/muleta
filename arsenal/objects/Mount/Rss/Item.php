@@ -15,7 +15,7 @@ class Item implements ItemContract
     /**
      * @var string
      */
-    protected $title = '';
+    public $title = '';
 
     /**
      * @var string

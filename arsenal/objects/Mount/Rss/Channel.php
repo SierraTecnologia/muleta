@@ -14,7 +14,7 @@ class Channel implements ChannelContract
     /**
      * @var string
      */
-    protected $title = '';
+    public $title = '';
 
     /**
      * @var string
