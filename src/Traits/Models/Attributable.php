@@ -376,7 +376,7 @@ trait Attributable
      * Set the entity attribute value.
      *
      * @param \Pedreiro\Models\Attribute $attribute
-     * @param mixed                         $value
+     * @param mixed                      $value
      *
      * @return $this
      */
