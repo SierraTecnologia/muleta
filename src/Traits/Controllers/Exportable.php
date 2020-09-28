@@ -4,8 +4,8 @@ namespace Muleta\Traits\Controllers;
 
 // Deps
 use Carbon\Carbon;
-use Support;
 use League\Csv\Writer;
+use Pedreiro;
 use SplTempFileObject;
 
 /**
@@ -22,7 +22,8 @@ trait Exportable
     public function csv()
     {
         $items = $this->makeCsvQuery()->get();
-        if ($items->isEmpty()) { abort(404);
+        if ($items->isEmpty()) {
+            abort(404);
         }
         $csv = $this->makeCsv($items);
         return response($csv->getContent())->withHeaders(
@@ -93,14 +94,13 @@ trait Exportable
     protected function makeCsvFileTitle()
     {
         return vsprintf(
-            '%s %s as of %s at %s.csv', [
-            Support::site(),
+            '%s %s as of %s at %s.csv',
+            [
+            Pedreiro::site(),
             $this->title(),
             Carbon::now()->format('n.j.y'),
             Carbon::now()->format('g:i A'),
             ]
         );
     }
-
-
 }
