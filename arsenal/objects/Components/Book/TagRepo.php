@@ -2,7 +2,7 @@
 
 namespace SiObjects\Components\Book;
 
-use Population\Models\Components\Book\Permissions\PermissionService;
+use Porteiro\Models\Permissions\PermissionService;
 use Population\Models\Components\Book\Entity;
 
 /**
@@ -22,7 +22,7 @@ class TagRepo
      *
      * @param \SiObjects\Components\Book\Tag                                   $attr
      * @param \Population\Models\Components\Book\Entity                        $ent
-     * @param \Population\Models\Components\Book\Permissions\PermissionService $ps
+     * @param \Porteiro\Models\Permissions\PermissionService $ps
      */
     public function __construct(Tag $attr, Entity $ent, PermissionService $ps)
     {

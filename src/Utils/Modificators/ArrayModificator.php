@@ -6,7 +6,6 @@ namespace Muleta\Utils\Modificators;
 
 use Log;
 
-
 class ArrayModificator
 {
     public static function includeKeyFromAtribute($oldArray, $attributeFromArray)

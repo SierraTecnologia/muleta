@@ -2,7 +2,7 @@
 
 namespace SiObjects\Components\Book;
 
-use Population\Models\Components\Book\Permissions\PermissionService;
+use Porteiro\Models\Permissions\PermissionService;
 use Population\Models\Components\Book\Entity;
 use Session;
 

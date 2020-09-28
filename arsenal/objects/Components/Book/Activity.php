@@ -32,7 +32,7 @@ class Activity extends Model
      */
     public function user()
     {
-        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class));
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('application.directorys.models.users', \App\Models\User::class));
     }
 
     /**
