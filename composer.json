@@ -35,6 +35,7 @@
     "require": {
         "php": "^7.4",
         "sierratecnologia/crypto": "dev-master",
+        "laravel/helpers": "^1.1",
         "ricardosierra/changelog": "~1.4"
     },
     "autoload": {
