@@ -34,7 +34,7 @@
     ],
     "require": {
         "php": "^7.4",
-        "sierratecnologia/crypto": "dev-master",
+        "sierratecnologia/crypto": "^0.4.0",
         "laravel/helpers": "^1.1",
         "ricardosierra/changelog": "~1.4"
     },
@@ -66,7 +66,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
-    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
