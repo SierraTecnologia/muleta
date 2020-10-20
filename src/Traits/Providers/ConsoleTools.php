@@ -34,10 +34,10 @@ trait ConsoleTools
                 'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main', ''),
             ],
             function ($router) use ($path) {
-                if (file_exists($path.DIRECTORY_SEPARACTOR.'web.php')) {
-                    include $path.DIRECTORY_SEPARACTOR.'web.php';
+                if (file_exists($path.DIRECTORY_SEPARATOR.'web.php')) {
+                    include $path.DIRECTORY_SEPARATOR.'web.php';
                 } else {
-                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARACTOR.'web');
+                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'web');
                 }
             }
         );
@@ -50,15 +50,15 @@ trait ConsoleTools
                 'as' => 'profile.'.$this->packageName.'.',
             ],
             function ($router) use ($path) {
-                if (file_exists($path.DIRECTORY_SEPARACTOR.'user.php')) {
-                    include $path.DIRECTORY_SEPARACTOR.'user.php';
+                if (file_exists($path.DIRECTORY_SEPARATOR.'user.php')) {
+                    include $path.DIRECTORY_SEPARATOR.'user.php';
                 } else {
-                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARACTOR.'user');
+                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'user');
                 }
-                if (file_exists($path.DIRECTORY_SEPARACTOR.'profile.php')) {
-                    include $path.DIRECTORY_SEPARACTOR.'profile.php';
+                if (file_exists($path.DIRECTORY_SEPARATOR.'profile.php')) {
+                    include $path.DIRECTORY_SEPARATOR.'profile.php';
                 } else {
-                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARACTOR.'profile');
+                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'profile');
                 }
             }
         );
@@ -71,10 +71,10 @@ trait ConsoleTools
                 'as' => 'client.'.$this->packageName.'.',
             ],
             function ($router) use ($path) {
-                if (file_exists($path.DIRECTORY_SEPARACTOR.'client.php')) {
-                    include $path.DIRECTORY_SEPARACTOR.'client.php';
+                if (file_exists($path.DIRECTORY_SEPARATOR.'client.php')) {
+                    include $path.DIRECTORY_SEPARATOR.'client.php';
                 } else {
-                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARACTOR.'client');
+                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'client');
                 }
             }
         );
@@ -87,10 +87,10 @@ trait ConsoleTools
                 'as' => 'painel.'.$this->packageName.'.',
             ],
             function ($router) use ($path) {
-                if (file_exists($path.DIRECTORY_SEPARACTOR.'painel.php')) {
-                    include $path.DIRECTORY_SEPARACTOR.'painel.php';
+                if (file_exists($path.DIRECTORY_SEPARATOR.'painel.php')) {
+                    include $path.DIRECTORY_SEPARATOR.'painel.php';
                 } else {
-                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARACTOR.'painel');
+                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'painel');
                 }
             }
         );
@@ -103,10 +103,10 @@ trait ConsoleTools
                 'as' => 'master.'.$this->packageName.'.',
             ],
             function ($router) use ($path) {
-                if (file_exists($path.DIRECTORY_SEPARACTOR.'master.php')) {
-                    include $path.DIRECTORY_SEPARACTOR.'master.php';
+                if (file_exists($path.DIRECTORY_SEPARATOR.'master.php')) {
+                    include $path.DIRECTORY_SEPARATOR.'master.php';
                 } else {
-                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARACTOR.'master');
+                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'master');
                 }
             }
         );
@@ -119,10 +119,10 @@ trait ConsoleTools
                 'as' => 'admin.'.$this->packageName.'.',
             ],
             function ($router) use ($path) {
-                if (file_exists($path.DIRECTORY_SEPARACTOR.'admin.php')) {
-                    include $path.DIRECTORY_SEPARACTOR.'admin.php';
+                if (file_exists($path.DIRECTORY_SEPARATOR.'admin.php')) {
+                    include $path.DIRECTORY_SEPARATOR.'admin.php';
                 } else {
-                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARACTOR.'admin');
+                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'admin');
                 }
             }
         );
@@ -135,10 +135,10 @@ trait ConsoleTools
                 'as' => 'rica.'.$this->packageName.'.',
             ],
             function ($router) use ($path) {
-                if (file_exists($path.DIRECTORY_SEPARACTOR.'rica.php')) {
-                    include $path.DIRECTORY_SEPARACTOR.'rica.php';
+                if (file_exists($path.DIRECTORY_SEPARATOR.'rica.php')) {
+                    include $path.DIRECTORY_SEPARATOR.'rica.php';
                 } else {
-                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARACTOR.'rica');
+                    $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'rica');
                 }
             }
         );
@@ -150,7 +150,7 @@ trait ConsoleTools
      */
     private function loadRoutesFromPath($path)
     {
-        if (!file_exists($path = $path.DIRECTORY_SEPARACTOR)) {
+        if (!file_exists($path = $path.DIRECTORY_SEPARATOR)) {
             return $this;
         }
         
@@ -219,9 +219,9 @@ trait ConsoleTools
         $namespace = str_replace('laravel-', '', $package);
         $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
         $basePath = $isModule ? $this->app->path($package)
-            : $this->app->basePath('vendor'.DIRECTORY_SEPARACTOR.$package);
+            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
 
-        if (file_exists($path = $basePath.DIRECTORY_SEPARACTOR.'config'.DIRECTORY_SEPARACTOR.'config.php')) {
+        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php')) {
             $this->publishes([$path => $this->app->configPath(str_replace('-', '.', $namespace).'.php')], $namespace.'-config');
         }
     }
@@ -236,10 +236,10 @@ trait ConsoleTools
         $namespace = str_replace('laravel-', '', $package);
         $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
         $basePath = $isModule ? $this->app->path($package)
-            : $this->app->basePath('vendor'.DIRECTORY_SEPARACTOR.$package);
+            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
 
-        if (file_exists($path = $basePath.DIRECTORY_SEPARACTOR.'resources'.DIRECTORY_SEPARACTOR.'views')) {
-            $this->publishes([$path => $this->app->resourcePath('views'.DIRECTORY_SEPARACTOR.'vendor'.DIRECTORY_SEPARACTOR.$package)], $namespace.'-views');
+        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'views')) {
+            $this->publishes([$path => $this->app->resourcePath('views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$package)], $namespace.'-views');
         }
     }
 
@@ -253,10 +253,10 @@ trait ConsoleTools
         $namespace = str_replace('laravel-', '', $package);
         $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
         $basePath = $isModule ? $this->app->path($package)
-            : $this->app->basePath('vendor'.DIRECTORY_SEPARACTOR.$package);
+            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
 
-        if (file_exists($path = $basePath.DIRECTORY_SEPARACTOR.'resources'.DIRECTORY_SEPARACTOR.'lang')) {
-            $this->publishes([$path => $this->app->resourcePath('lang'.DIRECTORY_SEPARACTOR.'vendor'.DIRECTORY_SEPARACTOR.$package)], $namespace.'-lang');
+        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'lang')) {
+            $this->publishes([$path => $this->app->resourcePath('lang'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$package)], $namespace.'-lang');
         }
     }
 
