@@ -186,11 +186,11 @@ trait ConsoleTools
         $namespace = str_replace('laravel-', '', $package);
         $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
         $basePath = $isModule ? $this->app->path($package)
-            : $this->app->basePath('vendor/'.$package);
+            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.''.$package);
 
-        if (file_exists($path = $basePath.'/database/migrations')) {
-            $stubs = $this->app['files']->glob($path.'/*.php.stub');
-            $existing = $this->app['files']->glob($this->app->databasePath('migrations/'.$package.'/*.php'));
+        if (file_exists($path = $basePath.''.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations')) {
+            $stubs = $this->app['files']->glob($path.''.DIRECTORY_SEPARATOR.'*.php.stub');
+            $existing = $this->app['files']->glob($this->app->databasePath('migrations'.DIRECTORY_SEPARATOR.''.$package.''.DIRECTORY_SEPARATOR.'*.php'));
 
             $migrations = collect($stubs)->flatMap(
                 function ($migration) use ($existing, $package) {
@@ -201,7 +201,7 @@ trait ConsoleTools
                         }
                     );
 
-                    return [$migration => $this->app->databasePath('migrations/'.$package.'/'.($match ? basename($match) : date('Y_m_d_His', time() + $sequence).str_replace(['.stub', $sequence], '', basename($migration))))];
+                    return [$migration => $this->app->databasePath('migrations'.DIRECTORY_SEPARATOR.''.$package.''.DIRECTORY_SEPARATOR.''.($match ? basename($match) : date('Y_m_d_His', time() + $sequence).str_replace(['.stub', $sequence], '', basename($migration))))];
                 }
             )->toArray();
 
@@ -313,7 +313,7 @@ trait ConsoleTools
      */
     private function loadCommandsFromPath($path, $namespace)
     {
-        $path = $path.'/';
+        $path = $path.DIRECTORY_SEPARATOR;
         $commands = [];
         
         if (!file_exists($path) && !is_dir($path)) {
@@ -359,12 +359,12 @@ trait ConsoleTools
                     }
 
                     if (is_dir($realPath . $item)) {
-                        $this->loadCommandsFromAppPath($path . $item . '/');
+                        $this->loadCommandsFromAppPath($path . $item . DIRECTORY_SEPARATOR);
                     }
 
                     if (is_file($realPath . $item)) {
                         $item = str_replace('.php', '', $item);
-                        $class = str_replace('/', '\\', "Facilitador\\{$path}$item");
+                        $class = str_replace(DIRECTORY_SEPARATOR, '\\', "Facilitador\\{$path}$item");
 
                         if (class_exists($class)) {
                             $commands[] = $class;
@@ -381,17 +381,17 @@ trait ConsoleTools
      */
     protected function getResourcesPath($folder)
     {
-        return $this->getPackageFolder().'/../resources/'.$folder;
+        return $this->getPackageFolder().DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.$folder;
     }
 
     protected function getPublishesPath($folder)
     {
-        return $this->getPackageFolder().'/../publishes/'.$folder;
+        return $this->getPackageFolder().DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'publishes'.DIRECTORY_SEPARATOR.$folder;
     }
 
     protected function getDistPath($folder)
     {
-        return $this->getPackageFolder().'/../dist/'.$folder;
+        return $this->getPackageFolder().DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'dist'.DIRECTORY_SEPARATOR.$folder;
     }
 
     private function getPackageFolder()
