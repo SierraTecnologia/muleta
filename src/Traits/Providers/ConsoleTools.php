@@ -93,7 +93,8 @@ trait ConsoleTools
                     } else {
                         $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'painel');
                     }
-                );
+                }
+            );
 
             Route::group(
                 [
@@ -108,7 +109,8 @@ trait ConsoleTools
                     } else {
                         $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'master');
                     }
-                );
+                }
+            );
 
             Route::group(
                 [
@@ -139,8 +141,8 @@ trait ConsoleTools
                     } else {
                         $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'rica');
                     }
-                );
-            });
+                }
+            );
         });
     }
 
