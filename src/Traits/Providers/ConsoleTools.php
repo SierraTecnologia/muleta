@@ -28,120 +28,122 @@ trait ConsoleTools
         if (!config('siravel.packagesRoutes', true)) {
             return ;
         }
-        Route::group(
-            [
-                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers',
-                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main', ''),
-            ],
-            function ($router) use ($path) {
-                if (file_exists($path.'/web.php')) {
-                    include $path.'/web.php';
-                } else {
-                    $this->loadRoutesFromPath($path.'/web');
+        Route::group(['middleware' => ['web']], function () use ($path) {
+            Route::group(
+                [
+                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers',
+                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main', ''),
+                ],
+                function ($router) use ($path) {
+                    if (file_exists($path.'/web.php')) {
+                        include $path.'/web.php';
+                    } else {
+                        $this->loadRoutesFromPath($path.'/web');
+                    }
                 }
-            }
-        );
-        
-        Route::group(
-            [
-                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\User',
-                'middleware' => 'user',
-                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.user', 'profile'),
-                'as' => 'profile.'.$this->packageName.'.',
-            ],
-            function ($router) use ($path) {
-                if (file_exists($path.'/user.php')) {
-                    include $path.'/user.php';
-                } else {
-                    $this->loadRoutesFromPath($path.'/user');
+            );
+            
+            Route::group(
+                [
+                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\User',
+                    'middleware' => 'user',
+                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.user', 'profile'),
+                    'as' => 'profile.'.$this->packageName.'.',
+                ],
+                function ($router) use ($path) {
+                    if (file_exists($path.'/user.php')) {
+                        include $path.'/user.php';
+                    } else {
+                        $this->loadRoutesFromPath($path.'/user');
+                    }
+                    if (file_exists($path.'/profile.php')) {
+                        include $path.'/profile.php';
+                    } else {
+                        $this->loadRoutesFromPath($path.'/profile');
+                    }
                 }
-                if (file_exists($path.'/profile.php')) {
-                    include $path.'/profile.php';
-                } else {
-                    $this->loadRoutesFromPath($path.'/profile');
+            );
+            
+            Route::group(
+                [
+                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Client',
+                    'middleware' => 'client',
+                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.client', 'client'),
+                    'as' => 'client.'.$this->packageName.'.',
+                ],
+                function ($router) use ($path) {
+                    if (file_exists($path.'/client.php')) {
+                        include $path.'/client.php';
+                    } else {
+                        $this->loadRoutesFromPath($path.'/client');
+                    }
                 }
-            }
-        );
-        
-        Route::group(
-            [
-                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Client',
-                'middleware' => 'client',
-                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.client', 'client'),
-                'as' => 'client.'.$this->packageName.'.',
-            ],
-            function ($router) use ($path) {
-                if (file_exists($path.'/client.php')) {
-                    include $path.'/client.php';
-                } else {
-                    $this->loadRoutesFromPath($path.'/client');
+            );
+            
+            Route::group(
+                [
+                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Painel',
+                    'middleware' => 'painel',
+                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.painel', 'painel'),
+                    'as' => 'painel.'.$this->packageName.'.',
+                ],
+                function ($router) use ($path) {
+                    if (file_exists($path.'/painel.php')) {
+                        include $path.'/painel.php';
+                    } else {
+                        $this->loadRoutesFromPath($path.'/painel');
+                    }
                 }
-            }
-        );
-        
-        Route::group(
-            [
-                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Painel',
-                'middleware' => 'painel',
-                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.painel', 'painel'),
-                'as' => 'painel.'.$this->packageName.'.',
-            ],
-            function ($router) use ($path) {
-                if (file_exists($path.'/painel.php')) {
-                    include $path.'/painel.php';
-                } else {
-                    $this->loadRoutesFromPath($path.'/painel');
-                }
-            }
-        );
+            );
 
-        Route::group(
-            [
-                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Master',
-                'middleware' => 'master',
-                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.master', 'master'),
-                'as' => 'master.'.$this->packageName.'.',
-            ],
-            function ($router) use ($path) {
-                if (file_exists($path.'/master.php')) {
-                    include $path.'/master.php';
-                } else {
-                    $this->loadRoutesFromPath($path.'/master');
+            Route::group(
+                [
+                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Master',
+                    'middleware' => 'master',
+                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.master', 'master'),
+                    'as' => 'master.'.$this->packageName.'.',
+                ],
+                function ($router) use ($path) {
+                    if (file_exists($path.'/master.php')) {
+                        include $path.'/master.php';
+                    } else {
+                        $this->loadRoutesFromPath($path.'/master');
+                    }
                 }
-            }
-        );
+            );
 
-        Route::group(
-            [
-                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Admin',
-                'middleware' => 'admin',
-                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.admin', 'admin'),
-                'as' => 'admin.'.$this->packageName.'.',
-            ],
-            function ($router) use ($path) {
-                if (file_exists($path.'/admin.php')) {
-                    include $path.'/admin.php';
-                } else {
-                    $this->loadRoutesFromPath($path.'/admin');
+            Route::group(
+                [
+                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Admin',
+                    'middleware' => 'admin',
+                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.admin', 'admin'),
+                    'as' => 'admin.'.$this->packageName.'.',
+                ],
+                function ($router) use ($path) {
+                    if (file_exists($path.'/admin.php')) {
+                        include $path.'/admin.php';
+                    } else {
+                        $this->loadRoutesFromPath($path.'/admin');
+                    }
                 }
-            }
-        );
-        
-        Route::group(
-            [
-                'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\RiCa',
-                'middleware' => 'rica',
-                'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.rica', 'rica'),
-                'as' => 'rica.'.$this->packageName.'.',
-            ],
-            function ($router) use ($path) {
-                if (file_exists($path.'/rica.php')) {
-                    include $path.'/rica.php';
-                } else {
-                    $this->loadRoutesFromPath($path.'/rica');
+            );
+            
+            Route::group(
+                [
+                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\RiCa',
+                    'middleware' => 'rica',
+                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.rica', 'rica'),
+                    'as' => 'rica.'.$this->packageName.'.',
+                ],
+                function ($router) use ($path) {
+                    if (file_exists($path.'/rica.php')) {
+                        include $path.'/rica.php';
+                    } else {
+                        $this->loadRoutesFromPath($path.'/rica');
+                    }
                 }
-            }
-        );
+            );
+        });
     }
 
     /**
