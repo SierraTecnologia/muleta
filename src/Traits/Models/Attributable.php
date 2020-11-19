@@ -12,7 +12,7 @@ use Pedreiro\Models\Attribute;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Events\EntityWasSaved;
-use Support\Recursos\Scopes\EagerLoadScope;
+use Muleta\Recursos\Scopes\EagerLoadScope;
 use Support\Events\EntityWasDeleted;
 use Pedreiro\Support\RelationBuilder;
 use Pedreiro\Support\ValueCollection;
