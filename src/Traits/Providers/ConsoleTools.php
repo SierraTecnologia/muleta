@@ -269,6 +269,10 @@ trait ConsoleTools
      */
     protected function registerCommands(): void
     {
+        if (!property_exists($this, 'commands')) {
+            return ;
+        }
+        
         // Register artisan commands
         foreach ($this->commands as $key => $value) {
             $this->app->singleton($value, $key);
