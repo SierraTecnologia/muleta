@@ -19,6 +19,32 @@ Install via `composer require sierratecnologia/muleta`
 
 ## Usage
 
+## Get/Set Generator
+
+Use o Trait na classe e add a documentação corretamente
+
+```php
+use Muleta\Traits\Coder\GetSetTrait;
+    ...
+    /**
+     * Atributos
+     */
+    use GetSetTrait;
+
+    /**
+     * Identify ClassName
+     *
+     * @var          string
+     * @getter       true
+     * @setter       false
+     * @serializable true
+     */
+    protected $modelClass;
+    ...
+```
+
+
+
 ## Support Helpers
 
 ### `intend()`

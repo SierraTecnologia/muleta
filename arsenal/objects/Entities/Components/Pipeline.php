@@ -1,6 +1,6 @@
 <?php
 
-namespace SiObjects\Entitys\Components;
+namespace SiObjects\Entities\Components;
 
 use Finder\Routines\Contracts\Registrator;
 use Finder\Routines\Contracts\Notificator;
@@ -8,7 +8,7 @@ use Finder\Routines\Contracts\Notificator;
 /**
  * Class Pipeline
  *
- * @package SiObjects\Entitys\Components
+ * @package SiObjects\Entities\Components
  */
 class Pipeline
 {

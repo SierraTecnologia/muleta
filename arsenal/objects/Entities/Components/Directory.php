@@ -1,6 +1,6 @@
 <?php
 
-namespace SiObjects\Entitys\Components;
+namespace SiObjects\Entities\Components;
 
 /**
  * User Helper - Provides access to logged in user information in views.

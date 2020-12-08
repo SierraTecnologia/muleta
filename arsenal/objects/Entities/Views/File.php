@@ -3,7 +3,7 @@
  * 
  */
 
-namespace SiObjects\Entitys\Views;
+namespace SiObjects\Entities\Views;
 
 use Log;
 use Fabrica\Tools\Software\FilePrograms;

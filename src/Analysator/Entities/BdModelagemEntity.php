@@ -5,7 +5,7 @@
  * nao usado pra porra nenhuma ainda
  */
 
-namespace Muleta\Analysator\Entitys;
+namespace Muleta\Analysator\Entities;
 
 use Muleta\Analysator\Information\Group\EloquentGroup;
 use Muleta\Analysator\Information\HistoryType\AbstractHistoryType;

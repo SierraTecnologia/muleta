@@ -3,7 +3,7 @@
  * Version: 0.1
  */
 
-namespace SiObjects\Entitys\Components;
+namespace SiObjects\Entities\Components;
 
 use SiWeapons\Filesystem\Local;
 use SiWeapons\Filesystem\Dropbox;

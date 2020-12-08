@@ -3,7 +3,7 @@
  * 
  */
 
-namespace SiObjects\Entitys\Components;
+namespace SiObjects\Entities\Components;
 
 use Log;
 

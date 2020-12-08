@@ -3,7 +3,7 @@
  * Identifica as Tabelas e as Relaciona
  */
 
-namespace Muleta\Analysator\Entitys;
+namespace Muleta\Analysator\Entities;
 
 
 class BdColumn
