@@ -121,7 +121,7 @@ class Handler extends ExceptionHandler
     public function report(Throwable $exception)
     {
         if (config('app.env') !== 'production') {
-            dd($exception);
+            dd('HandlerMuleta', $exception);
         }
         if (\Illuminate\Support\Facades\Config::get('app.env')=='production' && app()->bound('sentry') && $this->shouldReport($exception)) {
             // Slack Report
