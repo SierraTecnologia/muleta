@@ -13,6 +13,12 @@ use JsonSerializable;
  */
 abstract class AbstractEntity implements Arrayable, JsonSerializable
 {
+
+    public static function init(array $array = [])
+    {
+        return new static($array);
+    }
+
     /**
      * @inheritdoc
      */
@@ -34,7 +40,7 @@ abstract class AbstractEntity implements Arrayable, JsonSerializable
      *
      * @return bool
      */
-    private function persist()
+    public function persist()
     {
         $this->model::create($this->toArray());
     }
