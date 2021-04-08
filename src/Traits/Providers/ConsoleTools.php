@@ -425,4 +425,24 @@ trait ConsoleTools
             }
         );
     }
+
+    // @todo FAzer carregamento de seeders para packkages
+    // protected function registerSeedsFrom($path)
+    // {
+    //     // foreach (glob("$path/*.php") as $filename)
+    //     // {
+    //     //     include $filename;
+    //     //     $classes = get_declared_classes();
+    //     //     $class = end($classes);
+
+    //     //     $command = Request::server('argv', null);
+    //     //     if (is_array($command)) {
+    //     //         $command = implode(' ', $command);
+    //     //         if ($command == "artisan db:seed") {
+    //     //             Artisan::call('db:seed', ['--class' => $class]);
+    //     //         }
+    //     //     }
+
+    //     // }
+    // }
 }

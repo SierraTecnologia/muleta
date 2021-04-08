@@ -1,17 +1,17 @@
 <?php
 
-namespace Muleta\Contracts\Objects;
+namespace Muleta\Modules\Eloquents\Displays;
 
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
 
 /**
- * Class AbstractEntity.
+ * Class EntityAbstract.
  *
  * @package Core\Entities
  */
-abstract class AbstractEntity implements Arrayable, JsonSerializable
+abstract class EntityAbstract implements Arrayable, JsonSerializable
 {
 
     public static function init(array $array = [])

@@ -1,20 +1,18 @@
 <?php
 
-namespace Muleta\Repositories;
+namespace Muleta\Modules\Eloquents\Displays;
 
 use Carbon\Carbon;
-use Translation\Repositories\TranslationRepository;
 use Illuminate\Support\Facades\Schema;
 
-class BaseRepository
+abstract class RepositoryAbstract
 {
 
     public $model;
 
-    public $table;
-
     public function __construct()
     {
+        
     }
 
     /**
@@ -100,7 +98,7 @@ class BaseRepository
         $query = $this->model->orderBy('created_at', 'desc');
         $query->where('id', 'LIKE', '%'.$payload['term'].'%');
 
-        $columns = Schema::getColumnListing($this->table);
+        $columns = Schema::getColumnListing($this->model->getTable());
 
         foreach ($columns as $attribute) {
             $query->orWhere($attribute, 'LIKE', '%'.$payload['term'].'%');
