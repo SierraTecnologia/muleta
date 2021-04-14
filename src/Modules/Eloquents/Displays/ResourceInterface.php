@@ -2,7 +2,7 @@
 
 namespace Muleta\Modules\Eloquents\Displays;
 
-interface ResourcesInterface
+interface ResourceInterface
 {
 
     /**

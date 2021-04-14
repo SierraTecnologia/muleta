@@ -4,228 +4,71 @@ namespace Muleta\Modules\Eloquents\Displays;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Container\Container as App;
+use App\Models\Model;
 
-abstract class RepositoryAbstract
+abstract class RepositoryAbstract implements RepositoryInterface
 {
 
-    public $model;
+    private $app;
 
-    public function __construct()
+    protected $model;
+
+    /*
+        Constructor
+    */ 
+
+    public function __construct(App $app)
     {
-        
+        $this->app = $app;
+        $this->makeModel();
     }
 
-    /**
-     * Returns all Widgets.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
+    abstract function model();
+
+    /*
+    Get all boards associated with the user
+    */
+
     public function all()
     {
-        return $this->model->orderBy('created_at', 'desc')->get()->all();
+        return $this->model->all();
     }
 
-    /**
-     * Returns all publishedAndPaginated items.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function publishedAndPaginated()
+    public function get($id)
     {
-        return $this->paginated();
+        return $this->find($id);
     }
 
-    /**
-     * Returns all paginated items.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function paginated()
-    {
-        $model = $this->model;
-
-        if (isset(request()->dir) && isset(request()->field)) {
-            $model = $model->orderBy(request()->field, request()->dir);
-        } else {
-            $model = $model->orderBy('created_at', 'desc');
-        }
-
-        return $model->paginate(\Illuminate\Support\Facades\Config::get('cms.pagination', 25));
-    }
-
-    /**
-     * Returns all published items.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function published()
-    {
-        return $this->model->where('is_published', 1)
-            ->where('published_at', '<=', Carbon::now(\Illuminate\Support\Facades\Config::get('app.timezone'))->format('Y-m-d H:i:s'))
-            ->orderBy('created_at', 'desc')
-            ->paginate(\Illuminate\Support\Facades\Config::get('cms.pagination', 24));
-    }
-
-    /**
-     * Returns all public items
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function arePublic()
-    {
-        if (Schema::hasColumn($this->model->getTable(), 'is_published')) {
-            $query = $this->model->where('is_published', 1);
-
-            if (Schema::hasColumn($this->model->getTable(), 'published_at')) {
-                $query->where('published_at', '<=', Carbon::now(\Illuminate\Support\Facades\Config::get('app.timezone'))->format('Y-m-d H:i:s'));
-            }
-
-            return $query->orderBy('created_at', 'desc')->get();
-        }
-
-        return $this->model->orderBy('created_at', 'desc')->get();
-    }
-
-    /**
-     * Search the columns of a given table
-     *
-     * @param array $payload
-     *
-     * @return array
-     */
-    public function search($payload)
-    {
-        $query = $this->model->orderBy('created_at', 'desc');
-        $query->where('id', 'LIKE', '%'.$payload['term'].'%');
-
-        $columns = Schema::getColumnListing($this->model->getTable());
-
-        foreach ($columns as $attribute) {
-            $query->orWhere($attribute, 'LIKE', '%'.$payload['term'].'%');
-        }
-
-        return [$query, $payload['term'], $query->paginate(25)->render()];
-    }
-
-    /**
-     * Stores Widgets into database.
-     *
-     * @param array $payload
-     *
-     * @return Widgets
-     */
-    public function store($payload)
-    {
-        return $this->model->create($payload);
-    }
-
-    /**
-     * Find Widgets by given id.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Support\Collection|null|static|Widgets
-     */
     public function find($id)
     {
         return $this->model->find($id);
     }
 
-    /**
-     * Find items by slug.
-     *
-     * @param int $slug
-     *
-     * @return \Illuminate\Support\Collection|null|static|Model
-     */
-    public function getBySlug($slug)
+    public function create(array $data)
     {
-        return $this->model->where('slug', $slug)->first();
+        return $this->model->create($data);
     }
 
-    /**
-     * Find items by url.
-     *
-     * @param int $url
-     *
-     * @return \Illuminate\Support\Collection|null|static|Model
-     */
-    public function getByUrl($url)
+    public function update($id, array $data)
     {
-        return $this->model->where('url', $url)->first();
+        return $this->model->where('id', '=', $id)->update($data);
     }
 
-    /**
-     * Updates items into database.
-     *
-     * @param Model $model
-     * @param array $payload
-     *
-     * @return Model
-     */
-    public function update($model, $payload)
+    public function delete($board)
     {
-        return $model->update($payload);
+        return $this->model->delete($board);
     }
 
-    /**
-     * Convert block payloads into json
-     *
-     * @param array  $payload
-     * @param string $module
-     *
-     * @return array
-     */
-    public function parseBlocks($payload, $module)
+    public function makeModel()
     {
-        $blockCollection = [];
-
-        foreach ($payload as $key => $value) {
-            if (stristr($key, 'block_')) {
-                $blockName = str_replace('block_', '', $key);
-                $blockCollection[$blockName] = $value;
-                unset($payload[$key]);
-            }
+        $model = $this->app->make($this->model());
+        if(!$model instanceof Model) {
+            // Throw a a repository exception
+            return 'error';
         }
 
-        $blockCollection = $this->parseTemplate($payload, $blockCollection, $module);
-
-        if (empty($blockCollection)) {
-            $payload['blocks'] = "{}";
-        } else {
-            $payload['blocks'] = json_encode($blockCollection);
-        }
-
-        return $payload;
+        return $this->model = $model;
     }
 
-    /**
-     * Parse the template for blocks.
-     *
-     * @param array $payload
-     * @param array $currentBlocks
-     *
-     * @return array
-     */
-    public function parseTemplate($payload, $currentBlocks, $module)
-    {
-        if (isset($payload['template'])) {
-            $content = file_get_contents(base_path('resources/themes/'.\Illuminate\Support\Facades\Config::get('cms.frontend-theme').'/'.$module.'/'.$payload['template'].'.blade.php'));
-
-            preg_match_all('/->block\((.*)\)/', $content, $pageMethodMatches);
-            preg_match_all('/\@block\((.*)\)/', $content, $bladeMatches);
-
-            $matches = array_unique(array_merge($pageMethodMatches[1], $bladeMatches[1]));
-
-            foreach ($matches as $match) {
-                $match = str_replace('"', "", $match);
-                $match = str_replace("'", "", $match);
-                if (!isset($currentBlocks[$match])) {
-                    $currentBlocks[$match] = '';
-                }
-            }
-        }
-
-        return $currentBlocks;
-    }
 }

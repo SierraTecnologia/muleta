@@ -5,16 +5,20 @@ namespace Muleta\Modules\Controllers\Api;
 use Request;
 use Schema;
 use Config;
+use Illuminate\Routing\Controller as BaseController;
 
-abstract class ApiControllerAbstract
+abstract class ApiControllerAbstract extends BaseController
 {
     use ApiControllerTrait;
 
     protected $model;
 
+    protected $modelOrderAttribute = 'created_at';
+    protected $modelOrderDirection = 'desc';
+
     public function __construct(Request $request)
     {
-        parent::__construct();
+        // parent::__construct();
 
         // $url = $request->segment(3) ?? 'page';
 
@@ -58,9 +62,10 @@ abstract class ApiControllerAbstract
             $query = $query->where('finished_at', '>=', Carbon::now(config('app.timezone'))->format('Y-m-d H:i:s'));
         }
 
-        return $query
-            ->orderBy('created_at', 'desc')
-            ->paginate(Config::get('cms.pagination', 24));
+        $objects = $query
+            ->orderBy($this->modelOrderAttribute, $this->modelOrderDirection)
+            ->paginate(Config::get('siravel.pagination', 24));
+        return new $this->modelCollection($objects);
     }
 
     /**
@@ -72,7 +77,7 @@ abstract class ApiControllerAbstract
      */
     public function search($term)
     {
-        $query = $this->model->orderBy('created_at', 'desc');
+        $query = $this->model->orderBy($this->modelOrderAttribute, $this->modelOrderDirection);
         $query->where('id', 'LIKE', '%'.$input['term'].'%');
 
         $columns = Schema::getColumnListing(str_plural($this->model));
@@ -83,7 +88,7 @@ abstract class ApiControllerAbstract
 
         return [
             'term' => $input['term'],
-            'result' => $query->paginate(Config::get('cms.pagination', 24)),
+            'result' => $query->paginate(Config::get('siravel.pagination', 24)),
         ];
     }
 }
