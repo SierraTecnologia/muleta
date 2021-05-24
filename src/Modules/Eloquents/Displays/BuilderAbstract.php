@@ -2,7 +2,6 @@
 
 namespace Muleta\Modules\Eloquents\Displays;
 
-use App\Contants\Tables;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -12,44 +11,37 @@ use Illuminate\Database\Eloquent\Builder;
  */
 class BuilderAbstract extends Builder
 {
-    // /**
-    //  * @var string
-    //  */
-    // private $subscriptionsTable = Tables::TABLE_SUBSCRIPTIONS;
+    
+    /**
+     * Forces the behavior of findOrFail in very find method - throwing a {@link ModelNotFoundException}
+     * when the model is not found.
+     *
+     * @var bool
+     */
+    public $throwOnFind = false;
 
-    // /**
-    //  * @param  string $ids
-    //  * @return $this
-    //  */
-    // public function whereIds(string $ids)
-    // {
-    //     return $this->whereIn("{$this->subscriptionsTable}.id", explode(',', $ids));
-    // }
+    public function find($id, $columns = array('*'))
+    {
+        return $this->maybeFail('find', func_get_args());
+    }
 
-    // /**
-    //  * @param  string $email
-    //  * @return $this
-    //  */
-    // public function whereEmailLike(string $email)
-    // {
-    //     return $this->where("{$this->subscriptionsTable}.email", 'like', $email);
-    // }
+    public function first($columns = array('*'))
+    {
+        return $this->maybeFail('first', func_get_args());
+    }
 
-    // /**
-    //  * @param  array $emails
-    //  * @return $this
-    //  */
-    // public function whereEmailIn(array $emails)
-    // {
-    //     return $this->whereIn("{$this->subscriptionsTable}.email", $emails);
-    // }
-
-    // /**
-    //  * @param  string $token
-    //  * @return $this
-    //  */
-    // public function whereTokenEquals(string $token)
-    // {
-    //     return $this->where("{$this->subscriptionsTable}.token", $token);
-    // }
+    /**
+     * Will test if it should run a normal method or its "orFail" version, and behave accordingly.
+     *
+     * @param  string $method called method
+     * @param  array  $args   given arguments
+     * @return mixed
+     */
+    protected function maybeFail($method, $args)
+    {
+        $debug  = debug_backtrace(false);
+        $orFail = $method.'OrFail';
+        $func   = ($this->throwOnFind && $debug[2]['function'] != $orFail)? array($this, $orFail) : "parent::$method";
+        return call_user_func_array($func, $args);
+    }
 }

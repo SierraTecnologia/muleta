@@ -7,7 +7,69 @@ class FeatureHelper
 {
     public static function allFeatures(): array
     {
+        $features = [];
+
+        /**
+         * Estatisticas em Tracking
+         */
+        $features[] = 'writelabel';
+        /**
+         * Modulo de CMS
+         */
+        $features[] = 'events';
+        $features[] = 'faqs';
+        $features[] = 'pages';
+        $features[] = 'blog';
+
+
+
+        $features[] = 'telefonica';
+
+        
+        /**
+         * Mensageria
+         */
+        $features[] = 'transmissor';
+
+        /**
+         * Modulo de Acessorios, Skills
+         */
         $features[] = 'espolio';
+
+        /**
+         * Modulo de Produtos, Planos
+         */
+        $features[] = 'commerce';
+
+        /**
+         * Bancario
+         */
+        $features[] = 'bancario';
+        $features[] = 'tradding';
+
+        /**
+         * Integrações
+         */
+        $features[] = 'integrations';
+        $features[] = 'services';
+
+        /**
+         * Informate
+         */
+        $features[] = 'social-relations';
+        $features[] = 'social-gostos';
+
+
+        /**
+         * Locais
+         */
+        $features[] = 'locaravel';
+        $features[] = 'locais';
+        
+        /**
+         * Trainning
+         */
+        $features[] = 'academy';
 
         return $features;
     }
