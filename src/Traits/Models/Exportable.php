@@ -3,7 +3,7 @@
 namespace Muleta\Traits\Models;
 
 // Deps
-use Bkwld\Library\Utils\Text as TextUtils;
+use Muleta\Library\Utils\Text as TextUtils;
 
 /**
  * Adds behavior for making the model exportable to CSV and potentially other
