@@ -120,6 +120,9 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $exception)
     {
+        if (config('app.env') !== 'production') {
+            dd('HandlerMuleta', $exception);
+        }
         if (\Illuminate\Support\Facades\Config::get('app.env')=='production' && app()->bound('sentry') && $this->shouldReport($exception)) {
             // Slack Report
             Log::channel('slack')->error('[PaymentService Fatal Error] Fatal erro: '.$exception->getMessage());
@@ -278,11 +281,11 @@ class Handler extends ExceptionHandler
     /**
      * Check the exception chain to compare against the original exception type.
      *
-     * @param  Exception $e
+     * @param  Throwable $e // Troquei de Exception p/ Throwable
      * @param  $type
      * @return bool
      */
-    protected function isExceptionType(Exception $e, $type)
+    protected function isExceptionType(Throwable $e, $type)
     {
         do {
             if (is_a($e, $type)) {
@@ -295,10 +298,10 @@ class Handler extends ExceptionHandler
     /**
      * Get original exception message.
      *
-     * @param  Exception $e
+     * @param  Throwable $e // Troquei de Exception p/ Throwable
      * @return string
      */
-    protected function getOriginalMessage(Exception $e)
+    protected function getOriginalMessage(Throwable $e)
     {
         do {
             $message = $e->getMessage();
@@ -324,7 +327,7 @@ class Handler extends ExceptionHandler
      *
      * @return \Illuminate\Http\Response
      */
-    protected function whoops(Exception $e)
+    protected function whoops(Throwable $e)
     {
         $whoops = new \Whoops\Run;
         $handler = new \Whoops\Handler\PrettyPageHandler;

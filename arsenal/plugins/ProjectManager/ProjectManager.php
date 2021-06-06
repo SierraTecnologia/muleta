@@ -75,6 +75,6 @@ class ProjectManager extends Base
      */
     public static function isInstall()
     {
-        return \Schema::hasTable('persons');
+        return \Schema::hasTable('persons') || \Schema::hasTable('businesses');
     }
 }

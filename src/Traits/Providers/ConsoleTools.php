@@ -22,6 +22,137 @@ trait ConsoleTools
         }
         return $returnName;
     }
+
+    /**
+     * Publish package migrations.
+     *
+     * @return void
+     */
+    protected function publishesMigrations(string $package, bool $isModule = false): void
+    {
+        $namespace = str_replace('laravel-', '', $package);
+        $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
+        $basePath = $isModule ? $this->app->path($package)
+            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.''.$package);
+
+        if (file_exists($path = $basePath.''.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations')) {
+            $stubs = $this->app['files']->glob($path.''.DIRECTORY_SEPARATOR.'*.php.stub');
+            $existing = $this->app['files']->glob($this->app->databasePath('migrations'.DIRECTORY_SEPARATOR.''.$package.''.DIRECTORY_SEPARATOR.'*.php'));
+
+            $migrations = collect($stubs)->flatMap(
+                function ($migration) use ($existing, $package) {
+                    $sequence = mb_substr(basename($migration), 0, 2);
+                    $match = collect($existing)->first(
+                        function ($item, $key) use ($migration, $sequence) {
+                            return mb_strpos($item, str_replace(['.stub', $sequence], '', basename($migration))) !== false;
+                        }
+                    );
+
+                    return [$migration => $this->app->databasePath('migrations'.DIRECTORY_SEPARATOR.''.$package.''.DIRECTORY_SEPARATOR.''.($match ? basename($match) : date('Y_m_d_His', time() + $sequence).str_replace(['.stub', $sequence], '', basename($migration))))];
+                }
+            )->toArray();
+
+            $this->publishes($migrations, $namespace.'-migrations');
+        }
+    }
+
+    /**
+     * Publish package config.
+     *
+     * @return void
+     */
+    protected function publishesConfig(string $package, bool $isModule = false): void
+    {
+        $namespace = str_replace('laravel-', '', $package);
+        $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
+        $basePath = $isModule ? $this->app->path($package)
+            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
+
+        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php')) {
+            $this->publishes([$path => $this->app->configPath(str_replace('-', '.', $namespace).'.php')], $namespace.'-config');
+        }
+    }
+
+    /**
+     * Publish package views.
+     *
+     * @return void
+     */
+    protected function publishesViews(string $package, bool $isModule = false): void
+    {
+        $namespace = str_replace('laravel-', '', $package);
+        $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
+        $basePath = $isModule ? $this->app->path($package)
+            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
+
+        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'views')) {
+            $this->publishes([$path => $this->app->resourcePath('views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$package)], $namespace.'-views');
+        }
+    }
+
+    /**
+     * Publish package lang.
+     *
+     * @return void
+     */
+    protected function publishesLang(string $package, bool $isModule = false): void
+    {
+        $namespace = str_replace('laravel-', '', $package);
+        $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
+        $basePath = $isModule ? $this->app->path($package)
+            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
+
+        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'lang')) {
+            $this->publishes([$path => $this->app->resourcePath('lang'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$package)], $namespace.'-lang');
+        }
+    }
+
+    /**
+     * Register console commands.
+     *
+     * @return void
+     */
+    protected function registerCommands(): void
+    {
+        // Register artisan commands
+        foreach ($this->commands as $key => $value) {
+            $this->app->singleton($value, $key);
+        }
+
+        $this->commands(array_values($this->commands));
+    }
+
+    /**
+     * Register console commands.
+     *
+     * @return void
+     */
+    protected function registerCommandFolders($folders): void
+    {
+        // if (!$folders) {
+        //     $folders = $this->commandFolders;
+        // }
+        // if (is_string($folders)) {
+        //     $folders = [$folders];
+        // }
+
+        $commands = [];
+
+        if (empty($folders)) {
+            return ;
+        }
+
+        // Register artisan commands
+        foreach ($folders as $key => $value) {
+            if (file_exists($key) && is_dir($key)) {
+                $commands = array_merge(
+                    $commands,
+                    $this->loadCommandsFromPath($key, $value)
+                );
+            }
+        }
+        $this->commands(array_values($commands));
+    }
     
     protected function loadRoutesForRiCa($path)
     {
@@ -179,141 +310,6 @@ trait ConsoleTools
     }
 
     /**
-     * Publish package migrations.
-     *
-     * @return void
-     */
-    protected function publishesMigrations(string $package, bool $isModule = false): void
-    {
-        $namespace = str_replace('laravel-', '', $package);
-        $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
-        $basePath = $isModule ? $this->app->path($package)
-            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.''.$package);
-
-        if (file_exists($path = $basePath.''.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations')) {
-            $stubs = $this->app['files']->glob($path.''.DIRECTORY_SEPARATOR.'*.php.stub');
-            $existing = $this->app['files']->glob($this->app->databasePath('migrations'.DIRECTORY_SEPARATOR.''.$package.''.DIRECTORY_SEPARATOR.'*.php'));
-
-            $migrations = collect($stubs)->flatMap(
-                function ($migration) use ($existing, $package) {
-                    $sequence = mb_substr(basename($migration), 0, 2);
-                    $match = collect($existing)->first(
-                        function ($item, $key) use ($migration, $sequence) {
-                            return mb_strpos($item, str_replace(['.stub', $sequence], '', basename($migration))) !== false;
-                        }
-                    );
-
-                    return [$migration => $this->app->databasePath('migrations'.DIRECTORY_SEPARATOR.''.$package.''.DIRECTORY_SEPARATOR.''.($match ? basename($match) : date('Y_m_d_His', time() + $sequence).str_replace(['.stub', $sequence], '', basename($migration))))];
-                }
-            )->toArray();
-
-            $this->publishes($migrations, $namespace.'-migrations');
-        }
-    }
-
-    /**
-     * Publish package config.
-     *
-     * @return void
-     */
-    protected function publishesConfig(string $package, bool $isModule = false): void
-    {
-        $namespace = str_replace('laravel-', '', $package);
-        $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
-        $basePath = $isModule ? $this->app->path($package)
-            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
-
-        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php')) {
-            $this->publishes([$path => $this->app->configPath(str_replace('-', '.', $namespace).'.php')], $namespace.'-config');
-        }
-    }
-
-    /**
-     * Publish package views.
-     *
-     * @return void
-     */
-    protected function publishesViews(string $package, bool $isModule = false): void
-    {
-        $namespace = str_replace('laravel-', '', $package);
-        $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
-        $basePath = $isModule ? $this->app->path($package)
-            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
-
-        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'views')) {
-            $this->publishes([$path => $this->app->resourcePath('views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$package)], $namespace.'-views');
-        }
-    }
-
-    /**
-     * Publish package lang.
-     *
-     * @return void
-     */
-    protected function publishesLang(string $package, bool $isModule = false): void
-    {
-        $namespace = str_replace('laravel-', '', $package);
-        $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
-        $basePath = $isModule ? $this->app->path($package)
-            : $this->app->basePath('vendor'.DIRECTORY_SEPARATOR.$package);
-
-        if (file_exists($path = $basePath.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'lang')) {
-            $this->publishes([$path => $this->app->resourcePath('lang'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$package)], $namespace.'-lang');
-        }
-    }
-
-    /**
-     * Register console commands.
-     *
-     * @return void
-     */
-    protected function registerCommands(): void
-    {
-        if (!property_exists($this, 'commands')) {
-            return ;
-        }
-        
-        // Register artisan commands
-        foreach ($this->commands as $key => $value) {
-            $this->app->singleton($value, $key);
-        }
-
-        $this->commands(array_values($this->commands));
-    }
-
-    /**
-     * Register console commands.
-     *
-     * @return void
-     */
-    protected function registerCommandFolders($folders): void
-    {
-        // if (!$folders) {
-        //     $folders = $this->commandFolders;
-        // }
-        // if (is_string($folders)) {
-        //     $folders = [$folders];
-        // }
-
-        $commands = [];
-
-        if (empty($folders)) {
-            return ;
-        }
-
-        // Register artisan commands
-        foreach ($folders as $key => $value) {
-            if (file_exists($key) && is_dir($key)) {
-                $commands = array_merge(
-                    $commands,
-                    $this->loadCommandsFromPath($key, $value)
-                );
-            }
-        }
-        $this->commands(array_values($commands));
-    }
-
-    /**
      * @param  string $path
      * @return $this
      */
@@ -429,4 +425,24 @@ trait ConsoleTools
             }
         );
     }
+
+    // @todo FAzer carregamento de seeders para packkages
+    // protected function registerSeedsFrom($path)
+    // {
+    //     // foreach (glob("$path/*.php") as $filename)
+    //     // {
+    //     //     include $filename;
+    //     //     $classes = get_declared_classes();
+    //     //     $class = end($classes);
+
+    //     //     $command = Request::server('argv', null);
+    //     //     if (is_array($command)) {
+    //     //         $command = implode(' ', $command);
+    //     //         if ($command == "artisan db:seed") {
+    //     //             Artisan::call('db:seed', ['--class' => $class]);
+    //     //         }
+    //     //     }
+
+    //     // }
+    // }
 }

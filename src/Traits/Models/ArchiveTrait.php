@@ -17,7 +17,7 @@ class ArchiveTrait extends Base
     {
         parent::__construct($attributes);
 
-        if (\Illuminate\Support\Facades\Config::get('cms.db-prefix', '')) {
+        if (\Illuminate\Support\Facades\Config::get('siravel.db-prefix', '')) {
             $this->table = $this->table;
         }
     }
