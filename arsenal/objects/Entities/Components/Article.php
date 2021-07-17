@@ -5,8 +5,8 @@
 
 namespace SiObjects\Entities\Components;
 
-use Finder\Routines\Contracts\Registrator;
-use Finder\Routines\Contracts\Notificator;
+use Operador\Contracts\Registrator;
+use Operador\Contracts\Notificator;
 
 class Article implements Registrator,Notificator
 {
