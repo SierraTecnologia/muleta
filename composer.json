@@ -47,6 +47,9 @@
         "vimeo/psalm": "^4.0",
         "phpro/grumphp": ">=1.3"
     },
+    "suggest": {
+        "illuminate/database": "Required to helper class to use laravel eloquent without laravel"
+    },
     "autoload": {
         "psr-4": {
             "Muleta\\": "src/",
