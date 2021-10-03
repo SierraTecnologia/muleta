@@ -70,7 +70,7 @@ class MailerFactory
      * @param  $configName
      * @return null|string
      */
-    public function getMailConfig($configName)
+    public function getMailConfig(string $configName)
     {
         if (isset($this->emailConfig[$configName]) && $this->emailConfig[$configName] != "") {
             return $this->emailConfig[$configName];

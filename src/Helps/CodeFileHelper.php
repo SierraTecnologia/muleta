@@ -10,12 +10,15 @@ namespace Muleta\Helps;
 class CodeFileHelper
 {
     
-    public static function getClassName($class)
+    public static function getClassName($class): string
     {
         $class = explode("\\", self::getFullClassName($class));
         return $class[count($class)-1];
     }
     
+    /**
+     * @return class-string|false
+     */
     public static function getFullClassName($class)
     {
         return get_class($class);

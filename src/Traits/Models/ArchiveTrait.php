@@ -26,8 +26,10 @@ class ArchiveTrait extends Base
      * After the item is saved to the database.
      *
      * @param object $payload
+     *
+     * @return void
      */
-    public function afterSaved($payload)
+    public function afterSaved($payload): void
     {
         if (!request()->is('admin/revert/*') && !request()->is('admin/rollback/*/*')) {
             unset($payload->attributes['created_at']);
@@ -53,8 +55,10 @@ class ArchiveTrait extends Base
      * When the item is being deleted.
      *
      * @param object $payload
+     *
+     * @return void
      */
-    public function beingDeleted($payload)
+    public function beingDeleted($payload): void
     {
         $type = get_class($payload);
         $id = $payload->id;

@@ -60,6 +60,11 @@ abstract class RepositoryAbstract implements RepositoryInterface
         return $this->model->delete($board);
     }
 
+    /**
+     * @return Model|string
+     *
+     * @psalm-return 'error'|Model
+     */
     public function makeModel()
     {
         $model = $this->app->make($this->model());

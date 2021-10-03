@@ -9,7 +9,7 @@ use Log;
 
 class ArrayModificator
 {
-    public static function includeKeyFromAtribute($oldArray, $attributeFromArray)
+    public static function includeKeyFromAtribute($oldArray, $attributeFromArray): array
     {
         $newArray = [];
         foreach ($oldArray as $column) {
@@ -21,8 +21,10 @@ class ArrayModificator
 
     /**
      * Se nao for um array, faz virar um adicionando o indexe se quiser;
+     *
+     * @return array
      */
-    public static function convertToArrayWithIndex($arrayOrString, $index)
+    public static function convertToArrayWithIndex($arrayOrString, $index): array
     {
         if (is_array($arrayOrString)) {
             return $arrayOrString;

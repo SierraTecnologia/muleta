@@ -14,15 +14,17 @@ class ClasserExtractor
 
 
     /**
-     * 
+     * @return string[]
+     *
+     * @psalm-return non-empty-list<string>
      */
-    public static function getNamespace($className)
+    public static function getNamespace($className): array
     {
         // $namespaceWithoutModels = explode("Models\\", $this->className);
         // return join(array_slice(explode("\\", $namespaceWithoutModels[1]), 0, -1), "\\");
         return explode("\\", $className);
     }
-    public static function getPackageNamespace($className)
+    public static function getPackageNamespace($className): string
     {
         return self::getNamespace($className)[0];
     }
@@ -35,6 +37,8 @@ class ClasserExtractor
     
     /**
      * @todo tirar daqui
+     *
+     * @param false|get-class-of<$class> $classOrReflectionClass
      */
     public static function getFileName($classOrReflectionClass = false)
     {

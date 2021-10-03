@@ -12,13 +12,15 @@ class FileExtractor
     
     /**
      * Retorna Nome no Singular caso nao exista, e minusculo
+     *
+     * @return string
      */
-    public static function getFileName($filePath)
+    public static function getFileName($filePath): string
     {
         $filePathParts = explode(DIRECTORY_SEPARATOR, $filePath);
         return array_pop($filePathParts);
     }
-    public static function getFolderPathFromFile($filePath)
+    public static function getFolderPathFromFile($filePath): string
     {
         $filePathParts = explode(DIRECTORY_SEPARATOR, $filePath);
         array_pop($filePathParts);
@@ -27,10 +29,12 @@ class FileExtractor
 
     /**
      * $filePath String localizacao do arquivo
-     * 
+     *
      * $ignore começo do arquivo a se ignorar
+     *
+     * @return Collection
      */
-    public static function returnFoldersInarray($filePath, $ignore = false)
+    public static function returnFoldersInarray($filePath, $ignore = false): self
     {
         if($ignore) {
             $filePath = \str_replace($ignore, '', $filePath);

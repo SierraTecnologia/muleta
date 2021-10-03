@@ -71,7 +71,7 @@ class Classify
         return "\n\t$visibility function $name()\n\t{\n\t\t$body\n\t}\n";
     }
 
-    public function mixin($class)
+    public function mixin($class): string
     {
         if (Str::startsWith($class, '\\')) {
             $class = Str::replaceFirst('\\', '', $class);

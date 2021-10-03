@@ -10,7 +10,7 @@ if (!function_exists('config')) {
 /**
  * To use, add in your composer "illuminate/database":
  */
-if (class_exists(\Illuminate\Database\Capsule\Manager::class)) {
+if (class_exists('\Illuminate\Database\Capsule\Manager')) {
     try {
         // CHeck if Database.sqlite file exist
         $databaseFileSqlite = __DIR__."/../../database.sqlite";

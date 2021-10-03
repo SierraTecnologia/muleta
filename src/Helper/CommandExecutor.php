@@ -391,6 +391,8 @@ class CommandExecutor implements CommandExecutorInterface
      * Set the buildPath property.
      *
      * @param string $path
+     *
+     * @return void
      */
     public function setBuildPath($path)
     {
@@ -400,7 +402,12 @@ class CommandExecutor implements CommandExecutorInterface
 
 
 
-    private function getDefaultEnv()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array<string>
+     */
+    private function getDefaultEnv(): array
     {
         $env = array();
 

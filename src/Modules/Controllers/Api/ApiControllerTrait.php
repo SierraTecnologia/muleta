@@ -53,8 +53,12 @@ trait ApiControllerTrait
     /**
      * Response com Array
      * [success] {Bollean}
+     *
+     * @return array
+     *
+     * @psalm-return array{success: mixed}
      */
-    protected function defaultResponse($success=true)
+    protected function defaultResponse($success=true): array
     {
         return [
             'success' => $success
@@ -65,8 +69,10 @@ trait ApiControllerTrait
      * Response com Array
      * [success] true
      * [message] {String}
+     *
+     * @return array
      */
-    protected function responseWithMessage($message)
+    protected function responseWithMessage($message): array
     {
         $array = [
             'message' => $message
@@ -78,8 +84,10 @@ trait ApiControllerTrait
      * Response com Array
      * [success] false
      * [message] {String}
+     *
+     * @return array
      */
-    protected function responseWithErrorMessage($message)
+    protected function responseWithErrorMessage($message): array
     {
         $array = [
             'message' => $message
@@ -92,8 +100,10 @@ trait ApiControllerTrait
      * Response com Array
      * [success] false
      * [message] {String}
+     *
+     * @return array
      */
-    protected function responseWithErrors($validation)
+    protected function responseWithErrors($validation): array
     {
         $errors = $validation->messages();
         return $this->responseWithErrorMessage($errors[0]);
@@ -103,8 +113,10 @@ trait ApiControllerTrait
      * Response com Array
      * [success] false
      * [data] {Array}
+     *
+     * @return array
      */
-    protected function responseWithData($data)
+    protected function responseWithData($data): array
     {
         $array = [
             'data' => $data

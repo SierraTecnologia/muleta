@@ -33,10 +33,9 @@ class ErrorHelper
 
 
     /**
-     *
-     * @return void
+     * @return string
      */
-    public static function registerError($error, $type = 'error')
+    public static function registerError(string $error, $type = 'error'): string
     {
         if ($type === 'error') {
             Log::channel('sitec-support')->error($error);
@@ -79,10 +78,9 @@ class ErrorHelper
     }
 
     /**
-     *
-     * @return void
+     * @return bool
      */
-    public static function isToIgnore($error)
+    public static function isToIgnore($error): bool
     {
         if (empty($error)) {
             return true;
@@ -109,10 +107,9 @@ class ErrorHelper
         return false;
     }
     /**
-     *
-     * @return void
+     * @return bool
      */
-    public static function isToDebug($reference = false)
+    public static function isToDebug($reference = false): bool
     {
         if (!$reference || empty($reference)) {
             return false;

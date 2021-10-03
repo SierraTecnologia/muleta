@@ -11,8 +11,10 @@ class DbalExtractor
     
     /**
      * Retorna Nome no Singular caso nao exista, e minusculo
+     *
+     * @return array
      */
-    public static function generateWhere($columns, $data)
+    public static function generateWhere($columns, $data): array
     {
         $where = [];
         foreach ($columns as $column) {
@@ -26,7 +28,7 @@ class DbalExtractor
         return $where;
     }
 
-    public static function generateWhereFromData($data, $indices)
+    public static function generateWhereFromData($data, $indices): \Illuminate\Support\Collection
     {
         $wheresArray = [];
         foreach ($indices as $index) {

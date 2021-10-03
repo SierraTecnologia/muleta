@@ -27,8 +27,10 @@ class BuildInterpolator
      * @param $url
      *
      * @throws Exception
+     *
+     * @return void
      */
-    public function setupInterpolationVars(BaseBuild $build, $url)
+    public function setupInterpolationVars(BaseBuild $build, $url): void
     {
         $this->interpolationVars = [];
 

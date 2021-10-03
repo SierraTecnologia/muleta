@@ -25,7 +25,7 @@ class LoggerService
         // }
     }
 
-    public function addLogger($logMessage)
+    public function addLogger($logMessage): void
     {
         $this->logs[] = $logMessage;
     }

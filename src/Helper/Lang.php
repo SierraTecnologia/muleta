@@ -71,7 +71,7 @@ class Lang
      *
      * @return bool
      */
-    public static function setLanguage($language)
+    public static function setLanguage(string $language)
     {
         if (in_array($language, self::$languages)) {
             self::$language = $language;
@@ -115,6 +115,8 @@ class Lang
      *
      * @param Config $config
      * @param string $languageForce
+     *
+     * @return void
      */
     public static function init(Config $config, $languageForce = null)
     {
@@ -177,8 +179,10 @@ class Lang
 
     /**
      * Load the names of all available languages.
+     *
+     * @return void
      */
-    protected static function loadAvailableLanguages()
+    protected static function loadAvailableLanguages(): void
     {
         $matches = [];
         foreach (glob(SRC_DIR . 'Languages/lang.*.php') as $file) {

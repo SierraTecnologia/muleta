@@ -4,11 +4,12 @@
 class File {
 
 	/**
-	 * Get the max upload size
+	 * 	 * Get the max upload size
+	 * 	 *
 	 *
-	 * @return  int Max upload size in bytes
+	 * @return float Max upload size in bytes
 	 */
-	static public function maxUpload() {
+	static public function maxUpload(): float {
 		return min(
 			Text::bytesFromHuman(ini_get('post_max_size')),
 			Text::bytesFromHuman(ini_get('upload_max_filesize')),
@@ -190,10 +191,13 @@ class File {
 	}
 
 	/**
-	 * Set the appropriate headers to trigger a file download.  I took this from:
-	 * http://davidwalsh.name/php-force-download
+	 * 	 * Set the appropriate headers to trigger a file download.  I took this from:
+	 * 	 * http://davidwalsh.name/php-force-download
+	 * 	 *
 	 *
 	 * @param string $path The absolute path to the file
+	 *
+	 * @return never
 	 */
 	static public function download($path) {
 
@@ -228,9 +232,12 @@ class File {
 	}
 
 	/**
-	 * Output an image directly to the browser
+	 * 	 * Output an image directly to the browser
+	 * 	 *
 	 *
 	 * @param $string src The server path to an image
+	 *
+	 * @return never
 	 */
 	static public function image($src) {
 

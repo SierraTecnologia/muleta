@@ -6,7 +6,7 @@ use PHPCensor\Model\Project;
 
 class Branch
 {
-    public static function getDefaultBranchName($projectType)
+    public static function getDefaultBranchName($projectType): string
     {
         switch ($projectType) {
         case Project::TYPE_HG:

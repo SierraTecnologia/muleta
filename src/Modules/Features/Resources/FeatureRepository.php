@@ -8,6 +8,11 @@ use Muleta\Modules\Eloquents\Displays\RepositoryAbstract;
 
 class FeatureRepository extends RepositoryAbstract
 {
+    /**
+     * @return string
+     *
+     * @psalm-return Feature::class
+     */
     public function model()
     {
         return Feature::class;

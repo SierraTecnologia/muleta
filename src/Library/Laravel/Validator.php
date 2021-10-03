@@ -23,27 +23,29 @@ class Validator {
 	];
 
 	/**
-	 * Is like the unique validator but tests multiple columns.  All columns
-	 * must be the same for the validation to fail.
+	 * 	 * Is like the unique validator but tests multiple columns.  All columns
+	 * 	 * must be the same for the validation to fail.
+	 * 	 *
+	 * 	 * Note: It looks for the values of the other referenced column from Input::get()
+	 * 	 * Note: If useing with Decoy slugs, don't forget that foreign keys unique-where
+	 * 	 *   clauses are added for free by Bkwld\Decoy\Input\Slug
+	 * 	 *
+	 * 	 * Params:
+	 * 	 * - Table name
+	 * 	 * - The other columns.  Semicolon delimited
+	 * 	 * - Optional column name of the attribute
+	 * 	 * - Optional id to ignore
+	 * 	 * - Optional column for id
+	 * 	 *
+	 * 	 * Example:
+	 * 	 * array(
+	 * 	 * 	'slug' => 'unique_with:tags,type;category,slug,10'
+	 * 	 * )
+	 * 	 *
 	 *
-	 * Note: It looks for the values of the other referenced column from Input::get()
-	 * Note: If useing with Decoy slugs, don't forget that foreign keys unique-where
-	 *   clauses are added for free by Bkwld\Decoy\Input\Slug
-	 *
-	 * Params:
-	 * - Table name
-	 * - The other columns.  Semicolon delimited
-	 * - Optional column name of the attribute
-	 * - Optional id to ignore
-	 * - Optional column for id
-	 *
-	 * Example:
-	 * array(
-	 * 	'slug' => 'unique_with:tags,type;category,slug,10'
-	 * )
-	 *
+	 * @return bool
 	 */
-	public function uniqueWith($attribute, $value, $parameters) {
+	public function uniqueWith($attribute, $value, $parameters): bool {
 
 		// You must specify additional columns
 		if (!isset($parameters[0]) || !isset($parameters[1])) throw new Exception('Table and additional columns must be provided');
@@ -73,9 +75,11 @@ class Validator {
 	}
 
 	/**
-	 * Test if a the field has a file or references a valid file path
+	 * 	 * Test if a the field has a file or references a valid file path
+	 *
+	 * @return bool
 	 */
-	public function file($attribute, $value, $parameters) {
+	public function file($attribute, $value, $parameters): bool {
 		if ($value instanceof File && $value->getPath() != '') return true;
 		if (is_array($value) && is_file(public_path().$value[0])) return true; // How replaced files look
 		if (is_string($value) && is_file(public_path().$value)) return true;

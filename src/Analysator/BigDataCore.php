@@ -21,8 +21,10 @@ class BigDataCore
     }
     /**
      * Helpers Generates
-     */ 
-    public function run()
+     *
+     * @return void
+     */
+    public function run(): void
     {
 
         $allTables = [];
@@ -54,8 +56,10 @@ class BigDataCore
 
     /**
      * Helpers Generates
-     */ 
-    public function calculosParaRelationColumn()
+     *
+     * @return void
+     */
+    public function calculosParaRelationColumn(): void
     {
         // Total
 
@@ -63,7 +67,7 @@ class BigDataCore
 
         // Maximo e Minimo
     }
-    public function calculosParaFloat()
+    public function calculosParaFloat(): void
     {
         // Total
 
@@ -73,7 +77,7 @@ class BigDataCore
     }
 
     // Os calculos Assina Sao Calculos para cada um dos grupos abaixo
-    public function agrupamentosParaCalculo()
+    public function agrupamentosParaCalculo(): void
     {
         // Incluindo Todos os Modelos que possuem o mesmo nome na coluna
 

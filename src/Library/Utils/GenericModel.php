@@ -62,12 +62,14 @@ abstract class GenericModel {
 	}
 
 	/**
-	 * Determine if an attribute exists on the model.
+	 * 	 * Determine if an attribute exists on the model.
+	 * 	 *
 	 *
-	 * @param  string  $key
-	 * @return void
+	 * @param string  $key
+	 *
+	 * @return bool
 	 */
-	public function __isset($key) {
+	public function __isset($key): bool {
 		return isset($this->attributes[$key]);
 	}
 
