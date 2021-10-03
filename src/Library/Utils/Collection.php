@@ -24,10 +24,12 @@ class Collection {
 	}
 
 	/**
-	 * Check if the key is either in an array (it is the value of
-	 * a numeric key) or if it itself a key
+	 * 	 * Check if the key is either in an array (it is the value of
+	 * 	 * a numeric key) or if it itself a key
+	 *
+	 * @return bool
 	 */
-	static public function keyOrValueExists($key, $ar) {
+	static public function keyOrValueExists($key, $ar): bool {
 		return array_key_exists($key, $ar) || in_array($key, $ar);
 	}
 

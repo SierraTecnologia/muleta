@@ -14,7 +14,10 @@ class SmsMessage
     public $callbackOption;
     public $flashSms;
 
-    public static function create($msg = null)
+    /**
+     * @return static
+     */
+    public static function create($msg = null): self
     {
         return new static($msg);
     }
@@ -24,55 +27,84 @@ class SmsMessage
         $this->msg($msg);
     }
 
-    public function from($from)
+    /**
+     * @return static
+     */
+    public function from($from): self
     {
         $this->from = $from;
         return $this;
     }
 
-    public function to($to)
+    /**
+     * @return static
+     */
+    public function to($to): self
     {
         $this->to = $to;
         return $this;
     }
 
-    public function msg($msg)
+    /**
+     * @return static
+     */
+    public function msg($msg): self
     {
         $this->msg = $msg;
         return $this;
     }
 
-    public function content($content)
+    /**
+     * @return static
+     */
+    public function content($content): self
     {
         $this->msg($content);
         return $this;
     }
 
-    public function id($id)
+    /**
+     * @return static
+     */
+    public function id($id): self
     {
         $this->id = $id;
         return $this;
     }
 
-    public function schedule($schedule)
+    /**
+     * @return static
+     */
+    public function schedule($schedule): self
     {
         $this->schedule = $schedule;
         return $this;
     }
 
-    public function callbackOption($callbackOption)
+    /**
+     * @return static
+     */
+    public function callbackOption($callbackOption): self
     {
         $this->callbackOption = $callbackOption;
         return $this;
     }
 
-    public function flashSms($flashSms)
+    /**
+     * @return static
+     */
+    public function flashSms($flashSms): self
     {
         $this->flashSms = $flashSms;
         return $this;
     }
 
-    public function toArray()
+    /**
+     * @return array
+     *
+     * @psalm-return array{from: mixed, to: mixed, msg: mixed, id: mixed, schedule: mixed, callbackOption: mixed, flashSms: mixed}
+     */
+    public function toArray(): array
     {
         return [
             'from'           => $this->from,

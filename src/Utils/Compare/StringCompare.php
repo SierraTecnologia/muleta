@@ -13,7 +13,7 @@ class StringCompare
 {
 
 
-    public static function isSimilar($strOne, $strTwo)
+    public static function isSimilar($strOne, $strTwo): bool
     {
         if (is_array($strOne)) {
             foreach ($strOne as $str) {

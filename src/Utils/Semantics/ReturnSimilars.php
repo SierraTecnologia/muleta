@@ -23,7 +23,7 @@ class ReturnSimilars
         $this->word = strtolower($word);    
     }
 
-    public function returnSimilars()
+    public function returnSimilars(): array
     {
         $word = $this->word;
         
@@ -38,7 +38,7 @@ class ReturnSimilars
     }
 
 
-    public static function getSimilarsFor($word)
+    public static function getSimilarsFor($word): array
     {
         if (empty($word)) {
             return [];

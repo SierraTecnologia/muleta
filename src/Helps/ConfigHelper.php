@@ -6,7 +6,12 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 class ConfigHelper
 {
-    public static function ignoreFolders()
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{0: 'vendor'}
+     */
+    public static function ignoreFolders(): array
     {
         return [
             'vendor'

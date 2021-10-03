@@ -10,8 +10,10 @@ class ArrayCompare
 {
     /**
      * @todo fazer nao usado ainda
+     *
+     * @return void
      */
-    public static function isSimilar($arrayOne, $arrayTwo)
+    public static function isSimilar($arrayOne, $arrayTwo): void
     {
         
     }

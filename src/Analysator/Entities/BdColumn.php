@@ -30,8 +30,10 @@ class BdColumn
 
     /**
      * Tabelas que agem, tipo usuarios, empresas, robos, etc..
+     *
+     * @return void
      */
-    public function isAction()
+    public function isAction(): void
     {
 
     }
@@ -39,9 +41,9 @@ class BdColumn
     /**
      * Algo que aconteceu. Nao pode ser Alteravel, tbm é imutavel
      *
-     * @return void
+     * @return array
      */
-    public function isEvent()
+    public function isEvent(): array
     {
         $type = 'int'; // Inteiro somente para exemplo
 
@@ -59,8 +61,10 @@ class BdColumn
 
     /**
      * Tabelas Imutaveis, Tipo Categorias, Gostos, etc.. o Nome nao Muda (No maximo, corrige ou acrescenta informacao)
-     */ 
-    public function registerIsImutavel()
+     *
+     * @return void
+     */
+    public function registerIsImutavel(): void
     {
 
         $allTables = [];
@@ -70,8 +74,10 @@ class BdColumn
     }
     /**
      * Tabelas que Evoluem (Empresa por exemplo, Pessoas)
-     */ 
-    public function registerIsEvolutite()
+     *
+     * @return void
+     */
+    public function registerIsEvolutite(): void
     {
 
         $allTables = [];
@@ -81,8 +87,10 @@ class BdColumn
     }
     /**
      * Tabelas Dinamicas, que os valores variam muito
-     */ 
-    public function registerIsDinamic()
+     *
+     * @return void
+     */
+    public function registerIsDinamic(): void
     {
 
         $allTables = [];
@@ -99,8 +107,12 @@ class BdColumn
 
     /**
      * Agrupando
-     */ 
-    public function groupByNamespace()
+     *
+     * @return (array|string)[]
+     *
+     * @psalm-return array{name: 'Calendar', localeNamespace: 'App\Models', tables: array<empty, empty>}
+     */
+    public function groupByNamespace(): array
     {
         $namespaces = [];
         $namespaces = [

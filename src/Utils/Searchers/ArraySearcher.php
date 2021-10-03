@@ -26,7 +26,12 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 
 class ArraySearcher
 {
-    public static function arrayIsearch($str, $array)
+    /**
+     * @return (int|string)[]|false
+     *
+     * @psalm-return false|non-empty-list<array-key>
+     */
+    public static function arrayIsearch($str, array $array)
     {
         if (empty($str) || is_null($str) || $str===false) {
             return false;
@@ -73,7 +78,12 @@ class ArraySearcher
         return $found;
     }
 
-    public static function arraySearchByAttribute($str, $array, $attribute)
+    /**
+     * @return array|false
+     *
+     * @psalm-return false|non-empty-list<mixed>
+     */
+    public static function arraySearchByAttribute($str, array $array, $attribute)
     {
         if (empty($str) || is_null($str) || $str===false) {
             return false;

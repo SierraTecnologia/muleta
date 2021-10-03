@@ -42,7 +42,7 @@ class LoadLaravel
         }
     }
 
-    public function getMigrationsPaths()
+    public function getMigrationsPaths(): array
     {
         return (new Collection($this->migrationsPaths))->map(
             function ($value) {
@@ -51,7 +51,7 @@ class LoadLaravel
         )->values()->all();
     }
 
-    public function addMigrationsPaths($migrationsPaths)
+    public function addMigrationsPaths($migrationsPaths): bool
     {
         if (is_string($migrationsPaths)) {
             $migrationsPaths = [$migrationsPaths];
@@ -70,9 +70,9 @@ class LoadLaravel
     }
 
     /**
-     * 
+     * @return void
      */
-    public function runAll()
+    public function runAll(): void
     {
         // if (!function_exists('config')) {
         //     function \Illuminate\Support\Facades\Config::get($address, $defaultValue) {
@@ -93,6 +93,11 @@ class LoadLaravel
 
 
 
+    /**
+     * @return Finder|array
+     *
+     * @psalm-return Finder|array<empty, empty>
+     */
     public function runMigrations()
     {
         $finder = new Finder();

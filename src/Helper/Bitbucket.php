@@ -20,9 +20,9 @@ class Bitbucket
      * @param int    $line
      * @param string $comment
      *
-     * @return null
+     * @return void
      */
-    public function createPullRequestComment($repo, $pullId, $commitId, $file, $line, $comment)
+    public function createPullRequestComment($repo, $pullId, $commitId, $file, $line, $comment): void
     {
         $username = Config::getInstance()->get('php-censor.bitbucket.username');
         $appPassword = Config::getInstance()->get('php-censor.bitbucket.app_password');
@@ -58,14 +58,15 @@ class Bitbucket
     /**
      * Create a comment on a Bitbucket commit.
      *
-     * @param  $repo
-     * @param  $commitId
-     * @param  $file
-     * @param  $line
-     * @param  $comment
-     * @return null
+     * @param $repo
+     * @param $commitId
+     * @param $file
+     * @param $line
+     * @param $comment
+     *
+     * @return void
      */
-    public function createCommitComment($repo, $commitId, $file, $line, $comment)
+    public function createCommitComment($repo, $commitId, $file, $line, $comment): void
     {
         $username = Config::getInstance()->get('php-censor.bitbucket.username');
         $appPassword = Config::getInstance()->get('php-censor.bitbucket.app_password');
@@ -102,7 +103,7 @@ class Bitbucket
      * @param string $repo
      * @param int    $pullRequestId
      *
-     * @return string
+     * @return null|string
      */
     public function getPullRequestDiff($repo, $pullRequestId)
     {

@@ -23,7 +23,7 @@ class Markdown
         return $this->htmlParser->convert($html);
     }
 
-    public function convertMarkdownToHtml($markdown)
+    public function convertMarkdownToHtml($markdown): string
     {
         $convertedHmtl = $this->markdownParser->setBreaksEnabled(true)->text($markdown);
         $convertedHmtl = Purifier::clean($convertedHmtl, 'user_topic_body');

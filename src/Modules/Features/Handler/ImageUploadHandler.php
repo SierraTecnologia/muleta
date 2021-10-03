@@ -32,7 +32,12 @@ class ImageUploadHandler
         return ['filename' => $avatar_name];
     }
 
-    public function uploadImage($file)
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{filename: string}
+     */
+    public function uploadImage($file): array
     {
         $this->file = $file;
         $this->checkAllowedExtensionsOrFail();
@@ -41,7 +46,7 @@ class ImageUploadHandler
         return ['filename' => get_user_static_domain() . $local_image];
     }
 
-    protected function checkAllowedExtensionsOrFail()
+    protected function checkAllowedExtensionsOrFail(): void
     {
         $extension = strtolower($this->file->getClientOriginalExtension());
         if ($extension && !in_array($extension, $this->allowed_extensions)) {
@@ -49,7 +54,7 @@ class ImageUploadHandler
         }
     }
 
-    protected function saveImageToLocal($type, $resize, $filename = '')
+    protected function saveImageToLocal(string $type, int $resize, string $filename = ''): string
     {
         $folderName = ($type == 'avatar')
             ? 'uploads/avatars'

@@ -8,14 +8,17 @@ use InvalidArgumentException;
 class Text {
 
 	/**
-	 * Get the bytes from a PHP human-size style string
-	 * https://regex101.com/r/5AqXle/2
+	 * 	 * Get the bytes from a PHP human-size style string
+	 * 	 * https://regex101.com/r/5AqXle/2
+	 * 	 *
 	 *
-	 * @param  string $val
-	 * @return int
+	 * @param string $val
+	 *
+	 * @return float
+	 *
 	 * @throws InvalidArgumentException
 	 */
-	static public function bytesFromHuman($val) {
+	static public function bytesFromHuman($val): float {
 
 		// Seperate number from unit
 		if (!preg_match('#^([\d\.]+)(.*)$#', $val, $matches)) {
@@ -111,9 +114,11 @@ class Text {
 	}
 
 	/**
-	 * Convert a key / slug into a friendly title string
+	 * 	 * Convert a key / slug into a friendly title string
+	 *
 	 * @param string $keyword i.e. "some_multi_key"
-	 * @return string i.e. "Some multi key"
+	 *
+	 * @return scalar i.e. "Some multi key"
 	 */
 	static public function titleFromKey($keyword) {
 
@@ -130,10 +135,13 @@ class Text {
 	}
 
 	/**
-	 * Remove everything up the substring from a string.
-	 * Ex: trimUntil('/var/www/site/public/uploads/01/01/file.jpg', '/uploads');
+	 * 	 * Remove everything up the substring from a string.
+	 * 	 * Ex: trimUntil('/var/www/site/public/uploads/01/01/file.jpg', '/uploads');
+	 *
 	 * @param string $str The string that we're trimming
 	 * @param string $substr The string that indicates where to stop trimming
+	 *
+	 * @return false|string
 	 */
 	static public function trimUntil($str, $substr) {
 		$pos = strpos($str, $substr);

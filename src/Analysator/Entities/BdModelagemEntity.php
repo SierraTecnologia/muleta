@@ -22,7 +22,7 @@ class BdModelagemEntity
 
     }
 
-    public function render($name)
+    public function render($name): void
     {
         $this->groupType = EloquentGroup::discoverType($name);
         $this->historyType = AbstractHistoryType::discoverType($name);

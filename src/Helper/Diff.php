@@ -10,10 +10,13 @@ class Diff
     /**
      * Take a diff
      *
-     * @param  string $diff
-     * @return array
+     * @param string $diff
+     *
+     * @return (int)[]|null
+     *
+     * @psalm-return array<int, 0|positive-int>|null
      */
-    public function getLinePositions($diff)
+    public function getLinePositions($diff): ?array
     {
         if (empty($diff)) {
             return null;

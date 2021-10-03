@@ -13,7 +13,7 @@ class StringExtractor
 {
 
 
-    public static function ideaFromWord($word)
+    public static function ideaFromWord($word): void
     {
         
     }

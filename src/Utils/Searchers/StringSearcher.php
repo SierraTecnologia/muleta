@@ -12,7 +12,7 @@ class StringSearcher
 {
 
 
-    public static function assuntoFromText($text)
+    public static function assuntoFromText($text): void
     {
         
     }

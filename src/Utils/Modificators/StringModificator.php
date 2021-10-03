@@ -13,13 +13,13 @@ use Cocur\Slugify\Slugify;
 class StringModificator
 {
 
-    public static function tirarAcentos($string)
+    public static function tirarAcentos($string): ?string
     {
         return preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/","/(ç)/","/(Ç)/"), explode(" ", "a A e E i I o O u U n N c C"), $string);
     }
 
 
-    public static function plurarize($name)
+    public static function plurarize(string $name): string
     {
         // return Str::plural(Str::lower($name));
         return Str::plural($name);
@@ -30,14 +30,14 @@ class StringModificator
         // }
         // return $name;
     }
-    public static function plurarizeAndLower($name)
+    public static function plurarizeAndLower($name): string
     {
         return Str::lower(
             self::plurarize($name)
         );
     }
 
-    public static function singularize($name)
+    public static function singularize($name): string
     {
         return Str::singular($name);
         // $name = Inflector::singularize($name);
@@ -46,7 +46,7 @@ class StringModificator
         // }
         // return $name;
     }
-    public static function singularizeAndLower($name)
+    public static function singularizeAndLower($name): string
     {
         return Str::lower(
             self::singularize($name)
@@ -56,10 +56,9 @@ class StringModificator
 
 
     /**
-     * 
+     * @return string
      */
-
-    public static function clean($word)
+    public static function clean($word): string
     {
         $remove = [
             '"'
@@ -70,7 +69,7 @@ class StringModificator
         // return self::singularize($word);
     }
     
-    public static function cleanCodeSlug($slug)
+    public static function cleanCodeSlug($slug): string
     {
         // $slugify = new Slugify();
         // $slug = $slugify->slugify($slug, '.'); // hello-world
@@ -80,7 +79,7 @@ class StringModificator
         
         return $slug;
     }
-    public static function convertSlugToName($slug)
+    public static function convertSlugToName($slug): string
     {
         return collect(explode('.', static::cleanCodeSlug($slug)))->map(
             function ($namePart) {
