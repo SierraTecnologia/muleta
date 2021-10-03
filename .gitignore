@@ -2,6 +2,6 @@
 /vendor
 /node_modules
 composer.phar
-phpunit.xml
 *.sql
 *.zip
+*.sqlite
