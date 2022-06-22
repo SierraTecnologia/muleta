@@ -197,7 +197,7 @@ trait SortableTrait
      * @param  Illuminate\Database\Query\Builder $query
      * @param  string                            $term
      * @throws Facilitador\Exceptions\Exception
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeTitleContains($query, $term, $exact = false)
     {
@@ -244,7 +244,7 @@ trait SortableTrait
      * took issue with it as a function name.
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeIsPublic($query)
     {
@@ -255,7 +255,7 @@ trait SortableTrait
      * Get all public items by the default order
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeOrderedAndPublic($query)
     {
@@ -268,7 +268,7 @@ trait SortableTrait
      * compared with scopeOrdered().
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeListing($query)
     {
@@ -279,7 +279,7 @@ trait SortableTrait
      * Order a table that has a position value
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopePositioned($query)
     {
@@ -294,7 +294,7 @@ trait SortableTrait
      * Get only public records by default for Bkwld\SitemapFromRoute
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeForSitemap($query)
     {
@@ -307,7 +307,7 @@ trait SortableTrait
      *
      * @param  Illuminate\Database\Query\Builder $query
      * @param  mixed                             $seed  Providing a seed keeps the order the same on subsequent queries
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeRandomize($query, $seed = false)
     {
@@ -326,7 +326,7 @@ trait SortableTrait
      * Get localized siblings of this model
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeOtherLocalizations($query)
     {
