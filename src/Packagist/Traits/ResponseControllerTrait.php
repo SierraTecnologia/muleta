@@ -5,7 +5,7 @@ namespace Muleta\Packagist\Traits;
 use Auth;
 use Socialite;
 use Illuminate\Http\Request;
-use App\Models\User;
+use MediaManager\Models\User;
 use Flash;
 
 trait ResponseControllerTrait

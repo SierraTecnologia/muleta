@@ -3,12 +3,12 @@
 namespace SiObjects\Components\Society;
 
 use Log;
-use App\Models\User;
+use MediaManager\Models\User;
 use Integrations\Connectors\Instagram;
 
 
-use App\Pipelines\Contracts\Registrator;
-use App\Pipelines\Contracts\Notificator;
+use MediaManager\Pipelines\Contracts\Registrator;
+use MediaManager\Pipelines\Contracts\Notificator;
 
 class Post implements Registrator, Notificator
 {

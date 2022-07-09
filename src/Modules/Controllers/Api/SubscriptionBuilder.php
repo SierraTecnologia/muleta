@@ -2,7 +2,7 @@
 
 namespace Siravel\Builders;
 
-use App\Contants\Tables;
+use MediaManager\Contants\Tables;
 use Illuminate\Database\Eloquent\Builder;
 
 /**

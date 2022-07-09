@@ -110,14 +110,14 @@ class BdColumn
      *
      * @return (array|string)[]
      *
-     * @psalm-return array{name: 'Calendar', localeNamespace: 'App\Models', tables: array<empty, empty>}
+     * @psalm-return array{name: 'Calendar', localeNamespace: 'MediaManager\Models', tables: array<empty, empty>}
      */
     public function groupByNamespace(): array
     {
         $namespaces = [];
         $namespaces = [
             'name' => 'Calendar',
-            'localeNamespace' => 'App\Models',
+            'localeNamespace' => 'MediaManager\Models',
             'tables' => []
         ];
 

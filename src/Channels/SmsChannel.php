@@ -3,7 +3,7 @@
 namespace Muleta\Channels;
 
 use Illuminate\Notifications\Notification;
-use App\Jobs\Sms;
+use MediaManager\Jobs\Sms;
 use Illuminate\Support\Facades\Log;
 
 class SmsChannel

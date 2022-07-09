@@ -2,8 +2,8 @@
 
 namespace SiObjects\Components\Book;
 
-use App\Models\User;
-use App\Models\Model;
+use MediaManager\Models\User;
+use MediaManager\Models\Model;
 
 /**
  * @property string  key
@@ -32,7 +32,7 @@ class Activity extends Model
      */
     public function user()
     {
-        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class));
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \MediaManager\Models\User::class));
     }
 
     /**

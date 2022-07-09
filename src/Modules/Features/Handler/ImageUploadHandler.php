@@ -2,7 +2,7 @@
 
 namespace Muleta\Modules\Features\Handler;
 
-use App\Models\User;
+use MediaManager\Models\User;
 use Image;
 use Auth;
 use Muleta\Modules\Features\Handler\Exception\ImageUploadException;

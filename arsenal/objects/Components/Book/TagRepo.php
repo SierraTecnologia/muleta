@@ -8,7 +8,7 @@ use Population\Models\Components\Book\Entity;
 /**
  * Class TagRepo
  *
- * @package App\Repos
+ * @package MediaManager\Repos
  */
 class TagRepo
 {

@@ -3,7 +3,7 @@
 namespace Integrations\Connectors\SitecPayment;
 
 use Log;
-use App\Models\User;
+use MediaManager\Models\User;
 
 class Update extends SitecPayment
 {

@@ -5,7 +5,7 @@ namespace Muleta\Modules\Eloquents\Displays;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Container\Container as App;
-use App\Models\Model;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class RepositoryAbstract implements RepositoryInterface
 {
@@ -60,6 +60,23 @@ abstract class RepositoryAbstract implements RepositoryInterface
         return $this->model->delete($board);
     }
 
+    
+    /**
+     * Returns all paginated Strategies.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function paginated()
+    {
+        if (isset(request()->dir) && isset(request()->field)) {
+            $model = $this->model->orderBy(request()->field, request()->dir);
+        } else {
+            $model = $this->model->orderBy('created_at', 'desc');
+        }
+
+        return $model->paginate(\Illuminate\Support\Facades\Config::get('siravel.pagination', 25));
+    }
+
     /**
      * @return Model|string
      *
@@ -70,6 +87,7 @@ abstract class RepositoryAbstract implements RepositoryInterface
         $model = $this->app->make($this->model());
         if(!$model instanceof Model) {
             // Throw a a repository exception
+            dd($model, 'nao deveria cair aqui');
             return 'error';
         }
 

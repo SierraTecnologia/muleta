@@ -3,7 +3,7 @@
 namespace Integrations\Connectors\SitecBoss;
 
 use Log;
-use App\Models\User;
+use MediaManager\Models\User;
 
 class Create extends SitecBoss
 {

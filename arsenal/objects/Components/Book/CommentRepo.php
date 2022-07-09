@@ -7,7 +7,7 @@ use Population\Models\Components\Book\Entity;
 /**
  * Class CommentRepo
  *
- * @package App\Repos
+ * @package MediaManager\Repos
  */
 class CommentRepo
 {
