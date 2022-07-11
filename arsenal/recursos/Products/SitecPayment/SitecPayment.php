@@ -2,9 +2,9 @@
 
 namespace Integrations\Connectors\SitecPayment;
 
-use App\Models\Model;
+use MediaManager\Models\Model;
 use Log;
-use App\Models\User;
+use MediaManager\Models\User;
 use Integrations\Connectors\Integration;
 
 class SitecPayment extends Integration

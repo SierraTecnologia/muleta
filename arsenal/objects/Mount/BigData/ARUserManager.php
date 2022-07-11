@@ -3,7 +3,7 @@
 namespace SiObjects\Mount\BigData;
 
 use Porteiro\Models\Role;
-use App\Models\User;
+use MediaManager\Models\User;
 use Population\Manipule\Managers\UserManager;
 use Population\Manipule\Entities\UserEntity;
 use Illuminate\Contracts\Hashing\Hasher;

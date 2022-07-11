@@ -5,7 +5,7 @@
  */
 namespace Uniondrug\Postman\Parsers;
 
-use App\Errors\Code;
+use MediaManager\Errors\Code;
 use Phalcon\Di;
 use Uniondrug\Framework\Container;
 use Uniondrug\Postman\Parsers\Abstracts\Base;
@@ -307,7 +307,7 @@ class Collection extends Base
                 continue;
             }
             // 3. 读取类名
-            $class = '\\App\\Controllers\\'.substr($info->getPathname(), $length + 1, -4);
+            $class = '\\MediaManager\\Controllers\\'.substr($info->getPathname(), $length + 1, -4);
             $this->classMap[] = $class;
         }
     }

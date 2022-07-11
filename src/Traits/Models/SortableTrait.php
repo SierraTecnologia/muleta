@@ -34,14 +34,14 @@ trait SortableTrait
         return (int) $this->buildSortQuery()->max($this->determineOrderColumnName());
     }
 
-    public function scopeOrdered(Builder $query, string $direction = 'asc')
+    public function scopeOrdered(Builder $query, string $direction = 'asc'): Builder
     {
         return $query->orderBy($this->determineOrderColumnName(), $direction);
     }
 
     public static function setNewOrder($ids, int $startOrder = 1, string $primaryKeyColumn = null)
     {
-        if (! is_array($ids) && ! $ids instanceof ArrayAccess) {
+        if (!is_array($ids) && !$ids instanceof ArrayAccess) {
             throw new InvalidArgumentException('You must pass an array or ArrayAccess object to setNewOrder');
         }
 
@@ -67,8 +67,9 @@ trait SortableTrait
 
     protected function determineOrderColumnName(): string
     {
-        if (isset($this->sortable['order_column_name'])
-            && ! empty($this->sortable['order_column_name'])
+        if (
+            isset($this->sortable['order_column_name'])
+            && !empty($this->sortable['order_column_name'])
         ) {
             return $this->sortable['order_column_name'];
         }
@@ -93,7 +94,7 @@ trait SortableTrait
             ->where($orderColumnName, '>', $this->$orderColumnName)
             ->first();
 
-        if (! $swapWithModel) {
+        if (!$swapWithModel) {
             return $this;
         }
 
@@ -109,7 +110,7 @@ trait SortableTrait
             ->where($orderColumnName, '<', $this->$orderColumnName)
             ->first();
 
-        if (! $swapWithModel) {
+        if (!$swapWithModel) {
             return $this;
         }
 
@@ -197,7 +198,7 @@ trait SortableTrait
      * @param  Illuminate\Database\Query\Builder $query
      * @param  string                            $term
      * @throws Facilitador\Exceptions\Exception
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeTitleContains($query, $term, $exact = false)
     {
@@ -214,23 +215,23 @@ trait SortableTrait
 
         // Concatenate all the attributes with spaces and look for the term.
         switch (DB::getDriverName()) {
-        case 'mysql':
-            $source = DB::raw('CONCAT('.implode('," ",', $attributes).')');
-            break;
-        case 'sqlite':
-        case 'pgsql':
-            $source = DB::raw(implode(' || ', $attributes));
-            break;
+            case 'mysql':
+                $source = DB::raw('CONCAT(' . implode('," ",', $attributes) . ')');
+                break;
+            case 'sqlite':
+            case 'pgsql':
+                $source = DB::raw(implode(' || ', $attributes));
+                break;
 
-            // For SQL Server, only support concatenating of two attributes so
-            // it works in 2008 and above.
-            // https://stackoverflow.com/a/47423292/59160
-        case 'sqlsrv':
-            if (count($attributes) == 2) {
-                $source = DB::raw('{fn CONCAT('.implode(',', $attributes).')}');
-            } else {
-                $source = $attributes[0];
-            }
+                // For SQL Server, only support concatenating of two attributes so
+                // it works in 2008 and above.
+                // https://stackoverflow.com/a/47423292/59160
+            case 'sqlsrv':
+                if (count($attributes) == 2) {
+                    $source = DB::raw('{fn CONCAT(' . implode(',', $attributes) . ')}');
+                } else {
+                    $source = $attributes[0];
+                }
         }
 
         return $exact ?
@@ -244,18 +245,18 @@ trait SortableTrait
      * took issue with it as a function name.
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeIsPublic($query)
     {
-        return $query->where($this->getTable().'.public', '1');
+        return $query->where($this->getTable() . '.public', '1');
     }
 
     /**
      * Get all public items by the default order
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeOrderedAndPublic($query)
     {
@@ -268,7 +269,7 @@ trait SortableTrait
      * compared with scopeOrdered().
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeListing($query)
     {
@@ -279,13 +280,13 @@ trait SortableTrait
      * Order a table that has a position value
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopePositioned($query)
     {
-        $query->orderBy($this->getTable().'.position', 'asc');
+        $query->orderBy($this->getTable() . '.position', 'asc');
         if ($this->usesTimestamps()) {
-            $query->orderBy($this->getTable().'.created_at', 'desc');
+            $query->orderBy($this->getTable() . '.created_at', 'desc');
         }
         return $query;
     }
@@ -294,7 +295,7 @@ trait SortableTrait
      * Get only public records by default for Bkwld\SitemapFromRoute
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeForSitemap($query)
     {
@@ -307,7 +308,7 @@ trait SortableTrait
      *
      * @param  Illuminate\Database\Query\Builder $query
      * @param  mixed                             $seed  Providing a seed keeps the order the same on subsequent queries
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeRandomize($query, $seed = false)
     {
@@ -316,7 +317,7 @@ trait SortableTrait
         }
 
         if ($seed) {
-            return $query->orderBy(DB::raw('RAND("'.$seed.'")'));
+            return $query->orderBy(DB::raw('RAND("' . $seed . '")'));
         }
 
         return $query->orderBy(DB::raw('RAND()'));
@@ -326,7 +327,7 @@ trait SortableTrait
      * Get localized siblings of this model
      *
      * @param  Illuminate\Database\Query\Builder $query
-     * @return Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Query\Builder
      */
     public function scopeOtherLocalizations($query)
     {

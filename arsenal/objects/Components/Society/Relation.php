@@ -3,7 +3,7 @@
 namespace SiObjects\Components\Society;
 
 use Log;
-use App\Models\User;
+use MediaManager\Models\User;
 use Integrations\Connectors\Instagram;
 
 class Relation

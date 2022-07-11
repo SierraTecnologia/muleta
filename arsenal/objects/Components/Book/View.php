@@ -2,7 +2,7 @@
 
 namespace SiObjects\Components\Book;
 
-use App\Models\Model;
+use MediaManager\Models\Model;
 
 class View extends Model
 {

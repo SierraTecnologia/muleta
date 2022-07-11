@@ -3,7 +3,7 @@
 namespace SiWeapons\Manipuladores\Locations;
 
 use Log;
-use App\Models\User;
+use MediaManager\Models\User;
 
 class Rede
 {

@@ -3,7 +3,7 @@
 namespace SiWeapons\Products\SitecBoss;
 
 use Log;
-use App\Models\User;
+use MediaManager\Models\User;
 
 class Update extends SitecBoss
 {

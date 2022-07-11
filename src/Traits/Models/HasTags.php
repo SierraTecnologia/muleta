@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use App\Models\Tag;
+use MediaManager\Models\Tag;
 
 trait HasTags
 {
@@ -62,7 +62,7 @@ trait HasTags
     }
 
     /**
-     * @param string|array|\ArrayAccess|\\App\Models\Tag $tags
+     * @param string|array|\ArrayAccess|\\MediaManager\Models\Tag $tags
      */
     public function setTagsAttribute($tags)
     {
@@ -77,7 +77,7 @@ trait HasTags
 
     /**
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param array|\ArrayAccess|\\App\Models\Tag   $tags
+     * @param array|\ArrayAccess|\\MediaManager\Models\Tag   $tags
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -100,7 +100,7 @@ trait HasTags
 
     /**
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param array|\ArrayAccess|\\App\Models\Tag   $tags
+     * @param array|\ArrayAccess|\\MediaManager\Models\Tag   $tags
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -157,7 +157,7 @@ trait HasTags
     }
 
     /**
-     * @param array|\ArrayAccess|\\App\Models\Tag $tags
+     * @param array|\ArrayAccess|\\MediaManager\Models\Tag $tags
      *
      * @return $this
      */
@@ -173,7 +173,7 @@ trait HasTags
     }
 
     /**
-     * @param string|\\App\Models\Tag $tag
+     * @param string|\\MediaManager\Models\Tag $tag
      *
      * @return $this
      */
@@ -203,7 +203,7 @@ trait HasTags
     }
 
     /**
-     * @param string|\\App\Models\Tag $tag
+     * @param string|\\MediaManager\Models\Tag $tag
      *
      * @return $this
      */

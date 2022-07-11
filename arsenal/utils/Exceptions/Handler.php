@@ -230,7 +230,7 @@ class Handler extends ExceptionHandler
         // // if we don't do this exceptions are shown as a default template
         // // instead of our own view in resources/views/errors/500.blade.php
         // if ($this->shouldReport($exception) && !$this->isHttpException($exception) && !\Illuminate\Support\Facades\Config::get('app.debug')) {
-        //     $exception = new HttpException(500, 'Whoops!');
+        //     $exception = new HttpException('Whoops!', 500);
         // }
 
         // return parent::render($request, $exception);
