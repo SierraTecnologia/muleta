@@ -94,4 +94,16 @@ abstract class RepositoryAbstract implements RepositoryInterface
         return $this->model = $model;
     }
 
+    /**
+     * Stores Widgets into database.
+     *
+     * @param array $payload
+     *
+     * @return Widgets
+     */
+    public function store($payload)
+    {
+        return $this->model->create($payload);
+    }
+
 }
