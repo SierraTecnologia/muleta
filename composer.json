@@ -67,6 +67,7 @@
         "files": [
             "utils/funcs/load-laravel.php",
             "utils/funcs/helperSlugify.php",
+            "utils/funcs/helpers.php",
             "utils/funcs/Reflection.php"
         ]
     },
