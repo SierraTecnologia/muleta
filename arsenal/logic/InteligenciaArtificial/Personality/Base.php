@@ -35,5 +35,6 @@ class Base
 
         // 1
         // 
+        return $base;
     }
 }
