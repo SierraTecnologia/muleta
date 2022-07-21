@@ -174,106 +174,108 @@ trait ConsoleTools
                 }
             );
             
-            Route::group(
-                [
-                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\User',
-                    'middleware' => 'user',
-                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.user', 'profile'),
-                    'as' => 'profile.'.$this->packageName.'.',
-                ],
-                function ($router) use ($path) {
-                    if (file_exists($path.DIRECTORY_SEPARATOR.'user.php')) {
-                        include $path.DIRECTORY_SEPARATOR.'user.php';
-                    } else {
-                        $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'user');
+            Route::group(['middleware' => 'auth'], function () use ($path) {
+                Route::group(
+                    [
+                        'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\User',
+                        'middleware' => 'user',
+                        'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.user', 'profile'),
+                        'as' => 'profile.'.$this->packageName.'.',
+                    ],
+                    function ($router) use ($path) {
+                        if (file_exists($path.DIRECTORY_SEPARATOR.'user.php')) {
+                            include $path.DIRECTORY_SEPARATOR.'user.php';
+                        } else {
+                            $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'user');
+                        }
+                        if (file_exists($path.DIRECTORY_SEPARATOR.'profile.php')) {
+                            include $path.DIRECTORY_SEPARATOR.'profile.php';
+                        } else {
+                            $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'profile');
+                        }
                     }
-                    if (file_exists($path.DIRECTORY_SEPARATOR.'profile.php')) {
-                        include $path.DIRECTORY_SEPARATOR.'profile.php';
-                    } else {
-                        $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'profile');
+                );
+                
+                Route::group(
+                    [
+                        'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Client',
+                        'middleware' => 'client',
+                        'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.client', 'client'),
+                        'as' => 'client.'.$this->packageName.'.',
+                    ],
+                    function ($router) use ($path) {
+                        if (file_exists($path.DIRECTORY_SEPARATOR.'client.php')) {
+                            include $path.DIRECTORY_SEPARATOR.'client.php';
+                        } else {
+                            $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'client');
+                        }
                     }
-                }
-            );
-            
-            Route::group(
-                [
-                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Client',
-                    'middleware' => 'client',
-                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.client', 'client'),
-                    'as' => 'client.'.$this->packageName.'.',
-                ],
-                function ($router) use ($path) {
-                    if (file_exists($path.DIRECTORY_SEPARATOR.'client.php')) {
-                        include $path.DIRECTORY_SEPARATOR.'client.php';
-                    } else {
-                        $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'client');
+                );
+                
+                Route::group(
+                    [
+                        'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Painel',
+                        'middleware' => 'painel',
+                        'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.painel', 'painel'),
+                        'as' => 'painel.'.$this->packageName.'.',
+                    ],
+                    function ($router) use ($path) {
+                        if (file_exists($path.DIRECTORY_SEPARATOR.'painel.php')) {
+                            include $path.DIRECTORY_SEPARATOR.'painel.php';
+                        } else {
+                            $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'painel');
+                        }
                     }
-                }
-            );
-            
-            Route::group(
-                [
-                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Painel',
-                    'middleware' => 'painel',
-                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.painel', 'painel'),
-                    'as' => 'painel.'.$this->packageName.'.',
-                ],
-                function ($router) use ($path) {
-                    if (file_exists($path.DIRECTORY_SEPARATOR.'painel.php')) {
-                        include $path.DIRECTORY_SEPARATOR.'painel.php';
-                    } else {
-                        $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'painel');
-                    }
-                }
-            );
+                );
 
-            Route::group(
-                [
-                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Master',
-                    'middleware' => 'master',
-                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.master', 'master'),
-                    'as' => 'master.'.$this->packageName.'.',
-                ],
-                function ($router) use ($path) {
-                    if (file_exists($path.DIRECTORY_SEPARATOR.'master.php')) {
-                        include $path.DIRECTORY_SEPARATOR.'master.php';
-                    } else {
-                        $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'master');
+                Route::group(
+                    [
+                        'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Master',
+                        'middleware' => 'master',
+                        'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.master', 'master'),
+                        'as' => 'master.'.$this->packageName.'.',
+                    ],
+                    function ($router) use ($path) {
+                        if (file_exists($path.DIRECTORY_SEPARATOR.'master.php')) {
+                            include $path.DIRECTORY_SEPARATOR.'master.php';
+                        } else {
+                            $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'master');
+                        }
                     }
-                }
-            );
+                );
 
-            Route::group(
-                [
-                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Admin',
-                    'middleware' => 'admin',
-                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.admin', 'admin'),
-                    'as' => 'admin.'.$this->packageName.'.',
-                ],
-                function ($router) use ($path) {
-                    if (file_exists($path.DIRECTORY_SEPARATOR.'admin.php')) {
-                        include $path.DIRECTORY_SEPARATOR.'admin.php';
-                    } else {
-                        $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'admin');
+                Route::group(
+                    [
+                        'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\Admin',
+                        'middleware' => 'admin',
+                        'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.admin', 'admin'),
+                        'as' => 'admin.'.$this->packageName.'.',
+                    ],
+                    function ($router) use ($path) {
+                        if (file_exists($path.DIRECTORY_SEPARATOR.'admin.php')) {
+                            include $path.DIRECTORY_SEPARATOR.'admin.php';
+                        } else {
+                            $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'admin');
+                        }
                     }
-                }
-            );
-            
-            Route::group(
-                [
-                    'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\RiCa',
-                    'middleware' => 'rica',
-                    'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.rica', 'rica'),
-                    'as' => 'rica.'.$this->packageName.'.',
-                ],
-                function ($router) use ($path) {
-                    if (file_exists($path.DIRECTORY_SEPARATOR.'rica.php')) {
-                        include $path.DIRECTORY_SEPARATOR.'rica.php';
-                    } else {
-                        $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'rica');
+                );
+                
+                Route::group(
+                    [
+                        'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers\RiCa',
+                        'middleware' => 'rica',
+                        'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.rica', 'rica'),
+                        'as' => 'rica.'.$this->packageName.'.',
+                    ],
+                    function ($router) use ($path) {
+                        if (file_exists($path.DIRECTORY_SEPARATOR.'rica.php')) {
+                            include $path.DIRECTORY_SEPARATOR.'rica.php';
+                        } else {
+                            $this->loadRoutesFromPath($path.DIRECTORY_SEPARATOR.'rica');
+                        }
                     }
-                }
-            );
+                );
+            });
         });
     }
 
