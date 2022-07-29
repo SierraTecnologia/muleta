@@ -159,7 +159,7 @@ trait ConsoleTools
         if (!config('siravel.packagesRoutes', true)) {
             return ;
         }
-        Route::group(['middleware' => ['web']], function () use ($path) {
+        // Route::group(['middleware' => ['web']], function () use ($path) {
             Route::group(
                 [
                     'namespace' => '\\'.$this->getNamePackage($this->packageName).'\Http\Controllers',
@@ -275,7 +275,7 @@ trait ConsoleTools
                         }
                     }
                 );
-            });
+            // });
         });
     }
 
