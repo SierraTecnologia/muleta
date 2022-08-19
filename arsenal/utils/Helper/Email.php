@@ -3,8 +3,8 @@
 
 namespace SiUtils\Helper;
 
-use Fabrica\Tools\Config;
-use Fabrica\Tools\Builder;
+use Integrations\Tools\Config;
+use Integrations\Tools\Builder;
 
 /**
  * Helper class for sending emails using email configuration.

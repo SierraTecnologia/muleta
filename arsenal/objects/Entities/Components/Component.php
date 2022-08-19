@@ -178,7 +178,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'analyseComit',
-            \Fabrica\Models\Code\Commit::class,
+            \Finder\Models\Code\Commit::class,
             \SiObjects\Components\Worker\Analyser\Analyser::class,
             self::$hook
         );
@@ -188,7 +188,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'deployCommit',
-            \Fabrica\Models\Code\Commit::class,
+            \Finder\Models\Code\Commit::class,
             \SiObjects\Components\Worker\Deploy\Deploy::class,
             self::$hook
         );
@@ -212,7 +212,7 @@ class Component
          */
         $components[] = self::insertComponent(
             'syncProject',
-            \Fabrica\Models\Code\Project::class,
+            \Finder\Models\Code\Project::class,
             \SiObjects\Components\Worker\Sync\Project::class,
             self::$hook
         );
