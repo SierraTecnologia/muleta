@@ -11,4 +11,8 @@ trait GeneratesUuid
     {
         return Uuid::uuid4()->toString();
     }
+    protected static function staticGenerateUuid(): string
+    {
+        return Uuid::uuid4()->toString();
+    }
 }

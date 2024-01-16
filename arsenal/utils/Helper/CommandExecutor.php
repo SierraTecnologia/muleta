@@ -4,7 +4,7 @@
 namespace SiUtils\Helper;
 
 use Exception;
-use Fabrica\Tools\Logging\BuildLogger;
+use Integrations\Tools\Logging\BuildLogger;
 use Symfony\Component\Process\Process;
 
 /**

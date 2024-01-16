@@ -3,7 +3,7 @@
 
 namespace SiUtils\Helper;
 
-use Fabrica\Tools\Config;
+use Integrations\Tools\Config;
 use GuzzleHttp\Client;
 
 /**

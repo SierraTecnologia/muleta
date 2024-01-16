@@ -3,9 +3,9 @@
 
 namespace SiUtils\Helper;
 
-use Fabrica\Tools\Config;
-use Fabrica\Tools\Store\Factory;
-use Fabrica\Tools\Store\UserStore;
+use Integrations\Tools\Config;
+use Integrations\Tools\Store\Factory;
+use Integrations\Tools\Store\UserStore;
 
 /**
  * Languages Helper Class - Handles loading strings files and the strings within them.

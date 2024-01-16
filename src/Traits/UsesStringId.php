@@ -5,6 +5,7 @@ namespace Muleta\Traits;
 
 trait UsesStringId
 {
+
     public function getIncrementing()
     {
         return false;
