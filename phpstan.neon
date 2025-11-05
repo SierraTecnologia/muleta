@@ -1,0 +1,11 @@
+parameters:
+    level: 8
+    paths:
+        - src
+    excludePaths:
+        - src/Traits/Coder/GetSetTrait.php
+    ignoreErrors:
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder#'
+        - '#Access to an undefined property Illuminate\\Database\\Eloquent\\Model#'
+    checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
