@@ -1,7 +1,10 @@
 <?php
 
-if (!function_exists('config')) {
-    function config($address, $defaultValue)
+// Fallback apenas para uso do Muleta fora do Laravel. Dentro de uma aplicacao
+// Laravel o helper nativo precisa vencer: a assinatura abaixo espelha a dele
+// (ambos os parametros opcionais) para nao quebrar chamadas config('chave').
+if (!function_exists('config') && !class_exists('\\Illuminate\\Foundation\\Application')) {
+    function config($address = null, $defaultValue = null)
     {
         return $defaultValue;
     }

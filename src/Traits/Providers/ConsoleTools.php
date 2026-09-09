@@ -28,7 +28,7 @@ trait ConsoleTools
      *
      * @return void
      */
-    protected function publishesMigrations(string $package, bool $isModule = false): void
+    protected function publishesPackageMigrations(string $package, bool $isModule = false): void
     {
         $namespace = str_replace('laravel-', '', $package);
         $namespace = str_replace(['/', '\\', '.', '_'], '-', $namespace);
