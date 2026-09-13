@@ -11,7 +11,7 @@ class Actions
 
     public function __construct()
     {
-        parent::__construct();
+        // Legacy action registry; this class is standalone.
     }
 
     /**

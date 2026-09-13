@@ -121,7 +121,9 @@ class Handler extends ExceptionHandler
     public function report(Throwable $exception)
     {
         if (config('app.env') !== 'production') {
-            dd('HandlerMuleta', $exception);
+            parent::report($exception);
+
+            return;
         }
         if (\Illuminate\Support\Facades\Config::get('app.env')=='production' && app()->bound('sentry') && $this->shouldReport($exception)) {
             // Slack Report
@@ -164,6 +166,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        if ($exception instanceof AuthenticationException) {
+            return $this->unauthenticated($request, $exception);
+        }
+
         // Handle notify exceptions which will redirect to the
         // specified location then show a notification message.
         if ($this->isExceptionType($exception, NotifyException::class)) {
@@ -176,6 +182,9 @@ class Handler extends ExceptionHandler
         if ($this->isExceptionType($exception, PrettyException::class)  && !\Illuminate\Support\Facades\Config::get('app.debug')) {
             $message = $this->getOriginalMessage($exception);
             $code = ($exception->getCode() === 0) ? 500 : $exception->getCode();
+            if (! is_int($code) || $code < 100 || $code > 599 || ! isset($this->httpCodes[$code])) {
+                $code = 500;
+            }
             return response()->view('errors/' . $code, ['message' => $message], $code);
         }
 
@@ -259,7 +268,7 @@ class Handler extends ExceptionHandler
         {
             $code = $exception->getCode();
 
-            if(! isset($this->httpCodes[$code])) {
+            if (! is_int($code) || $code < 100 || $code > 599 || ! isset($this->httpCodes[$code])) {
                 $code = 500;
             }
 

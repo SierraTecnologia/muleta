@@ -69,8 +69,8 @@ Todos compartilham os mesmos traits, contratos e padrões definidos pelo Muleta,
 
 ### Requisitos Mínimos
 
-- **PHP**: 8.2 ou superior
-- **Laravel**: 10.x ou 11.x
+- **PHP**: 8.3 ou superior
+- **Laravel**: 13.x
 - **Composer**: 2.x
 
 ### Instalação via Composer
@@ -100,7 +100,7 @@ php artisan vendor:publish --provider="Muleta\Library\ServiceProvider"
 
 ### Registro de Service Provider
 
-O Service Provider é auto-descoberto no Laravel 5.5+. Para versões anteriores, adicione manualmente em `config/app.php`:
+O Service Provider é auto-descoberto no Laravel 13:
 
 ```php
 'providers' => [

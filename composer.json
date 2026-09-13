@@ -40,10 +40,10 @@
         "friendsofphp/php-cs-fixer": "^3.68",
         "orchestra/testbench": "^11.0",
         "phpro/grumphp": "^2.12",
-        "phpunit/phpunit": "^12.0"
+        "phpunit/phpunit": "^13.0"
     },
     "suggest": {
-        "sierratecnologia/crypto": "dev-master",
+        "sierratecnologia/crypto": "^2.0",
         "laravel/helpers": "^1.1",
         "vanderlee/php-sentence": ">=1.0",
         "ricardosierra/changelog": "^1.4",
@@ -91,5 +91,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "version": "2.0.0"
+    "version": "2.1.0"
 }
