@@ -32,10 +32,17 @@ class LoggerService
 
     public function __destruct()
     {
-        $i = 0;
-        foreach ($this->logs as $logger) {
-            Log::debug($this->name.' | '.$i.' | '.$logger);
-            ++$i;
+        try {
+            if (!function_exists('app') || !app()->bound('log')) {
+                return;
+            }
+            $i = 0;
+            foreach ($this->logs as $logger) {
+                Log::debug($this->name.' | '.$i.' | '.$logger);
+                ++$i;
+            }
+        } catch (\Throwable $e) {
+            // Ignore during container shutdown
         }
     }
 
