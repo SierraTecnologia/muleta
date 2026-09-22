@@ -22,6 +22,7 @@ use Crypto;
 trait PackageVersionTrait
 {
     public $_version = null;
+    public $version = null;
     protected $packageName = null;
 
     public function __construct()
@@ -33,7 +34,7 @@ trait PackageVersionTrait
     public function getVersion()
     {
         if (empty($this->_version)) {
-            $this->findVersion;
+            $this->findVersion();
         }
         return $this->version;
     }
@@ -50,7 +51,7 @@ trait PackageVersionTrait
 
         $filesystem = false;
         if (\property_exists($this, 'filesystem')) {
-            $flesystem = $this->filesystem;
+            $filesystem = $this->filesystem;
         }
         if (!$filesystem) {
             $filesystem = app(Filesystem::class);
@@ -64,8 +65,8 @@ trait PackageVersionTrait
             // Loop through all the packages and get the version of transmissor
             foreach ($file->packages as $package) {
                 if ($package->name == $this->packageName) {
-                    $this->version = $package->version;
-                    break;
+                    $this->version = $this->_version = $package->version;
+                    return;
                 }
             }
         }
@@ -97,7 +98,7 @@ trait PackageVersionTrait
 
         // @todo verificar arquivo .version ou package.json ou composer.json
         
-        return $this->_version = config('app.version');
+        return $this->version = $this->_version = config('app.version');
     }
 
 }
