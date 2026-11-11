@@ -3,7 +3,7 @@
 namespace Muleta\Modules\Features\Handler;
 
 use MediaManager\Models\User;
-use Image;
+use Muleta\Image\Image;
 use Auth;
 use Muleta\Modules\Features\Handler\Exception\ImageUploadException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;

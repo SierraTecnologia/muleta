@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="6.20.10@7fc81490f861c801061836a9010603d2393bf8da">
+  <file src="src/Analysator/BigDataCore.php">
+    <UndefinedVariable>
+      <code><![CDATA[$array]]></code>
+    </UndefinedVariable>
+    <UnusedClass>
+      <code><![CDATA[BigDataCore]]></code>
+    </UnusedClass>
+    <UnusedVariable>
+      <code><![CDATA[$allRelations]]></code>
+      <code><![CDATA[$allTables]]></code>
+      <code><![CDATA[$type]]></code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Analysator/Calculate/DataTypes/AbstractCalculateType.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Analysator/Calculate/DataTypes/CalculateFloatType.php">
+    <UnusedClass>
+      <code><![CDATA[CalculateFloatType]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Entities/BdColumn.php">
+    <UndefinedClass>
+      <code><![CDATA[Types\BdFloatEntity]]></code>
+      <code><![CDATA[Types\BdIntegerEntity]]></code>
+      <code><![CDATA[Types\BdMoneyEntity]]></code>
+      <code><![CDATA[Types\BdPorcentagemEntity]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[BdColumn]]></code>
+    </UnusedClass>
+    <UnusedVariable>
+      <code><![CDATA[$allRelations]]></code>
+      <code><![CDATA[$allRelations]]></code>
+      <code><![CDATA[$allRelations]]></code>
+      <code><![CDATA[$allTables]]></code>
+      <code><![CDATA[$allTables]]></code>
+      <code><![CDATA[$allTables]]></code>
+      <code><![CDATA[$namespaces]]></code>
+      <code><![CDATA[$type]]></code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Analysator/Entities/BdModelagemEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$name]]></code>
+    </PossiblyUnusedParam>
+    <UnusedClass>
+      <code><![CDATA[BdModelagemEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/DataTypes/AbstractColumnType.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$typesByOrder]]></code>
+    </PossiblyUnusedProperty>
+  </file>
+  <file src="src/Analysator/Information/Group/EloquentGroup.php">
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$typesByOrder]]></code>
+    </PossiblyUnusedProperty>
+    <UndefinedClass>
+      <code><![CDATA[AbstractCategorizador]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Analysator/Information/Group/GroupAuditEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[GroupAuditEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/Group/GroupBotsEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[GroupBotsEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/Group/GroupBusinessEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[GroupBusinessEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/Group/GroupFinanceEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[GroupFinanceEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/Group/GroupMediaEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[GroupMediaEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/Group/GroupProjectEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[GroupProjectEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/Group/GroupSocietyEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[GroupSocietyEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/Group/GroupTeatroEntity.php">
+    <MissingDependency>
+      <code><![CDATA[EloquentGroup]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[GroupTeatroEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/HistoryType/AbstractHistoryType.php">
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$typesByOrder]]></code>
+    </PossiblyUnusedProperty>
+    <UndefinedClass>
+      <code><![CDATA[AbstractCategorizador]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Analysator/Information/HistoryType/HistoryDinamicTypeEntity.php">
+    <MissingDependency>
+      <code><![CDATA[AbstractHistoryType]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[HistoryDinamicTypeEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/HistoryType/HistoryImutavelTypeEntity.php">
+    <MissingDependency>
+      <code><![CDATA[AbstractHistoryType]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[HistoryImutavelTypeEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/HistoryType/HistoryProgressTypeEntity.php">
+    <MissingDependency>
+      <code><![CDATA[AbstractHistoryType]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[HistoryProgressTypeEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/RegisterTypes/AbstractRegisterType.php">
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$typesByOrder]]></code>
+    </PossiblyUnusedProperty>
+    <UndefinedClass>
+      <code><![CDATA[AbstractCategorizador]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Analysator/Information/RegisterTypes/RegisterEventEntity.php">
+    <MissingDependency>
+      <code><![CDATA[AbstractRegisterType]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[RegisterEventEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/RegisterTypes/RegisterHistoricEntity.php">
+    <MissingDependency>
+      <code><![CDATA[AbstractRegisterType]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[RegisterHistoricEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/RegisterTypes/RegisterInformationEntity.php">
+    <MissingDependency>
+      <code><![CDATA[AbstractRegisterType]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[RegisterInformationEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/RegisterTypes/RegisterOrganismEntity.php">
+    <MissingDependency>
+      <code><![CDATA[AbstractRegisterType]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[RegisterOrganismEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Analysator/Information/RegisterTypes/RegisterTestimonialEntity.php">
+    <MissingDependency>
+      <code><![CDATA[AbstractRegisterType]]></code>
+    </MissingDependency>
+    <UnusedClass>
+      <code><![CDATA[RegisterTestimonialEntity]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Channels/Messages/SmsMessage.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[callbackOption]]></code>
+      <code><![CDATA[content]]></code>
+      <code><![CDATA[create]]></code>
+      <code><![CDATA[flashSms]]></code>
+      <code><![CDATA[from]]></code>
+      <code><![CDATA[id]]></code>
+      <code><![CDATA[schedule]]></code>
+      <code><![CDATA[to]]></code>
+      <code><![CDATA[toArray]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Channels/SmsChannel.php">
+    <UndefinedClass>
+      <code><![CDATA[Sms]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[SmsChannel]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contracts/Output/Outputable.php">
+    <UnusedClass>
+      <code><![CDATA[Outputable]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contracts/Support/Arrayable.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function toArray();]]></code>
+    </MissingOverrideAttribute>
+    <MissingTemplateParam>
+      <code><![CDATA[BaseArrayable]]></code>
+    </MissingTemplateParam>
+    <UnusedClass>
+      <code><![CDATA[Arrayable]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contracts/Support/Htmlable.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function toHtml();]]></code>
+    </MissingOverrideAttribute>
+    <UnusedClass>
+      <code><![CDATA[Htmlable]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contracts/Support/Jsonable.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function toJson($options = 0);]]></code>
+    </MissingOverrideAttribute>
+    <UnusedClass>
+      <code><![CDATA[Jsonable]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contracts/Support/Renderable.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function render();]]></code>
+    </MissingOverrideAttribute>
+    <UnusedClass>
+      <code><![CDATA[Renderable]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/AnsiConverter.php">
+    <UnusedClass>
+      <code><![CDATA[AnsiConverter]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/Bitbucket.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$comment]]></code>
+      <code><![CDATA[$comment]]></code>
+      <code><![CDATA[$commitId]]></code>
+      <code><![CDATA[$commitId]]></code>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$line]]></code>
+      <code><![CDATA[$line]]></code>
+      <code><![CDATA[$pullId]]></code>
+      <code><![CDATA[$pullRequestId]]></code>
+      <code><![CDATA[$repo]]></code>
+      <code><![CDATA[$repo]]></code>
+      <code><![CDATA[$repo]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Config]]></code>
+      <code><![CDATA[Config]]></code>
+      <code><![CDATA[Config]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[Bitbucket]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/Branch.php">
+    <UndefinedClass>
+      <code><![CDATA[Project]]></code>
+      <code><![CDATA[Project]]></code>
+      <code><![CDATA[Project]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[Branch]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/BuildInterpolator.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$build]]></code>
+      <code><![CDATA[$url]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[BaseBuild]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[BuildInterpolator]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/CommandExecutor.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function executeCommand($args = [])]]></code>
+      <code><![CDATA[public function findBinary($binary, $priorityPath = 'local', $binaryPath = '', $binaryName = [])]]></code>
+      <code><![CDATA[public function getLastOutput()]]></code>
+      <code><![CDATA[public function setBuildPath($path)]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$logger]]></code>
+      <code><![CDATA[$rootDir]]></code>
+      <code><![CDATA[$verbose]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[BuildLogger]]></code>
+    </UndefinedClass>
+    <UndefinedConstant>
+      <code><![CDATA[RUNTIME_DIR]]></code>
+    </UndefinedConstant>
+    <UndefinedDocblockClass>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[$this->logger]]></code>
+      <code><![CDATA[BuildLogger]]></code>
+    </UndefinedDocblockClass>
+    <UnusedClass>
+      <code><![CDATA[CommandExecutor]]></code>
+    </UnusedClass>
+    <UnusedFunctionCall>
+      <code><![CDATA[mb_substitute_character]]></code>
+    </UnusedFunctionCall>
+  </file>
+  <file src="src/Helper/CommandExecutorInterface.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[executeCommand]]></code>
+      <code><![CDATA[findBinary]]></code>
+      <code><![CDATA[getLastOutput]]></code>
+      <code><![CDATA[setBuildPath]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Helper/Diff.php">
+    <UnusedClass>
+      <code><![CDATA[Diff]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/Email.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[addCc]]></code>
+      <code><![CDATA[getFrom]]></code>
+      <code><![CDATA[send]]></code>
+      <code><![CDATA[setBody]]></code>
+      <code><![CDATA[setEmailTo]]></code>
+      <code><![CDATA[setHtml]]></code>
+      <code><![CDATA[setSubject]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$builder]]></code>
+      <code><![CDATA[$config]]></code>
+    </PossiblyUnusedParam>
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$body]]></code>
+      <code><![CDATA[$isHtml]]></code>
+      <code><![CDATA[$subject]]></code>
+    </PossiblyUnusedProperty>
+    <UndefinedClass>
+      <code><![CDATA[$this->config]]></code>
+      <code><![CDATA[Builder]]></code>
+      <code><![CDATA[Config]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Helper/Github.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$comment]]></code>
+      <code><![CDATA[$comment]]></code>
+      <code><![CDATA[$commitId]]></code>
+      <code><![CDATA[$commitId]]></code>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$line]]></code>
+      <code><![CDATA[$line]]></code>
+      <code><![CDATA[$pullId]]></code>
+      <code><![CDATA[$repo]]></code>
+      <code><![CDATA[$repo]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Config]]></code>
+      <code><![CDATA[Config]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[Github]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/Lang.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$languageForce]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Config]]></code>
+    </UndefinedClass>
+    <UndefinedConstant>
+      <code><![CDATA[SRC_DIR]]></code>
+      <code><![CDATA[SRC_DIR]]></code>
+      <code><![CDATA[SRC_DIR]]></code>
+    </UndefinedConstant>
+    <UnusedClass>
+      <code><![CDATA[Lang]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/MailerFactory.php">
+    <UndefinedClass>
+      <code><![CDATA[Swift_SmtpTransport]]></code>
+    </UndefinedClass>
+    <UndefinedDocblockClass>
+      <code><![CDATA[$transport]]></code>
+      <code><![CDATA[Swift_Mailer]]></code>
+    </UndefinedDocblockClass>
+    <UnusedClass>
+      <code><![CDATA[MailerFactory]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/SshKey.php">
+    <UndefinedClass>
+      <code><![CDATA[Config]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[SshKey]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/Template.php">
+    <UndefinedClass>
+      <code><![CDATA[AntiXSS]]></code>
+    </UndefinedClass>
+    <UndefinedDocblockClass>
+      <code><![CDATA[$antiXss]]></code>
+      <code><![CDATA[AntiXSS]]></code>
+      <code><![CDATA[protected static $antiXss = null;]]></code>
+    </UndefinedDocblockClass>
+    <UnusedClass>
+      <code><![CDATA[Template]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helper/Xml.php">
+    <UnusedClass>
+      <code><![CDATA[Xml]]></code>
+    </UnusedClass>
+    <UnusedFunctionCall>
+      <code><![CDATA[stream_filter_register]]></code>
+    </UnusedFunctionCall>
+  </file>
+  <file src="src/Helper/Xml/Utf8CleanFilter.php">
+    <MethodSignatureMustProvideReturnType>
+      <code><![CDATA[filter]]></code>
+    </MethodSignatureMustProvideReturnType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function filter($in, $out, &$consumed, $closing)]]></code>
+    </MissingOverrideAttribute>
+    <UnusedClass>
+      <code><![CDATA[Utf8CleanFilter]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helps/ArrayHelper.php">
+    <UnusedClass>
+      <code><![CDATA[ArrayHelper]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helps/CodeFileHelper.php">
+    <UnusedClass>
+      <code><![CDATA[CodeFileHelper]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helps/ConfigHelper.php">
+    <UnusedClass>
+      <code><![CDATA[ConfigHelper]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Helps/DebugHelper.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[debug]]></code>
+      <code><![CDATA[info]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Helps/LoadLaravel.php">
+    <UndefinedFunction>
+      <code><![CDATA[is_empty($migrationsPaths)]]></code>
+    </UndefinedFunction>
+    <UndefinedVariable>
+      <code><![CDATA[$path]]></code>
+    </UndefinedVariable>
+    <UnusedClass>
+      <code><![CDATA[LoadLaravel]]></code>
+    </UnusedClass>
+    <UnusedVariable>
+      <code><![CDATA[$binariesPath]]></code>
+      <code><![CDATA[$binariesPath]]></code>
+      <code><![CDATA[$getAllFilesMigrations]]></code>
+      <code><![CDATA[$vendorPath]]></code>
+      <code><![CDATA[$vendorPath]]></code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Image/Image.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[crop]]></code>
+      <code><![CDATA[fit]]></code>
+      <code><![CDATA[insert]]></code>
+      <code><![CDATA[orientate]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Interfaces/LogisticServiceInterface.php">
+    <UnusedClass>
+      <code><![CDATA[LogisticServiceInterface]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Interfaces/Sortable.php">
+    <UnusedClass>
+      <code><![CDATA[Sortable]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Library/Laravel/Database.php">
+    <UnusedClass>
+      <code><![CDATA[Database]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Library/Laravel/Former.php">
+    <UnusedClass>
+      <code><![CDATA[Former]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Library/Laravel/Validator.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$attribute]]></code>
+      <code><![CDATA[$attribute]]></code>
+      <code><![CDATA[$parameters]]></code>
+      <code><![CDATA[$parameters]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Input]]></code>
+      <code><![CDATA[Input]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[Validator]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Library/ServiceProvider.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function register() { }]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Library/Utils/Collection.php">
+    <UnusedClass>
+      <code><![CDATA[Collection]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Library/Utils/Constants.php">
+    <UnusedClass>
+      <code><![CDATA[Constants]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Library/Utils/File.php">
+    <InvalidParamDefault>
+      <code><![CDATA[number]]></code>
+      <code><![CDATA[number]]></code>
+    </InvalidParamDefault>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[deleteDir]]></code>
+      <code><![CDATA[download]]></code>
+      <code><![CDATA[image]]></code>
+      <code><![CDATA[maxUpload]]></code>
+      <code><![CDATA[moveUploadedFileUniquely]]></code>
+      <code><![CDATA[organizeUploadedFile]]></code>
+      <code><![CDATA[publicPath]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$depth]]></code>
+      <code><![CDATA[$dir]]></code>
+      <code><![CDATA[$length]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Exception]]></code>
+    </UndefinedClass>
+    <UndefinedDocblockClass>
+      <code><![CDATA[number]]></code>
+      <code><![CDATA[number]]></code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="src/Library/Utils/GenericModel.php">
+    <UnusedClass>
+      <code><![CDATA[GenericModel]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Library/Utils/Text.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[humanSize]]></code>
+      <code><![CDATA[noOrphan]]></code>
+      <code><![CDATA[timeElapsed]]></code>
+      <code><![CDATA[titleFromKey]]></code>
+      <code><![CDATA[trimUntil]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Library/Utils/URL.php">
+    <UndefinedVariable>
+      <code><![CDATA[$pass]]></code>
+      <code><![CDATA[$user]]></code>
+    </UndefinedVariable>
+    <UnusedClass>
+      <code><![CDATA[URL]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Controllers/Api/ApiControllerAbstract.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$request]]></code>
+      <code><![CDATA[$term]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Carbon]]></code>
+    </UndefinedClass>
+    <UndefinedDocblockClass>
+      <code><![CDATA[Collection]]></code>
+    </UndefinedDocblockClass>
+    <UndefinedFunction>
+      <code><![CDATA[str_plural($this->model)]]></code>
+      <code><![CDATA[str_plural($this->model)]]></code>
+      <code><![CDATA[str_plural($this->model)]]></code>
+    </UndefinedFunction>
+    <UndefinedVariable>
+      <code><![CDATA[$input]]></code>
+      <code><![CDATA[$input]]></code>
+      <code><![CDATA[$input]]></code>
+    </UndefinedVariable>
+    <UnusedClass>
+      <code><![CDATA[ApiControllerAbstract]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Controllers/Api/ApiControllerTrait.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$code]]></code>
+      <code><![CDATA[$error]]></code>
+      <code><![CDATA[$message]]></code>
+      <code><![CDATA[$message]]></code>
+      <code><![CDATA[$result]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Log]]></code>
+      <code><![CDATA[Log]]></code>
+      <code><![CDATA[ResponseUtil]]></code>
+      <code><![CDATA[ResponseUtil]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Modules/Controllers/Api/SubscriptionBuilder.php">
+    <MissingTemplateParam>
+      <code><![CDATA[SubscriptionBuilder]]></code>
+    </MissingTemplateParam>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[whereEmailIn]]></code>
+      <code><![CDATA[whereEmailLike]]></code>
+      <code><![CDATA[whereIds]]></code>
+      <code><![CDATA[whereTokenEquals]]></code>
+    </PossiblyUnusedMethod>
+    <UndefinedClass>
+      <code><![CDATA[Tables]]></code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/BuilderAbstract.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function find($id, $columns = array('*'))]]></code>
+      <code><![CDATA[public function first($columns = array('*'))]]></code>
+    </MissingOverrideAttribute>
+    <MissingTemplateParam>
+      <code><![CDATA[BuilderAbstract]]></code>
+    </MissingTemplateParam>
+    <UnusedClass>
+      <code><![CDATA[BuilderAbstract]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/CollectionAbstract.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function toArray($request)]]></code>
+    </MissingOverrideAttribute>
+    <UnusedClass>
+      <code><![CDATA[CollectionAbstract]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/CollectionInterface.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[toArray]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/EntityAbstract.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function jsonSerialize(): array]]></code>
+      <code><![CDATA[public function toArray(): array]]></code>
+    </MissingOverrideAttribute>
+    <MissingTemplateParam>
+      <code><![CDATA[Arrayable]]></code>
+    </MissingTemplateParam>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[init]]></code>
+      <code><![CDATA[persist]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$array]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/PolicyAbstract.php">
+    <UnusedClass>
+      <code><![CDATA[PolicyAbstract]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/RepositoryAbstract.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function all()]]></code>
+      <code><![CDATA[public function delete($board)]]></code>
+      <code><![CDATA[public function get($id)]]></code>
+      <code><![CDATA[public function update($id, array $data)]]></code>
+    </MissingOverrideAttribute>
+    <ParamNameMismatch>
+      <code><![CDATA[$board]]></code>
+    </ParamNameMismatch>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[create]]></code>
+      <code><![CDATA[paginated]]></code>
+      <code><![CDATA[store]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA['error'|Model]]></code>
+    </PossiblyUnusedReturnValue>
+    <UndefinedDocblockClass>
+      <code><![CDATA[Widgets]]></code>
+    </UndefinedDocblockClass>
+    <UnevaluatedCode>
+      <code><![CDATA[return 'error';]]></code>
+    </UnevaluatedCode>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/RepositoryInterface.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[all]]></code>
+      <code><![CDATA[delete]]></code>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[update]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/RequestAbstract.php">
+    <UnusedClass>
+      <code><![CDATA[RequestAbstract]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/ResourceAbstract.php">
+    <UnusedClass>
+      <code><![CDATA[ResourceAbstract]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Eloquents/Displays/ResourceInterface.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[toArray]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Modules/Features/Handler/ImageUploadHandler.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$user]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Auth::user()->id]]></code>
+      <code><![CDATA[User]]></code>
+    </UndefinedClass>
+    <UndefinedFunction>
+      <code><![CDATA[get_user_static_domain()]]></code>
+      <code><![CDATA[str_random(10)]]></code>
+    </UndefinedFunction>
+    <UnusedClass>
+      <code><![CDATA[ImageUploadHandler]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Features/Markdown/Markdown.php">
+    <UndefinedClass>
+      <code><![CDATA[HtmlConverter]]></code>
+      <code><![CDATA[Parsedown]]></code>
+      <code><![CDATA[Purifier]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[Markdown]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Features/Resources/FeatureHelper.php">
+    <UnusedClass>
+      <code><![CDATA[FeatureHelper]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Modules/Features/Resources/FeatureRepository.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function model()]]></code>
+    </MissingOverrideAttribute>
+    <UndefinedClass>
+      <code><![CDATA[Feature]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[FeatureRepository]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Recursos/Cacheable/EloquentBuilder.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function get($columns = ['*'])]]></code>
+      <code><![CDATA[public function pluck($column, $key = null): Collection]]></code>
+    </MissingOverrideAttribute>
+    <MissingTemplateParam>
+      <code><![CDATA[EloquentBuilder]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Recursos/Scopes/EagerLoadScope.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function apply(Builder $builder, Entity $entity): void]]></code>
+    </MissingOverrideAttribute>
+    <ParamNameMismatch>
+      <code><![CDATA[$entity]]></code>
+    </ParamNameMismatch>
+    <UndefinedFunction>
+      <code><![CDATA[array_except($eagerLoads, 'eav')]]></code>
+    </UndefinedFunction>
+    <UnusedClass>
+      <code><![CDATA[EagerLoadScope]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Services/LoggerService.php">
+    <UnusedClass>
+      <code><![CDATA[LoggerService]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Services/RepositoryService.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$config]]></code>
+    </PossiblyUnusedParam>
+    <UnusedClass>
+      <code><![CDATA[RepositoryService]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Services/ValidationService.php">
+    <NoValue>
+      <code><![CDATA[$fields]]></code>
+      <code><![CDATA[$value]]></code>
+    </NoValue>
+    <UnusedClass>
+      <code><![CDATA[ValidationService]]></code>
+    </UnusedClass>
+    <UnusedDocblockParam>
+      <code><![CDATA[$module]]></code>
+    </UnusedDocblockParam>
+    <UnusedForeachValue>
+      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$value]]></code>
+    </UnusedForeachValue>
+    <UnusedVariable>
+      <code><![CDATA[$error]]></code>
+      <code><![CDATA[$inputs]]></code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Traits/Models/ArchiveTrait.php">
+    <UndefinedClass>
+      <code><![CDATA[Archive]]></code>
+      <code><![CDATA[Translation]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[ArchiveTrait]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Compare/ArrayCompare.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$arrayOne]]></code>
+      <code><![CDATA[$arrayTwo]]></code>
+    </PossiblyUnusedParam>
+    <UnusedClass>
+      <code><![CDATA[ArrayCompare]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Compare/StringCompare.php">
+    <UnusedClass>
+      <code><![CDATA[StringCompare]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Debugger/Classify.php">
+    <UnusedClass>
+      <code><![CDATA[Classify]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Debugger/ErrorHelper.php">
+    <UndefinedClass>
+      <code><![CDATA[$error]]></code>
+      <code><![CDATA[CodeError]]></code>
+      <code><![CDATA[\Telefonica\Models\Actors\Person]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[ErrorHelper]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Extratores/ArrayExtractor.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$array]]></code>
+      <code><![CDATA[$indexString]]></code>
+      <code><![CDATA[$local]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[$e]]></code>
+      <code><![CDATA[$e]]></code>
+      <code><![CDATA[$e]]></code>
+      <code><![CDATA[FatalErrorException]]></code>
+      <code><![CDATA[FatalErrorException]]></code>
+      <code><![CDATA[FatalThrowableError]]></code>
+      <code><![CDATA[FatalThrowableError]]></code>
+      <code><![CDATA[ValidationException]]></code>
+      <code><![CDATA[ValidationException]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[ArrayExtractor]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Extratores/ClasserExtractor.php">
+    <UnusedClass>
+      <code><![CDATA[ClasserExtractor]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Extratores/DbalExtractor.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[generateWhereFromData]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Utils/Extratores/FileExtractor.php">
+    <UnusedClass>
+      <code><![CDATA[FileExtractor]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Extratores/StringExtractor.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$word]]></code>
+    </PossiblyUnusedParam>
+    <UnusedClass>
+      <code><![CDATA[StringExtractor]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Inclusores/ArrayInclusor.php">
+    <UnusedClass>
+      <code><![CDATA[ArrayInclusor]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Inclusores/DbalInclusor.php">
+    <UnusedClass>
+      <code><![CDATA[DbalInclusor]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Inclusores/StringInclusor.php">
+    <UnusedClass>
+      <code><![CDATA[StringInclusor]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Interfaces/LogisticServiceInterface.php">
+    <UnusedClass>
+      <code><![CDATA[LogisticServiceInterface]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Interfaces/Sortable.php">
+    <UnusedClass>
+      <code><![CDATA[Sortable]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Mergeators/DbalMergeator.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$data]]></code>
+      <code><![CDATA[$modelFind]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Base]]></code>
+      <code><![CDATA[Base]]></code>
+    </UndefinedClass>
+    <UnusedClass>
+      <code><![CDATA[DbalMergeator]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Modificators/ArrayModificator.php">
+    <UnusedClass>
+      <code><![CDATA[ArrayModificator]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Modificators/StringModificator.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[clean]]></code>
+      <code><![CDATA[plurarizeAndLower]]></code>
+      <code><![CDATA[tirarAcentos]]></code>
+    </PossiblyUnusedMethod>
+    <UnusedVariable>
+      <code><![CDATA[$word]]></code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Utils/Searchers/ArraySearcher.php">
+    <UnevaluatedCode>
+      <code><![CDATA[return false;]]></code>
+    </UnevaluatedCode>
+    <UnusedClass>
+      <code><![CDATA[ArraySearcher]]></code>
+    </UnusedClass>
+    <UnusedVariable>
+      <code><![CDATA[$subFound]]></code>
+      <code><![CDATA[$subFound]]></code>
+      <code><![CDATA[$subFound]]></code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Utils/Searchers/ClasserSearcher.php">
+    <UnusedClass>
+      <code><![CDATA[ClasserSearcher]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Searchers/StringSearcher.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$text]]></code>
+    </PossiblyUnusedParam>
+    <UnusedClass>
+      <code><![CDATA[StringSearcher]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Utils/Semantics/ReturnSimilars.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getSimilarsFor]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+</files>

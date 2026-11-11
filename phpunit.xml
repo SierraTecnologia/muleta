@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/13.0/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true"
          failOnRisky="true"
          failOnWarning="true"
-         stopOnFailure="false"
-         cacheResultFile=".phpunit.cache/test-results"
-         executionOrder="random"
-         resolveDependencies="true"
+         cacheDirectory=".phpunit.cache"
+         executionOrder="depends,defects"
 >
     <testsuites>
         <testsuite name="Muleta Test Suite">
@@ -16,15 +14,14 @@
         </testsuite>
     </testsuites>
 
-    <coverage cacheDirectory=".phpunit.cache/code-coverage"
-              processUncoveredFiles="true">
+    <source>
         <include>
             <directory suffix=".php">./src</directory>
         </include>
         <exclude>
             <directory>./src/Traits/Coder</directory>
         </exclude>
-    </coverage>
+    </source>
 
     <php>
         <ini name="display_errors" value="1"/>
